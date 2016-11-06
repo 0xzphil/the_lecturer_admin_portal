@@ -65,6 +65,12 @@
         </style>
     </head>
     <body>
+        {{ Form::open()}}
+
+            {{ Form::label('email' , 'email')}}
+            
+        {{ Form::close()}}
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
