@@ -14,3 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test', 'UserController@index');
+Route::get('/test2', function() {
+    //
+    return view('pages.layout.nav-top-1');
+});
+Route::get('/test3', function() {
+    //
+    return view('pages.forms.general');
+});
+
+
+
+// Route controllers
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
