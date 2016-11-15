@@ -16,13 +16,7 @@
 
         {{ Form::open()}}
             <div class="box-body">
-                <div class="form-group">
-
-                {{ Form::label('exampleInputUsername1', 'Tài khoản')}}
-
-                {{ Form::text('name', null, ['class'=>'form-control', 'id' => 'exampleInputUsername1', 'placeholder'=>'Tên tài khoản'])}}
-
-                </div>
+                
 
                 <div class="form-group">
                 {{ Form::label('exampleInputEmail1', 'Địa chỉ email')}}

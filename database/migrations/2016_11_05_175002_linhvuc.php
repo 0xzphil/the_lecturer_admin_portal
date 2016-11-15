@@ -18,7 +18,6 @@ class Linhvuc extends Migration
             $table->increments('id');
             $table->string('ten_linh_vuc', 200);
             $table->string('mo_ta', 9000);
-            $table->integer('giang_vien_id')->unsigned();
             //
         });
     }

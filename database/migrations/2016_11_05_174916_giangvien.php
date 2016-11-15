@@ -19,7 +19,7 @@ class Giangvien extends Migration
 
             $table->integer('user_id')->unsigned(); // khoa ngoai den users table
             $table->string('ma_giang_vien', 20)->unique();
-            $table->primary('user_id');
+            $table->primary('ma_giang_vien');
             $table->integer('bo_mon_id')->unsigned();
             $table->foreign('user_id')
                   ->references('id')
