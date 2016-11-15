@@ -14,7 +14,7 @@ class Khoa extends Migration
     public function up()
     {
         //
-        Schema::create('khoa', function (Blueprint $table) {
+        Schema::create('khoas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten_khoa', 200);
             $table->integer('chu_nhiem_khoa');

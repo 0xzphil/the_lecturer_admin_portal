@@ -14,11 +14,12 @@ class Giangvien extends Migration
     public function up()
     {
         // Neu la giang vien thi se co nhung thuoc tinh duoi day
-        Schema::create('giang_vien', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('ma_giang_vien', 20);
-            $table->string('don_vi' , 200); // giang vien truong ngoai
+        Schema::create('giang_viens', function (Blueprint $table) {
+            //$table->increments('id');
+
             $table->integer('user_id')->unsigned(); // khoa ngoai den users table
+            $table->string('ma_giang_vien', 20)->unique();
+            $table->primary('user_id');
             $table->integer('bo_mon_id')->unsigned();
             $table->foreign('user_id')
                   ->references('id')
@@ -26,7 +27,7 @@ class Giangvien extends Migration
                   ->onDelete('cascade');
             $table->foreign('bo_mon_id')
                   ->references('id')
-                  ->on('bo_mon')
+                  ->on('bo_mons')
                   ->onDelete('cascade');      
         });
     }

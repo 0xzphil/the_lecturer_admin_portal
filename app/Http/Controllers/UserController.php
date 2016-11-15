@@ -17,8 +17,11 @@ class UserController extends Controller
     */
     public function getExcelContent(){
     	$path = 'storage\app\file.xls';
-    	return Excel::load( $path, function($reader) {
+        echo $path;
+    	$abc =  Excel::load( $path, function($reader) {
 
 		})->get();
+
+        print_r($abc);
     }
 }

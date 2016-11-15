@@ -14,14 +14,14 @@ class Phongthinghiem extends Migration
     public function up()
     {
         //
-        Schema::create('phong_thi_nghiem', function (Blueprint $table) {
+        Schema::create('phong_thi_nghiems', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten_phong_thi_nghiem', 200);
             $table->integer('bo_mon_id')->unsigned();
             $table->string('mo_ta', 9000);
             $table->foreign('bo_mon_id')
                   ->references('id')
-                  ->on('bo_mon')
+                  ->on('bo_mons')
                   ->onDelete('cascade');
             //
         });

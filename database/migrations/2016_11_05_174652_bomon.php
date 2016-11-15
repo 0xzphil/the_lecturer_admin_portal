@@ -14,14 +14,14 @@ class Bomon extends Migration
     public function up()
     {
         //
-        Schema::create('bo_mon', function (Blueprint $table) {
+        Schema::create('bo_mons', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten_bo_mon', 200);
             $table->string('mo_ta', 9000);
             $table->integer('khoa_id')->unsigned();
             $table->foreign('khoa_id')
                   ->references('id')
-                  ->on('khoa')
+                  ->on('khoas')
                   ->onDelete('cascade');
             //
         });

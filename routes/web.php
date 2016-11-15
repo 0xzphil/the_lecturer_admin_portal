@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', 'UserController@index');
+Route::get('/test', 'UserController@getExcelContent');
 Route::get('/test2', function() {
     //
     return view('pages.layout.nav-top-1');
