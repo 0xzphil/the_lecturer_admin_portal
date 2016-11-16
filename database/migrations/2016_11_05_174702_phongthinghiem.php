@@ -17,11 +17,11 @@ class Phongthinghiem extends Migration
         Schema::create('phong_thi_nghiems', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ten_phong_thi_nghiem', 200);
-            $table->integer('bo_mon_id')->unsigned();
+            $table->integer('khoa_id')->unsigned();
             $table->string('mo_ta', 9000);
-            $table->foreign('bo_mon_id')
+            $table->foreign('khoa_id')
                   ->references('id')
-                  ->on('bo_mons')
+                  ->on('khoas')
                   ->onDelete('cascade');
             //
         });
@@ -37,5 +37,6 @@ class Phongthinghiem extends Migration
     public function down()
     {
         //
+        Schema::drop('phong_thi_nghiems');
     }
 }

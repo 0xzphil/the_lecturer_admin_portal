@@ -33,5 +33,6 @@ class Khoa extends Migration
     public function down()
     {
         //
+        Schema::drop('khoas');
     }
 }
