@@ -30,5 +30,6 @@ class Linhvuc extends Migration
     public function down()
     {
         //
+        Schema::drop('linh_vucs');
     }
 }
