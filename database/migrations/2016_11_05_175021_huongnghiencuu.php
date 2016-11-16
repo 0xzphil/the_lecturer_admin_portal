@@ -41,5 +41,6 @@ class Huongnghiencuu extends Migration
     public function down()
     {
         //
+        Schema::drop('huong_nghien_cuus');
     }
 }

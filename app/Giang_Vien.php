@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Giang_Vien extends Model
 {
     //
+    protected $fillable = [
+    
+    ];
+
+    protected $primaryKey = '';
 }
