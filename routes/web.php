@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','UserController@redirectAfterLogin');
 
 Route::get('/test', 'UserController@getExcelContent');
 Route::get('/test2', function() {
@@ -30,4 +28,4 @@ Route::get('/test3', function() {
 // Route controllers
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'UserController@role');

@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
         //
         User::insert([
         	'name'   => 'Fizz',
-            'password'   => Hash::make('scyphozoa1'),
+            'password'   => Hash::make('9081726354'),
             'email'      => 'fizz.uet@gmail.com', 
             'role'       => 'khoa',
             'created_at' => Carbon::now(),
@@ -27,7 +27,7 @@ class UserTableSeeder extends Seeder
 
         User::insert([
         	'name'   => 'Hieu',
-            'password'   => 'hieuhieu',
+            'password'   => Hash::make('hieuhieu'),
             'email'      => 'hieu.uet@gmail.com', 
             'role'       => 'khoa',
             'created_at' => Carbon::now(),

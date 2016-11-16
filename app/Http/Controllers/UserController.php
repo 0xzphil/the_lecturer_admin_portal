@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 use Excel;
 
 class UserController extends Controller
@@ -10,7 +11,7 @@ class UserController extends Controller
     /**
     */
     public function index(){
-    	return view('index');
+    	return view('welcome');
     }
     
     /**
@@ -23,5 +24,16 @@ class UserController extends Controller
 		})->get();
 
         print_r($abc);
+    }
+    public function redirectAfterLogin(){
+        if(isset(Auth::user()->role)){
+            if(Auth::user()->role == 'khoa'){
+                return view('khoa');
+            }
+            else{
+                return view('giangvien');
+            }
+        }
+        else return redirect('/login');
     }
 }
