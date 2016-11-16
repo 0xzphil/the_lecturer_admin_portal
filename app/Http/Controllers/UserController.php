@@ -5,6 +5,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use Excel;
+use Session;
+use App\Nhan_vien_khoa;
+use App\Khoa;
 
 class UserController extends Controller
 {
@@ -28,7 +31,12 @@ class UserController extends Controller
     public function redirectAfterLogin(){
         if(isset(Auth::user()->role)){
             if(Auth::user()->role == 'khoa'){
-                return view('khoa');
+                $test =  Nhan_vien_khoa::where('user_id','=',Auth::user()->id)->firstOrFail();
+                $khoa_id =  $test->khoa_id;
+                $khoa = Khoa::find($khoa_id);
+                Session::flash('khoa_id', $khoa_id);
+               //echo $khoa->ten_khoa;
+                return view('khoa')->with('ten_khoa',$khoa->ten_khoa);
             }
             else{
                 return view('giangvien');

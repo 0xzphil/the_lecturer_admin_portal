@@ -28,4 +28,7 @@ Route::get('/test3', function() {
 // Route controllers
 Auth::routes();
 
-Route::get('/home', 'UserController@role');
+Route::get('/index', function(){
+	return view('index');
+});
+Route::post('/uploadGV', 'Nhan_vien_khoaController@uploadGV');
