@@ -300,6 +300,7 @@ class ComposerStaticInit1132d8a751cdc78319e36bb5dd5f6575
     );
 
     public static $classMap = array (
+        'Bo_monTableSeeder' => __DIR__ . '/../..' . '/database/seeds/Bo_monTableSeeder.php',
         'Bomon' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_174652_bomon.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
@@ -307,6 +308,7 @@ class ComposerStaticInit1132d8a751cdc78319e36bb5dd5f6575
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'Giang_vienTableSeeder' => __DIR__ . '/../..' . '/database/seeds/Giang_vienTableSeeder.php',
         'Giangvien' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_174653_giangvien.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
@@ -376,8 +378,11 @@ class ComposerStaticInit1132d8a751cdc78319e36bb5dd5f6575
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Huong_nghien_cuuTableSeeder' => __DIR__ . '/../..' . '/database/seeds/Huong_nghien_cuuTableSeeder.php',
         'Huongnghiencuu' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_175021_huongnghiencuu.php',
         'Khoa' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_174641_khoa.php',
+        'KhoaTableSeeder' => __DIR__ . '/../..' . '/database/seeds/KhoaTableSeeder.php',
+        'Linh_vucTableSeeder' => __DIR__ . '/../..' . '/database/seeds/Linh_vucTableSeeder.php',
         'Linhvuc' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_175002_linhvuc.php',
         'Maatwebsite\\Excel\\Classes\\Cache' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/Cache.php',
         'Maatwebsite\\Excel\\Classes\\FormatIdentifier' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/FormatIdentifier.php',
@@ -408,6 +413,7 @@ class ComposerStaticInit1132d8a751cdc78319e36bb5dd5f6575
         'Maatwebsite\\Excel\\Writers\\CellWriter' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Writers/CellWriter.php',
         'Maatwebsite\\Excel\\Writers\\LaravelExcelWriter' => __DIR__ . '/..' . '/maatwebsite/excel/src/Maatwebsite/Excel/Writers/LaravelExcelWriter.php',
         'NhanVienKhoa' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_174642_nhan_vien_khoa.php',
+        'Nhan_vien_khoaTableSeeder' => __DIR__ . '/../..' . '/database/seeds/Nhan_vien_khoaTableSeeder.php',
         'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit_Extensions_GroupTestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
@@ -781,6 +787,7 @@ class ComposerStaticInit1132d8a751cdc78319e36bb5dd5f6575
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'Phong_thi_nghiemTableSeeder' => __DIR__ . '/../..' . '/database/seeds/Phong_thi_nghiemTableSeeder.php',
         'Phongthinghiem' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_174702_phongthinghiem.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',

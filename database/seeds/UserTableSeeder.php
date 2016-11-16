@@ -17,10 +17,10 @@ class UserTableSeeder extends Seeder
     {
         //
         User::insert([
-        	'name'   => 'Fizz',
-            'password'   => Hash::make('9081726354'),
-            'email'      => 'fizz.uet@gmail.com', 
-            'role'       => 'khoa',
+        	'name'   => 'giangvien',
+            'password'   => Hash::make('giangvien'),
+            'email'      => 'khoa.uet@gmail.com', 
+            'role'       => 'giang_vien',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
@@ -35,10 +35,19 @@ class UserTableSeeder extends Seeder
         ]);
 
         User::insert([
+            'name'   => 'Phi',
+            'password'   => Hash::make('phiphi'),
+            'email'      => 'phi.uet@gmail.com', 
+            'role'       => 'giang_vien',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        User::insert([
         	'name'   => 'Minh',
-            'password'   => 'minhminh',
+            'password'   => Hash::make('minhminh'),
             'email'      => 'minh.uet@gmail.com', 
-            'role'       => 'khoa',
+            'role'       => 'giang_vien',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
