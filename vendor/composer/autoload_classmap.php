@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Bo_monTableSeeder' => $baseDir . '/database/seeds/Bo_monTableSeeder.php',
     'Bomon' => $baseDir . '/database/migrations/2016_11_05_174652_bomon.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
@@ -13,6 +14,7 @@ return array(
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
+    'Giang_vienTableSeeder' => $baseDir . '/database/seeds/Giang_vienTableSeeder.php',
     'Giangvien' => $baseDir . '/database/migrations/2016_11_05_174653_giangvien.php',
     'Hamcrest\\Arrays\\IsArray' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
     'Hamcrest\\Arrays\\IsArrayContaining' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
@@ -82,8 +84,11 @@ return array(
     'Hamcrest\\Type\\IsString' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
     'Hamcrest\\Util' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+    'Huong_nghien_cuuTableSeeder' => $baseDir . '/database/seeds/Huong_nghien_cuuTableSeeder.php',
     'Huongnghiencuu' => $baseDir . '/database/migrations/2016_11_05_175021_huongnghiencuu.php',
     'Khoa' => $baseDir . '/database/migrations/2016_11_05_174641_khoa.php',
+    'KhoaTableSeeder' => $baseDir . '/database/seeds/KhoaTableSeeder.php',
+    'Linh_vucTableSeeder' => $baseDir . '/database/seeds/Linh_vucTableSeeder.php',
     'Linhvuc' => $baseDir . '/database/migrations/2016_11_05_175002_linhvuc.php',
     'Maatwebsite\\Excel\\Classes\\Cache' => $vendorDir . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/Cache.php',
     'Maatwebsite\\Excel\\Classes\\FormatIdentifier' => $vendorDir . '/maatwebsite/excel/src/Maatwebsite/Excel/Classes/FormatIdentifier.php',
@@ -114,6 +119,7 @@ return array(
     'Maatwebsite\\Excel\\Writers\\CellWriter' => $vendorDir . '/maatwebsite/excel/src/Maatwebsite/Excel/Writers/CellWriter.php',
     'Maatwebsite\\Excel\\Writers\\LaravelExcelWriter' => $vendorDir . '/maatwebsite/excel/src/Maatwebsite/Excel/Writers/LaravelExcelWriter.php',
     'NhanVienKhoa' => $baseDir . '/database/migrations/2016_11_05_174642_nhan_vien_khoa.php',
+    'Nhan_vien_khoaTableSeeder' => $baseDir . '/database/seeds/Nhan_vien_khoaTableSeeder.php',
     'PHPUnit\\Framework\\TestCase' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
     'PHPUnit_Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit_Extensions_GroupTestSuite' => $vendorDir . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
@@ -487,6 +493,7 @@ return array(
     'PHP_Token_XOR_EQUAL' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
     'PHP_Token_YIELD_FROM' => $vendorDir . '/phpunit/php-token-stream/src/Token.php',
+    'Phong_thi_nghiemTableSeeder' => $baseDir . '/database/seeds/Phong_thi_nghiemTableSeeder.php',
     'Phongthinghiem' => $baseDir . '/database/migrations/2016_11_05_174702_phongthinghiem.php',
     'SebastianBergmann\\CodeCoverage\\CodeCoverage' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage.php',
     'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => $vendorDir . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
