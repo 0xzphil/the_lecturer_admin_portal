@@ -12,4 +12,10 @@ class Phong_thi_nghiem extends Model
     	'khoa_id',
     	'mo_ta'
     ];
+
+    public function khoa()
+    {
+    	# code...
+    	return $this->belongsTo('App\Khoa');
+    }
 }

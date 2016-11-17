@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\GiangVienService;
+use App\Services\SendEmailService;
 use Illuminate\Support\Facades\Input;
 use Session;
 
@@ -20,5 +21,8 @@ class Nhan_vien_khoaController extends Controller
         $giangvienService = new GiangVienService();
         $giangvienService->handleFileExcel("uploads/". $fileName );
         //return Redirect::to('upload');
+        $sendMail = new SendEmailService();
+        $password = substr(hash('sha512',rand()),0,6); 
+        $sendMail->basic_email('hieunm.hk@gmail.com', $password);
   }
 }

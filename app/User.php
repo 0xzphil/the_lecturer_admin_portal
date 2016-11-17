@@ -32,4 +32,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 
     ];
+
+    public function nhan_vien_khoa()
+    {
+        # code...
+        return $this->hasOne('App\Nhan_vien_khoa');
+    }
+
+    public function giang_vien()
+    {
+        # code...
+        return $this->hasOne('App\Giang_vien');
+    }
 }

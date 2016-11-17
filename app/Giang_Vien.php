@@ -14,4 +14,22 @@ class Giang_vien extends Model
     ];
 
     protected $primaryKey = 'ma_giang_vien';
+
+    public function user()
+    {
+    	# code...
+    	return $this->belongsTo('App\User');
+    }
+
+    public function bo_mon()
+    {
+    	# code...
+    	return $this->belongsTo('App\Bo_mon');
+    }
+
+    public function huong_nghien_cuu()
+    {
+    	# code...
+    	return $this->hasMany('App\Huong_nghien_cuu');
+    }
 }

@@ -31,6 +31,11 @@
                 {{ Form::password('password', ['class'=>'form-control', 'id' => 'exampleInputPassword1', 'placeholder'=>'Nhập password'])}}
 
                 </div>
+                 <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember"> Remember Me
+                    </label>
+                </div>
                 <div class="box-footer">
                 {{ Form::submit('submit', ['class'=>'btn btn-primary'])}}
                 </div>

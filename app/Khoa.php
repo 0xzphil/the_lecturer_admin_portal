@@ -13,4 +13,22 @@ class Khoa extends Model
     	'mo_ta', 
     	'van_phong_khoa'
     ];
+
+    public function nhan_vien_khoa()
+    {
+    	# code...
+    	return $this->hasMany('App\Nhan_vien_khoa');
+    }
+
+    public function phong_thi_nghiem()
+    {
+    	# code...
+    	return $this->hasMany('App\Phong_thi_nghiem');
+    }
+
+    public function bo_mon()
+    {
+    	# code...
+    	return $this->hasMany('App\Bo_mon');
+    }
 }

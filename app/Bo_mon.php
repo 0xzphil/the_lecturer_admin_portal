@@ -14,5 +14,15 @@ class Bo_mon extends Model
     	'ma_giang_vien'
     ];
 
-    
+    public function giang_vien()
+    {
+    	# code...
+    	return $this->hasMany('App\Giang_vien');
+    }
+
+    public function khoa()
+    {
+    	# code...
+    	return $this->belongsTo('App\Khoa');
+    }
 }
