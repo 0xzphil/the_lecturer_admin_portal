@@ -13,6 +13,7 @@ use App\Bo_mon;
 use App\User;
 use Session;
 
+
 class Nhan_vien_khoaController extends Controller
 {
      public function uploadGV() {
@@ -63,4 +64,19 @@ class Nhan_vien_khoaController extends Controller
         //$response->header('Content-Type', 'text/html; charset=utf-8');
        return $response;
     }   
+    public function getListBomon(){
+       $listBo_mon = Bo_mon::whereRaw('khoa_id = ?',[Session::get('khoa_id')])->get();
+       echo $listBo_mon;
+    }
+    public function addGV($ma_giang_vien,$ten_giang_vien,$email,$bomon){
+
+         $giangvienService = new GiangVienService();
+         $result = $giangvienService->addOneGV($ma_giang_vien, $ten_giang_vien , $email,$bomon);
+         if($result == true){
+          return 'true';
+         }
+         else{
+          return 'false';
+         }
+    }
 }
