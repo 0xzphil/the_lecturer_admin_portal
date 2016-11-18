@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Dashboard</title>
+  <title>ThesisMgr System</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -42,7 +42,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo">
+    <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -254,7 +254,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Khoa {{$ten_khoa}} </span>
+              <span class="hidden-xs">@yield('nguoi-dang-nhap')</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -314,7 +314,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Khoa {{$ten_khoa}}</p>
+          <p>@yield('nguoi-dang-nhap')</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -330,54 +330,20 @@
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      @section('slidebar')
       <ul class="sidebar-menu">
         <li class="header">ĐIỀU HƯỚNG</li>
-        <li class=" treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Quản lí tài khoản giảng viên</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a id="open-ds-gv" href="#">Danh sách giảng viên</a></li>
-            <li><a id="open-upload-gv" href="#">Khởi tạo bằng excel</a></li>
-            <li><a id="open-add-gv" href="#">Thêm GV thủ công</a></li>
-
-          </ul>
-        </li>
-        <li class=" treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Quản lí tài khoản sinh viên</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a id="open-upload-sv" href="#">Khởi tạo bằng excel</a></li>
-            <li><a id="open-add-sv" href="#">Thêm GV thủ công</a></li>
-          </ul>
-        </li>
-       
+        @yield('dieuhuong')
+        
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
-  <input id="_token" type="hidden" value="{{ csrf_token() }}" />  
+
   <!-- Content Wrapper. Contains page content -->
   <div id="main-content" class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <h1 style="margin-top: 0px;" id="hhh" >Đây là trang admin của khoa {{$ten_khoa}} </h1>
+    <!-- Main content -->
+    @yield('main-content')
     <!-- /.content -->
-    <!-- <div id="formuploadGV" class ="form-group" style="margin-left:10px;display: none" >
-      <form action="/uploadGV" method="post" enctype="multipart/form-data">
-         <h3 style="margin-top:0px;">Chọn 1 tệp excel:</h3>
-            <input  type="file" name="image" id="image" />
-            <br>
-            <input class="btn btn-info" type="submit" value="Upload" name="submit">           
-      </form>
-    </div> -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">

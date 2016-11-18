@@ -11,7 +11,7 @@ class Nhan_vien_khoa extends Model
     	'user_id',
     	'khoa_id'
     ];
-
+    public $timestamps = false;
     public function khoa()
     {
     	# code...

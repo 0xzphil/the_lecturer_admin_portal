@@ -13,7 +13,7 @@ class Bo_mon extends Model
     	'khoa_id',
     	'ma_giang_vien'
     ];
-
+    public $timestamps = false;
     public function giang_vien()
     {
     	# code...

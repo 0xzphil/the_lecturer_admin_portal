@@ -11,7 +11,7 @@ class Linh_vuc extends Model
     	'ten_linh_vuc',
     	'mo_ta'
     ];
-
+    public $timestamps = false;
     public function huong_nghien_cuu()
     {
     	# code...

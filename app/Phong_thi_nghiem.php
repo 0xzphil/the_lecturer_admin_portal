@@ -12,7 +12,7 @@ class Phong_thi_nghiem extends Model
     	'khoa_id',
     	'mo_ta'
     ];
-
+    public $timestamps = false;
     public function khoa()
     {
     	# code...

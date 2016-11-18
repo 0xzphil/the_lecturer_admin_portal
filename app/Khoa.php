@@ -13,7 +13,7 @@ class Khoa extends Model
     	'mo_ta', 
     	'van_phong_khoa'
     ];
-
+    public $timestamps = false;
     public function nhan_vien_khoa()
     {
     	# code...

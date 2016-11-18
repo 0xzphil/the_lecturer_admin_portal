@@ -13,7 +13,9 @@ class Giang_vien extends Model
     	'bo_mon_id'
     ];
 
-    protected $primaryKey = 'ma_giang_vien';
+    //protected $primaryKey = 'ma_giang_vien';
+
+    public $timestamps = false;
 
     public function user()
     {

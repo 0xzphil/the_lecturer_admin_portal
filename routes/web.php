@@ -20,7 +20,7 @@ Route::get('/test2', function() {
 });
 Route::get('/test3', function() {
     //
-    return view('pages.forms.general');
+    return view('giangvien');
 });
 
 
@@ -32,3 +32,4 @@ Route::get('/index', function(){
 	return view('index');
 });
 Route::post('/uploadGV', 'Nhan_vien_khoaController@uploadGV');
+Route::get('/getListGV','Nhan_vien_khoaController@getListGV');

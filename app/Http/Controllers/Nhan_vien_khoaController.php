@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use App\Services\GiangVienService;
 use App\Services\SendEmailService;
 use Illuminate\Support\Facades\Input;
+use App\Giang_vien;
+use App\Khoa;
+use App\Bo_mon;
+use App\User;
 use Session;
 
 class Nhan_vien_khoaController extends Controller
@@ -21,8 +25,42 @@ class Nhan_vien_khoaController extends Controller
         $giangvienService = new GiangVienService();
         $giangvienService->handleFileExcel("uploads/". $fileName );
         //return Redirect::to('upload');
-        $sendMail = new SendEmailService();
-        $password = substr(hash('sha512',rand()),0,6); 
-        $sendMail->basic_email('hieunm.hk@gmail.com', $password);
-  }
+        // $sendMail = new SendEmailService();
+        // $password = substr(hash('sha512',rand()),0,6); 
+        // $sendMail->basic_email('hieunm.hk@gmail.com', $password);
+        return redirect('/');
+    }
+    public function getListGV(){
+        $listBo_mon = Bo_mon::where('khoa_id','=',Session::get('khoa_id'))->take(10)->get();
+        $listGV = array();
+        foreach ($listBo_mon as $value) {
+            //echo $value;
+            $temp = Giang_vien::where('bo_mon_id','=', $value->id)->take(10)->get();
+           //echo $temp;
+           foreach ($temp as $value2) {
+               $value2->ten_bo_mon = $value->ten_bo_mon;
+               array_push($listGV,$value2);
+           }
+        }
+       foreach ($listGV as $value) {
+           # code...
+           $user = User::find($value->user_id);
+          
+           $value->name = $user->name;
+           $value->email = $user->email;
+       }
+       $response = "";
+       $response .= "[";
+        for($i = 0 ; $i < count($listGV); $i++){
+            if($i == count($listGV)-1){
+                $response .= $listGV[$i]->toJson();
+            }
+            else{
+                $response .= $listGV[$i]->toJson().',';
+            }
+        }
+       $response .= "]  ";
+        //$response->header('Content-Type', 'text/html; charset=utf-8');
+       return $response;
+    }   
 }
