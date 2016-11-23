@@ -95,7 +95,7 @@ function eventOpenAddGV(){
 //hàm lấy list giáo viên vào show ra 
 function eventGetListGV(){
 	$('#open-ds-gv').click(function(){
-		$.get('/getListGV',function(data, status){
+		$.get('getListGV',function(data, status){
 			if(status == 'success'){
 				 $object = JSON.parse(data);
 				 //console.log($object);
@@ -128,7 +128,7 @@ function eventGetListGV(){
 
 //hàm lấy tất cả bộ môn của 1 khoa về
 function getListBomon(){
-	 $.get('/getListBomon',function(data, status){
+	 $.get('getListBomon',function(data, status){
 		if(status == 'success'){
 			handledate(data);
 		}
@@ -156,7 +156,7 @@ function luuGV(){
 			$email = $('#ip_email_gv').focus();
 		}
 		else{
-			$.get('/addGV/'+$ma_giang_vien+"/"+
+			$.get('addGV/'+$ma_giang_vien+"/"+
 				$ten_giang_vien+"/"+$email+"/"+$bomon,function(data, status){
 				if(status == 'success'){
 					console.log(data);
