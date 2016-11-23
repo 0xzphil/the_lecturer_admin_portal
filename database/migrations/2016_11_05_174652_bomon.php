@@ -19,7 +19,6 @@ class Bomon extends Migration
             $table->string('ten_bo_mon', 200);
             $table->string('mo_ta', 9000);
             $table->integer('khoa_id')->unsigned();
-            $table->string('ma_giang_vien', 20);
             $table->foreign('khoa_id')
                   ->references('id')
                   ->on('khoas')

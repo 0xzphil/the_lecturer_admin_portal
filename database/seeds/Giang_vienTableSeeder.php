@@ -19,5 +19,15 @@ class Giang_vienTableSeeder extends Seeder
     		'user_id' => 1,
     		'bo_mon_id' => 1
         ]);
+        Giang_vien::insert([
+            'ma_giang_vien' => 'AA2',
+            'user_id' => 3,
+            'bo_mon_id' => 1
+        ]);
+        Giang_vien::insert([
+            'ma_giang_vien' => 'AA3',
+            'user_id' => 4,
+            'bo_mon_id' => 1
+        ]);
     }
 }

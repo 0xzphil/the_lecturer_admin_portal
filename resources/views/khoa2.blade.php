@@ -9,7 +9,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a id="open-ds-gv" href="#">Danh sách giảng viên</a></li>
+            <li><a id="open-ds-gv" href="getListGV">Danh sách giảng viên</a></li>
             <li><a id="open-upload-gv" href="#">Khởi tạo bằng excel</a></li>
             <li><a id="open-add-gv" href="#">Thêm GV thủ công</a></li>
 
