@@ -31,6 +31,7 @@ class Nhan_vien_khoaController extends Controller
         // $sendMail->basic_email('hieunm.hk@gmail.com', $password);
         return redirect('/');
     }
+
     public function getListGV(){
         $listBo_mon = Bo_mon::where('khoa_id','=',Session::get('khoa_id'))->take(10)->get();
         $listGV = array();
@@ -62,12 +63,20 @@ class Nhan_vien_khoaController extends Controller
         }
        $response .= "]  ";
         //$response->header('Content-Type', 'text/html; charset=utf-8');
-       return $response;
-    }   
+       return view('khoa.list_giang_vien')->with('listGV', $listGV);
+    }
+
     public function getListBomon(){
        $listBo_mon = Bo_mon::whereRaw('khoa_id = ?',[Session::get('khoa_id')])->get();
        echo $listBo_mon;
     }
+
+    /**
+     * @param [type]
+     * @param [type]
+     * @param [type]
+     * @param [type]
+     */
     public function addGV($ma_giang_vien,$ten_giang_vien,$email,$bomon){
 
          $giangvienService = new GiangVienService();

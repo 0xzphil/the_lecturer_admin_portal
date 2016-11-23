@@ -15,11 +15,9 @@ Route::get('/','UserController@redirectAfterLogin');
 
 Route::get('/test', 'UserController@getExcelContent');
 Route::get('/test2', function() {
-    //
     return view('pages.layout.nav-top-1');
 });
 Route::get('/test3', function() {
-    //
     return view('giangvien');
 });
 
