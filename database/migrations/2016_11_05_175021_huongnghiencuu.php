@@ -23,7 +23,8 @@ class Huongnghiencuu extends Migration
             $table->foreign('ma_giang_vien')
                   ->references('ma_giang_vien')
                   ->on('giang_viens')
-                  ->onDelete('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
             $table->foreign('linh_vuc_id')
                   ->references('id')
                   ->on('linh_vucs')

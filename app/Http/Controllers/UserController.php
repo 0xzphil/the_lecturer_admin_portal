@@ -28,6 +28,7 @@ class UserController extends Controller
 
         print_r($abc);
     }
+
     public function redirectAfterLogin(){
         if(isset(Auth::user()->role)){
             if(Auth::user()->role == 'khoa'){
@@ -40,8 +41,11 @@ class UserController extends Controller
                //echo $khoa->ten_khoa;
                 return view('khoa2')->with('ten_khoa', $khoa->ten_khoa);
             }
-            else{
-                return view('giangvien');
+            else if(Auth::user()->role == 'giang_vien'){
+                $giang_vien = Auth::user()->giang_vien->user_id;
+                return view('giang_vien.profile');
+            } else {
+                return view('');
             }
         }
         else return redirect('/login');

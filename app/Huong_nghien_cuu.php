@@ -13,7 +13,10 @@ class Huong_nghien_cuu extends Model
     	'linh_vuc_id',
     	'ma_giang_vien'
     ];
+
+    protected $table = 'huong_nghien_cuus'; 
     public $timestamps = false;
+
     public function giang_vien()
     {
     	# code...

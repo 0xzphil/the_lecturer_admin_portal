@@ -13,7 +13,11 @@ class Giang_vien extends Model
     	'bo_mon_id'
     ];
 
-    //protected $primaryKey = 'ma_giang_vien';
+    protected $table = 'giang_viens';
+
+    protected $primaryKey = 'ma_giang_vien';
+
+    public $incrementing = false;
 
     public $timestamps = false;
 
@@ -32,6 +36,8 @@ class Giang_vien extends Model
     public function huong_nghien_cuu()
     {
     	# code...
-    	return $this->hasMany('App\Huong_nghien_cuu');
+        #
+        //$this->primaryKey = 'ma_giang_vien'; 
+    	return $this->hasMany('App\Huong_nghien_cuu', 'ma_giang_vien', 'ma_giang_vien');
     }
 }
