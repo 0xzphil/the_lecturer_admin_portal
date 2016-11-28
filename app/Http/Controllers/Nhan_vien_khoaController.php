@@ -63,7 +63,7 @@ class Nhan_vien_khoaController extends Controller
         }
        $response .= "]  ";
         //$response->header('Content-Type', 'text/html; charset=utf-8');
-       return $response;
+       echo $response;
     }
 
     public function getListBomon(){

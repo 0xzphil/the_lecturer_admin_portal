@@ -12,10 +12,10 @@ class Linh_vuc extends Model
     	'mo_ta'
     ];
     public $timestamps = false;
-    public function huong_nghien_cuu()
+    public function map()
     {
     	# code...
-    	return $this->hasMany('App\Huong_nghien_cuu');
+    	return $this->hasMany('App\Map');
     }
 
 }

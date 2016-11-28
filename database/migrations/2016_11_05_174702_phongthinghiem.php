@@ -22,7 +22,8 @@ class Phongthinghiem extends Migration
             $table->foreign('khoa_id')
                   ->references('id')
                   ->on('khoas')
-                  ->onDelete('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
             //
         });
 

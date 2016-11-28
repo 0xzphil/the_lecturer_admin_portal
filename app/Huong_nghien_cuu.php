@@ -20,10 +20,10 @@ class Huong_nghien_cuu extends Model
     	return $this->belongsTo('App\Giang_vien');
     }
 
-    public function linh_vuc()
+    public function map()
     {
     	# code...
-    	return $this->belongsTo('App\Linh_vuc');
+    	return $this->hasMany('App\Map');
     }
 }
 
