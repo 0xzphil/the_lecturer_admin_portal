@@ -15,7 +15,7 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // 1
         User::insert([
         	'name'   => 'giangvien',
             'password'   => Hash::make('giangvien'),
@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
-
+        // 
         User::insert([
         	'name'   => 'Hieu',
             'password'   => Hash::make('hieuhieu'),
@@ -33,7 +33,7 @@ class UserTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
-
+        // 3
         User::insert([
             'name'   => 'Phi',
             'password'   => Hash::make('phiphi'),
@@ -42,12 +42,30 @@ class UserTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
-
+        // 4
         User::insert([
         	'name'   => 'Minh',
             'password'   => Hash::make('minhminh'),
             'email'      => 'minh.uet@gmail.com', 
             'role'       => 'giang_vien',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        // 5
+        User::insert([
+            'name'   => 'Loc',
+            'password'   => Hash::make('locloc'),
+            'email'      => 'loc.uet@gmail.com', 
+            'role'       => 'sinh_vien',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+        // 6
+        User::insert([
+            'name'   => 'Cong',
+            'password'   => Hash::make('congcong'),
+            'email'      => 'congcong.uet@gmail.com', 
+            'role'       => 'sinh_vien',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);

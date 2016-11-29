@@ -95,7 +95,7 @@ function eventOpenAddGV(){
 //hàm lấy list giáo viên vào show ra 
 function eventGetListGV(){
 	$('#open-ds-gv').click(function(){
-		$.get('/getListGV',function(data, status){
+		$.get('getListGV',function(data, status){
 			if(status == 'success'){
 				 $object = JSON.parse(data);
 				 //console.log($object);

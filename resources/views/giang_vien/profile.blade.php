@@ -9,7 +9,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a id="open-ds-gv2" href="#">Danh sách giảng viên</a></li>
+            <li><a id="repass-gv" href="#">Đổi mật khẩu</a></li>
             <li><a id="open-add-gv" href="#">Thêm GV thủ công</a></li>
 
           </ul>

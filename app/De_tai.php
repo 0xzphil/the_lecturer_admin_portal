@@ -19,7 +19,7 @@ class De_tai extends Model
     	'qd_rut'
     ];
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function sinh_vien(){
     	return $this->belongsTo('App\Sinh_vien');
