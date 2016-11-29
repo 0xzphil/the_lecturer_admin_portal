@@ -25,6 +25,7 @@ class Giang_VienController extends Controller
          $user = Auth::user();
          $user->name = $request->get('name');
          $user->email = $request->get('email');
+         $user->save();
          $giang_vien = Giang_Vien::where('ma_giang_vien', Auth::user()->giang_vien->ma_giang_vien)
             ->firstOrFail();
          $giang_vien->ma_giang_vien = $request->get('mgv');

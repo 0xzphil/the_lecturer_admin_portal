@@ -31,4 +31,7 @@ class Khoa extends Model
     	# code...
     	return $this->hasMany('App\Bo_mon');
     }
+    public function sinh_vien(){
+        return $this->hasMany('App\Sinh_vien');
+    }
 }

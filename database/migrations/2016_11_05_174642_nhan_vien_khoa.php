@@ -23,11 +23,13 @@ class NhanVienKhoa extends Migration
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users')
-                  ->onDelete('cascade');   
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');   
             $table->foreign('khoa_id')
                   ->references('id')
                   ->on('khoas')
-                  ->onDelete('cascade'); 
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade'); 
         });
     }
 

@@ -95,12 +95,13 @@ function eventOpenAddGV(){
 //hàm lấy list giáo viên vào show ra 
 function eventGetListGV(){
 	$('#open-ds-gv').click(function(){
-		$.get('getListGV',function(data, status){
+		$.get('/getListGV',function(data, status){
 			if(status == 'success'){
 				 $object = JSON.parse(data);
 				 //console.log($object);
-				 $html = '<h2 style="margin:0px;">Danh sách giảng viên trong khoa</h2>\
-				 		<table class="table table-striped">\
+				 $html = '<div class="row" style="margin-top:0px; margin-bottom:10px;"><h2 class="col-lg-8" style="margin:0px;">Danh sách giảng viên trong khoa</h2>\
+				 			<div class="col-lg-4" style="text-align:right;margin-top:10px;"><button class="btn btn-success">Thêm giảng viên</button></div></div>\
+				 		<table class=" table table-striped table-bordered table-hover">\
 						    <thead>\
 						      <tr>\
 						        <th>Mã giảng viên</th>\

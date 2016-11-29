@@ -24,11 +24,13 @@ class Giangvien extends Migration
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users')
-                  ->onDelete('cascade');   
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');   
             $table->foreign('bo_mon_id')
                   ->references('id')
                   ->on('bo_mons')
-                  ->onDelete('cascade'); 
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade'); 
         });
     }
 
