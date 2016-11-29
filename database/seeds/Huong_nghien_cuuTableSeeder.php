@@ -18,7 +18,6 @@ class Huong_nghien_cuuTableSeeder extends Seeder
             
             'ten_huong_nghien_cuu' => 'Huong nghien cuu 1',
             'mo_ta' => 'none',
-            'linh_vuc_id' => 1,
             'ma_giang_vien' => 'AA1'
         ]);
     }

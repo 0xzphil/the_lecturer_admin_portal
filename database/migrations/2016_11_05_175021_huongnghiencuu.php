@@ -24,15 +24,6 @@ class Huongnghiencuu extends Migration
                   ->on('giang_viens')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-<<<<<<< HEAD
-            $table->foreign('linh_vuc_id')
-                  ->references('id')
-                  ->on('linh_vucs')
-                  ->onDelete('cascade');
-            //
-=======
->>>>>>> 1ba600760cc8fb0a5e7218cd394ce96ca29872dc
-
         });
     }
 
