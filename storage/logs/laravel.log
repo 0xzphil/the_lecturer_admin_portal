@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2016-11-16 10:47:21] local.ERROR: exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:479
 Stack trace:
 #0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(479): PDOStatement->execute()
@@ -164,6 +165,78 @@ Stack trace:
 [2016-11-16 12:59:59] local.ERROR: exception 'ErrorException' with message 'Undefined variable: ten_khóa' in C:\xampp\htdocs\thesisMgr\storage\framework\views\58829e5adcd9d6a6214d7635d4c8b414e765ce85.php:257
 Stack trace:
 #0 C:\xampp\htdocs\thesisMgr\storage\framework\views\58829e5adcd9d6a6214d7635d4c8b414e765ce85.php(257): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 257, Array)
+=======
+[2016-11-22 16:32:41] local.ERROR: exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`thesismgr`.`giang_viens`, CONSTRAINT `giang_viens_bo_mon_id_foreign` FOREIGN KEY (`bo_mon_id`) REFERENCES `bo_mons` (`id`) ON DELETE CASCADE)' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:479
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(479): PDOStatement->execute()
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(762): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `gi...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('insert into `gi...', Array, Object(Closure))
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('insert into `gi...', Array, Object(Closure))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(434): Illuminate\Database\Connection->statement('insert into `gi...', Array)
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2136): Illuminate\Database\Connection->insert('insert into `gi...', Array)
+#6 [internal function]: Illuminate\Database\Query\Builder->insert(Array)
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(1451): call_user_func_array(Array, Array)
+#8 [internal function]: Illuminate\Database\Eloquent\Builder->__call('insert', Array)
+#9 [internal function]: Illuminate\Database\Eloquent\Builder->insert(Array)
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(3524): call_user_func_array(Array, Array)
+#11 [internal function]: Illuminate\Database\Eloquent\Model->__call('insert', Array)
+#12 [internal function]: App\Giang_vien->insert(Array)
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(3538): call_user_func_array(Array, Array)
+#14 C:\xampp\htdocs\thesisMgr\database\seeds\Giang_vienTableSeeder.php(31): Illuminate\Database\Eloquent\Model::__callStatic('insert', Array)
+#15 C:\xampp\htdocs\thesisMgr\database\seeds\Giang_vienTableSeeder.php(31): App\Giang_vien::insert(Array)
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(39): Giang_vienTableSeeder->run()
+#17 C:\xampp\htdocs\thesisMgr\database\seeds\DatabaseSeeder.php(17): Illuminate\Database\Seeder->call('Giang_vienTable...')
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#21 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#24 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`thesismgr`.`giang_viens`, CONSTRAINT `giang_viens_bo_mon_id_foreign` FOREIGN KEY (`bo_mon_id`) REFERENCES `bo_mons` (`id`) ON DELETE CASCADE) (SQL: insert into `giang_viens` (`ma_giang_vien`, `user_id`, `bo_mon_id`) values (AA3, 1, 4))' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:769
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('insert into `gi...', Array, Object(Closure))
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('insert into `gi...', Array, Object(Closure))
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(434): Illuminate\Database\Connection->statement('insert into `gi...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2136): Illuminate\Database\Connection->insert('insert into `gi...', Array)
+#4 [internal function]: Illuminate\Database\Query\Builder->insert(Array)
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(1451): call_user_func_array(Array, Array)
+#6 [internal function]: Illuminate\Database\Eloquent\Builder->__call('insert', Array)
+#7 [internal function]: Illuminate\Database\Eloquent\Builder->insert(Array)
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(3524): call_user_func_array(Array, Array)
+#9 [internal function]: Illuminate\Database\Eloquent\Model->__call('insert', Array)
+#10 [internal function]: App\Giang_vien->insert(Array)
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(3538): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\thesisMgr\database\seeds\Giang_vienTableSeeder.php(31): Illuminate\Database\Eloquent\Model::__callStatic('insert', Array)
+#13 C:\xampp\htdocs\thesisMgr\database\seeds\Giang_vienTableSeeder.php(31): App\Giang_vien::insert(Array)
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(39): Giang_vienTableSeeder->run()
+#15 C:\xampp\htdocs\thesisMgr\database\seeds\DatabaseSeeder.php(17): Illuminate\Database\Seeder->call('Giang_vienTable...')
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#19 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#22 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 {main}  
+[2016-11-22 16:44:02] local.ERROR: exception 'ErrorException' with message 'Undefined variable: ten_khoa' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php(30): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 30, Array)
+>>>>>>> 3249b1ab1c88da8c9cf4ca9df03d48d81c168da9
 #1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(42): include('C:\\xampp\\htdocs...')
 #2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
 #3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
@@ -205,10 +278,16 @@ Stack trace:
 #39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
 #40 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #41 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+<<<<<<< HEAD
 #42 C:\xampp\htdocs\thesisMgr\server.php(21): require_once('C:\\xampp\\htdocs...')
 #43 {main}
 
 Next exception 'ErrorException' with message 'Undefined variable: ten_khóa (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa.blade.php)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\58829e5adcd9d6a6214d7635d4c8b414e765ce85.php:257
+=======
+#42 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: ten_khoa (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa\list_giang_vien.blade.php)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+>>>>>>> 3249b1ab1c88da8c9cf4ca9df03d48d81c168da9
 Stack trace:
 #0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(44): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
@@ -251,6 +330,7 @@ Stack trace:
 #38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
 #39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #40 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+<<<<<<< HEAD
 #41 C:\xampp\htdocs\thesisMgr\server.php(21): require_once('C:\\xampp\\htdocs...')
 #42 {main}  
 [2016-11-16 13:02:01] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected 'return' (T_RETURN)' in C:\xampp\htdocs\thesisMgr\app\Http\Controllers\UserController.php:38
@@ -844,6 +924,21 @@ Stack trace:
 #7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Route.php(190): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\UserController), 'redirectAfterLo...')
 #8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Route.php(144): Illuminate\Routing\Route->runController()
 #9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(642): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+=======
+#41 {main}  
+[2016-11-22 16:47:31] local.ERROR: exception 'ErrorException' with message 'Undefined variable: ten_khoa' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php(30): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 30, Array)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(42): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#7 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+>>>>>>> 3249b1ab1c88da8c9cf4ca9df03d48d81c168da9
 #10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
 #11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
 #12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
@@ -876,6 +971,7 @@ Stack trace:
 #39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
 #40 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #41 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+<<<<<<< HEAD
 #42 C:\xampp\htdocs\thesisMgr\server.php(21): require_once('C:\\xampp\\htdocs...')
 #43 {main}  
 [2016-11-17 08:46:07] local.ERROR: exception 'InvalidArgumentException' with message 'View [giangvien] not found.' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\FileViewFinder.php:137
@@ -890,6 +986,66 @@ Stack trace:
 #7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Route.php(190): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\UserController), 'redirectAfterLo...')
 #8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Route.php(144): Illuminate\Routing\Route->runController()
 #9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(642): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+=======
+#42 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: ten_khoa (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa\list_giang_vien.blade.php)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(44): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#6 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(644): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#30 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(618): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(596): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(267): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#40 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#41 {main}  
+[2016-11-22 16:50:44] local.ERROR: exception 'ErrorException' with message 'Undefined variable: ten_khoa' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php(30): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 30, Array)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(42): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#7 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+>>>>>>> 3249b1ab1c88da8c9cf4ca9df03d48d81c168da9
 #10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
 #11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
 #12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
@@ -922,6 +1078,7 @@ Stack trace:
 #39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
 #40 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #41 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+<<<<<<< HEAD
 #42 C:\xampp\htdocs\thesisMgr\server.php(21): require_once('C:\\xampp\\htdocs...')
 #43 {main}  
 [2016-11-17 08:46:09] local.ERROR: exception 'InvalidArgumentException' with message 'View [giangvien] not found.' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\FileViewFinder.php:137
@@ -936,6 +1093,66 @@ Stack trace:
 #7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Route.php(190): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\UserController), 'redirectAfterLo...')
 #8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Route.php(144): Illuminate\Routing\Route->runController()
 #9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(642): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+=======
+#42 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: ten_khoa (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa\list_giang_vien.blade.php)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(44): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#6 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(644): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#30 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(618): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(596): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(267): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#40 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#41 {main}  
+[2016-11-22 16:54:40] local.ERROR: exception 'ErrorException' with message 'Undefined variable: ten_khoa' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php(30): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 30, Array)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(42): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#7 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+>>>>>>> 3249b1ab1c88da8c9cf4ca9df03d48d81c168da9
 #10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
 #11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
 #12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
@@ -968,6 +1185,7 @@ Stack trace:
 #39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
 #40 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #41 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+<<<<<<< HEAD
 #42 C:\xampp\htdocs\thesisMgr\server.php(21): require_once('C:\\xampp\\htdocs...')
 #43 {main}  
 [2016-11-17 08:46:20] local.ERROR: exception 'InvalidArgumentException' with message 'View [giangvien] not found.' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\FileViewFinder.php:137
@@ -982,6 +1200,66 @@ Stack trace:
 #7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Route.php(190): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(App\Http\Controllers\UserController), 'redirectAfterLo...')
 #8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Route.php(144): Illuminate\Routing\Route->runController()
 #9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(642): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+=======
+#42 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: ten_khoa (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa\list_giang_vien.blade.php)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(44): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#6 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(644): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#30 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(618): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(596): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(267): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#40 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#41 {main}  
+[2016-11-22 16:54:41] local.ERROR: exception 'ErrorException' with message 'Undefined variable: ten_khoa' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php(30): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 30, Array)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(42): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#7 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+>>>>>>> 3249b1ab1c88da8c9cf4ca9df03d48d81c168da9
 #10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
 #11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
 #12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
@@ -1014,6 +1292,7 @@ Stack trace:
 #39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
 #40 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #41 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+<<<<<<< HEAD
 #42 C:\xampp\htdocs\thesisMgr\server.php(21): require_once('C:\\xampp\\htdocs...')
 #43 {main}  
 [2016-11-17 08:47:17] local.ERROR: exception 'ReflectionException' with message 'Class App\Http\Controllers\UserController does not exist' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php:749
@@ -3724,11 +4003,153 @@ Stack trace:
 [2016-11-18 02:51:33] local.ERROR: exception 'ErrorException' with message 'Undefined variable: ten_khoa' in C:\xampp\htdocs\thesisMgr\storage\framework\views\58829e5adcd9d6a6214d7635d4c8b414e765ce85.php:257
 Stack trace:
 #0 C:\xampp\htdocs\thesisMgr\storage\framework\views\58829e5adcd9d6a6214d7635d4c8b414e765ce85.php(257): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 257, Array)
+=======
+#42 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: ten_khoa (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa\list_giang_vien.blade.php)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(44): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#6 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(644): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#30 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(618): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(596): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(267): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#40 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#41 {main}  
+[2016-11-22 16:55:41] local.ERROR: exception 'ErrorException' with message 'Undefined variable: ten_khoa' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php(30): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 30, Array)
 #1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(42): include('C:\\xampp\\htdocs...')
 #2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
 #3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
 #4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
 #5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#7 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#30 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(644): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#31 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(618): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(596): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(267): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#36 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#40 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#41 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#42 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: ten_khoa (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa\list_giang_vien.blade.php)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(44): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#6 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#28 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(644): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#30 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(618): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#31 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(596): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(267): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#36 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#37 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#40 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#41 {main}  
+[2016-11-22 16:55:56] local.ERROR: exception 'ErrorException' with message 'Undefined variable: ten_khoa' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php(30): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 30, Array)
+>>>>>>> 3249b1ab1c88da8c9cf4ca9df03d48d81c168da9
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(42): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+<<<<<<< HEAD
 #6 C:\xampp\htdocs\thesisMgr\storage\framework\views\cd4c3882e66187e9b1347d3db5f40636d53f0984.php(4): Illuminate\View\View->render()
 #7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(42): include('C:\\xampp\\htdocs...')
 #8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
@@ -3827,6 +4248,47 @@ Stack trace:
 #48 {main}
 
 Next exception 'ErrorException' with message 'Undefined variable: ten_khoa (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa.blade.php) (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa.blade.php)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\58829e5adcd9d6a6214d7635d4c8b414e765ce85.php:257
+=======
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#7 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#30 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(644): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#31 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(618): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(596): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(267): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#36 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#40 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#41 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#42 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: ten_khoa (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa\list_giang_vien.blade.php)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+>>>>>>> 3249b1ab1c88da8c9cf4ca9df03d48d81c168da9
 Stack trace:
 #0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(44): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
 #1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
@@ -3869,6 +4331,7 @@ Stack trace:
 #38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
 #39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #40 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+<<<<<<< HEAD
 #41 C:\xampp\htdocs\thesisMgr\server.php(21): require_once('C:\\xampp\\htdocs...')
 #42 {main}  
 [2016-11-18 02:53:45] local.ERROR: exception 'InvalidArgumentException' with message 'View [temp] not found.' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\FileViewFinder.php:137
@@ -3923,6 +4386,58 @@ Stack trace:
 Next exception 'ErrorException' with message 'View [temp] not found. (View: C:\xampp\htdocs\thesisMgr\resources\views\giangvien.blade.php)' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\FileViewFinder.php:137
 Stack trace:
 #0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(44): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(InvalidArgumentException), 1)
+=======
+#41 {main}  
+[2016-11-22 16:55:56] local.ERROR: exception 'ErrorException' with message 'Undefined variable: ten_khoa' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php(30): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 30, Array)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(42): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(85): Illuminate\View\View->renderContents()
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Http\Response.php(45): Illuminate\View\View->render()
+#7 C:\xampp\htdocs\thesisMgr\vendor\symfony\http-foundation\Response.php(201): Illuminate\Http\Response->setContent(Object(Illuminate\View\View))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(1017): Symfony\Component\HttpFoundation\Response->__construct(Object(Illuminate\View\View))
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(643): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(Illuminate\View\View))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Routing\Router->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Middleware\SubstituteBindings.php(41): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Routing\Middleware\SubstituteBindings->handle(Object(Illuminate\Http\Request), Object(Closure))
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken.php(65): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\VerifyCsrfToken->handle(Object(Illuminate\Http\Request), Object(Closure))
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Middleware\ShareErrorsFromSession.php(49): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\View\Middleware\ShareErrorsFromSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Session\Middleware\StartSession.php(64): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Session\Middleware\StartSession->handle(Object(Illuminate\Http\Request), Object(Closure))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse.php(37): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse->handle(Object(Illuminate\Http\Request), Object(Closure))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#26 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Cookie\Middleware\EncryptCookies.php(59): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Cookie\Middleware\EncryptCookies->handle(Object(Illuminate\Http\Request), Object(Closure))
+#28 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#30 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(644): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#31 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(618): Illuminate\Routing\Router->runRouteWithinStack(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request))
+#32 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Router.php(596): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#33 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(267): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#34 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(53): Illuminate\Foundation\Http\Kernel->Illuminate\Foundation\Http\{closure}(Object(Illuminate\Http\Request))
+#35 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode.php(46): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#36 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(137): Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#37 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php(33): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php(104): Illuminate\Routing\Pipeline->Illuminate\Routing\{closure}(Object(Illuminate\Http\Request))
+#39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#40 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#41 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#42 {main}
+
+Next exception 'ErrorException' with message 'Undefined variable: ten_khoa (View: C:\xampp\htdocs\thesisMgr\resources\views\khoa\list_giang_vien.blade.php)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:30
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(44): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+>>>>>>> 3249b1ab1c88da8c9cf4ca9df03d48d81c168da9
 #1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(59): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\xampp\\htdocs...', Array)
 #2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(149): Illuminate\View\Engines\CompilerEngine->get('C:\\xampp\\htdocs...', Array)
 #3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\View\View.php(120): Illuminate\View\View->getContents()
@@ -3963,6 +4478,7 @@ Stack trace:
 #38 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(149): Illuminate\Pipeline\Pipeline->then(Object(Closure))
 #39 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(116): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #40 C:\xampp\htdocs\thesisMgr\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+<<<<<<< HEAD
 #41 C:\xampp\htdocs\thesisMgr\server.php(21): require_once('C:\\xampp\\htdocs...')
 #42 {main}  
 [2016-11-18 06:07:30] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected end of file' in C:\xampp\htdocs\thesisMgr\routes\web.php:37
@@ -3978,5 +4494,505 @@ Stack trace:
 Stack trace:
 #0 {main}  
 [2016-11-18 06:07:39] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected end of file' in C:\xampp\htdocs\thesisMgr\routes\web.php:37
+=======
+#41 {main}  
+[2016-11-22 17:02:50] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected ')', expecting '('' in C:\xampp\htdocs\thesisMgr\storage\framework\views\9652ea4d8a4c850f7c3293758942e2de0cd0d3fe.php:56
 Stack trace:
 #0 {main}  
+[2016-11-22 17:09:06] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected 'main' (T_STRING)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\075303544c1f4fdfdd86a8d45f4b5e89cf203711.php:29
+Stack trace:
+#0 {main}  
+[2016-11-22 17:09:21] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected 'main' (T_STRING)' in C:\xampp\htdocs\thesisMgr\storage\framework\views\075303544c1f4fdfdd86a8d45f4b5e89cf203711.php:29
+>>>>>>> 3249b1ab1c88da8c9cf4ca9df03d48d81c168da9
+Stack trace:
+#0 {main}  
+[2016-11-28 08:42:39] local.ERROR: exception 'Symfony\Component\Console\Exception\RuntimeException' with message 'The "--create:khoa_hocs" option does not exist.' in C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Input\ArgvInput.php:219
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Input\ArgvInput.php(155): Symfony\Component\Console\Input\ArgvInput->addLongOption('create:khoa_hoc...', NULL)
+#1 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Input\ArgvInput.php(84): Symfony\Component\Console\Input\ArgvInput->parseLongOption('--create:khoa_h...')
+#2 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Input\Input.php(62): Symfony\Component\Console\Input\ArgvInput->parse()
+#3 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(221): Symfony\Component\Console\Input\Input->bind(Object(Symfony\Component\Console\Input\InputDefinition))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateMakeCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 {main}  
+[2016-11-28 08:42:48] local.ERROR: exception 'Symfony\Component\Console\Exception\RuntimeException' with message 'The "--create:khoa_hocs" option does not exist.' in C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Input\ArgvInput.php:219
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Input\ArgvInput.php(155): Symfony\Component\Console\Input\ArgvInput->addLongOption('create:khoa_hoc...', NULL)
+#1 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Input\ArgvInput.php(84): Symfony\Component\Console\Input\ArgvInput->parseLongOption('--create:khoa_h...')
+#2 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Input\Input.php(62): Symfony\Component\Console\Input\ArgvInput->parse()
+#3 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(221): Symfony\Component\Console\Input\Input->bind(Object(Symfony\Component\Console\Input\InputDefinition))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateMakeCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 {main}  
+[2016-11-28 12:46:46] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '->' (T_OBJECT_OPERATOR)' in C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094255_de_tais.php:21
+Stack trace:
+#0 {main}  
+[2016-11-28 12:47:54] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '->' (T_OBJECT_OPERATOR)' in C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094255_de_tais.php:21
+Stack trace:
+#0 {main}  
+[2016-11-28 12:49:22] local.ERROR: exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:479
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(479): PDOStatement->execute()
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(762): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'alter table `si...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('alter table `si...', Array, Object(Closure))
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('alter table `si...', Array, Object(Closure))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(83): Illuminate\Database\Connection->statement('alter table `si...')
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(229): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(148): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->create('sinh_viens', Object(Closure))
+#8 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#9 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Schema::create('sinh_viens', Object(Closure))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): SinhViens->up()
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(162): Illuminate\Database\Migrations\Migrator->runMigration(Object(SinhViens), 'up')
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(130): Illuminate\Database\Migrations\Migrator->runUp('C:\\xampp\\htdocs...', 1, false)
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(97): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, Array)
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(66): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#16 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#19 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(66): Illuminate\Console\Command->call('migrate', Array)
+#23 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#26 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#32 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#33 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint (SQL: alter table `sinh_viens` add constraint `sinh_viens_khoa_hoc_id_foreign` foreign key (`khoa_hoc_id`) references `khoa_hocs` (`id`) on delete cascade)' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:769
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('alter table `si...', Array, Object(Closure))
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('alter table `si...', Array, Object(Closure))
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(83): Illuminate\Database\Connection->statement('alter table `si...')
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(229): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(148): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->create('sinh_viens', Object(Closure))
+#6 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#7 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Schema::create('sinh_viens', Object(Closure))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): SinhViens->up()
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(162): Illuminate\Database\Migrations\Migrator->runMigration(Object(SinhViens), 'up')
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(130): Illuminate\Database\Migrations\Migrator->runUp('C:\\xampp\\htdocs...', 1, false)
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(97): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, Array)
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(66): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#17 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(66): Illuminate\Console\Command->call('migrate', Array)
+#21 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#24 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 {main}  
+[2016-11-28 12:54:31] local.ERROR: exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1217 Cannot delete or update a parent row: a foreign key constraint fails' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:479
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(479): PDOStatement->execute()
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(762): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'drop table `use...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('drop table `use...', Array, Object(Closure))
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('drop table `use...', Array, Object(Closure))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(83): Illuminate\Database\Connection->statement('drop table `use...')
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(229): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(163): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->drop('users')
+#8 C:\xampp\htdocs\thesisMgr\database\migrations\2014_10_12_000000_create_users_table.php(34): Illuminate\Support\Facades\Facade::__callStatic('drop', Array)
+#9 C:\xampp\htdocs\thesisMgr\database\migrations\2014_10_12_000000_create_users_table.php(34): Illuminate\Support\Facades\Schema::drop('users')
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): CreateUsersTable->down()
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(282): Illuminate\Database\Migrations\Migrator->runMigration(Object(CreateUsersTable), 'down')
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(254): Illuminate\Database\Migrations\Migrator->runDown('C:\\xampp\\htdocs...', Object(stdClass), false)
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\ResetCommand.php(69): Illuminate\Database\Migrations\Migrator->reset(Array, false)
+#15 [internal function]: Illuminate\Database\Console\Migrations\ResetCommand->fire()
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#18 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(56): Illuminate\Console\Command->call('migrate:reset', Array)
+#22 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#25 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#32 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1217 Cannot delete or update a parent row: a foreign key constraint fails (SQL: drop table `users`)' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:769
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('drop table `use...', Array, Object(Closure))
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('drop table `use...', Array, Object(Closure))
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(83): Illuminate\Database\Connection->statement('drop table `use...')
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(229): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(163): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->drop('users')
+#6 C:\xampp\htdocs\thesisMgr\database\migrations\2014_10_12_000000_create_users_table.php(34): Illuminate\Support\Facades\Facade::__callStatic('drop', Array)
+#7 C:\xampp\htdocs\thesisMgr\database\migrations\2014_10_12_000000_create_users_table.php(34): Illuminate\Support\Facades\Schema::drop('users')
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): CreateUsersTable->down()
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(282): Illuminate\Database\Migrations\Migrator->runMigration(Object(CreateUsersTable), 'down')
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(254): Illuminate\Database\Migrations\Migrator->runDown('C:\\xampp\\htdocs...', Object(stdClass), false)
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\ResetCommand.php(69): Illuminate\Database\Migrations\Migrator->reset(Array, false)
+#13 [internal function]: Illuminate\Database\Console\Migrations\ResetCommand->fire()
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#16 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(185): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArrayInput), Object(Illuminate\Console\OutputStyle))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\RefreshCommand.php(56): Illuminate\Console\Command->call('migrate:reset', Array)
+#20 [internal function]: Illuminate\Database\Console\Migrations\RefreshCommand->fire()
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#23 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\RefreshCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 {main}  
+[2016-11-28 12:56:05] local.ERROR: exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1075 Incorrect table definition; there can be only one auto column and it must be defined as a key' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:479
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(479): PDOStatement->execute()
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(762): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'create table `s...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('create table `s...', Array, Object(Closure))
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('create table `s...', Array, Object(Closure))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(83): Illuminate\Database\Connection->statement('create table `s...')
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(229): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(148): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->create('sinh_viens', Object(Closure))
+#8 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#9 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Schema::create('sinh_viens', Object(Closure))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): SinhViens->up()
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(162): Illuminate\Database\Migrations\Migrator->runMigration(Object(SinhViens), 'up')
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(130): Illuminate\Database\Migrations\Migrator->runUp('C:\\xampp\\htdocs...', 1, false)
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(97): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, Array)
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(66): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#16 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#19 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1075 Incorrect table definition; there can be only one auto column and it must be defined as a key (SQL: create table `sinh_viens` (`ma_sinh_vien` varchar(200) not null, `dang_ky` tinyint(1) not null, `khoa_hoc_id` int not null auto_increment primary key, `ctdt_id` int not null auto_increment primary key, `khoa_id` int not null) default character set utf8 collate utf8_unicode_ci)' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:769
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('create table `s...', Array, Object(Closure))
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('create table `s...', Array, Object(Closure))
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(83): Illuminate\Database\Connection->statement('create table `s...')
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(229): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(148): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->create('sinh_viens', Object(Closure))
+#6 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#7 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Schema::create('sinh_viens', Object(Closure))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): SinhViens->up()
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(162): Illuminate\Database\Migrations\Migrator->runMigration(Object(SinhViens), 'up')
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(130): Illuminate\Database\Migrations\Migrator->runUp('C:\\xampp\\htdocs...', 1, false)
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(97): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, Array)
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(66): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#17 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 {main}  
+[2016-11-28 13:01:11] local.ERROR: exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:479
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(479): PDOStatement->execute()
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(762): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'alter table `si...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('alter table `si...', Array, Object(Closure))
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('alter table `si...', Array, Object(Closure))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(83): Illuminate\Database\Connection->statement('alter table `si...')
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(229): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(148): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->create('sinh_viens', Object(Closure))
+#8 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#9 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Schema::create('sinh_viens', Object(Closure))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): SinhViens->up()
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(162): Illuminate\Database\Migrations\Migrator->runMigration(Object(SinhViens), 'up')
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(130): Illuminate\Database\Migrations\Migrator->runUp('C:\\xampp\\htdocs...', 1, false)
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(97): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, Array)
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(66): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#16 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#19 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint (SQL: alter table `sinh_viens` add constraint `sinh_viens_khoa_hoc_id_foreign` foreign key (`khoa_hoc_id`) references `khoa_hocs` (`id`) on delete cascade)' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:769
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('alter table `si...', Array, Object(Closure))
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('alter table `si...', Array, Object(Closure))
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(83): Illuminate\Database\Connection->statement('alter table `si...')
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(229): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(148): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->create('sinh_viens', Object(Closure))
+#6 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#7 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php(39): Illuminate\Support\Facades\Schema::create('sinh_viens', Object(Closure))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): SinhViens->up()
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(162): Illuminate\Database\Migrations\Migrator->runMigration(Object(SinhViens), 'up')
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(130): Illuminate\Database\Migrations\Migrator->runUp('C:\\xampp\\htdocs...', 1, false)
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(97): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, Array)
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(66): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#17 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 {main}  
+[2016-11-28 13:06:11] local.ERROR: exception 'ErrorException' with message 'Undefined variable: tabel' in C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094255_de_tais.php:31
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094255_de_tais.php(31): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 31, Array)
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(146): DeTais->{closure}(Object(Illuminate\Database\Schema\Blueprint))
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->create('de_tais', Object(Closure))
+#3 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094255_de_tais.php(36): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#4 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094255_de_tais.php(36): Illuminate\Support\Facades\Schema::create('de_tais', Object(Closure))
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): DeTais->up()
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(162): Illuminate\Database\Migrations\Migrator->runMigration(Object(DeTais), 'up')
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(130): Illuminate\Database\Migrations\Migrator->runUp('C:\\xampp\\htdocs...', 1, false)
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(97): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, Array)
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(66): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#11 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#14 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 {main}  
+[2016-11-28 13:07:34] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined method Illuminate\Database\Schema\Blueprint::integet()' in C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094337_danh_gia.php:19
+Stack trace:
+#0 {main}  
+[2016-11-28 13:11:35] local.ERROR: exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:479
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(479): PDOStatement->execute()
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(762): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'alter table `da...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('alter table `da...', Array, Object(Closure))
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('alter table `da...', Array, Object(Closure))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(83): Illuminate\Database\Connection->statement('alter table `da...')
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(229): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#6 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(148): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->create('danh_gias', Object(Closure))
+#8 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094337_danh_gia.php(30): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#9 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094337_danh_gia.php(30): Illuminate\Support\Facades\Schema::create('danh_gias', Object(Closure))
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): DanhGia->up()
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(162): Illuminate\Database\Migrations\Migrator->runMigration(Object(DanhGia), 'up')
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(130): Illuminate\Database\Migrations\Migrator->runUp('C:\\xampp\\htdocs...', 1, false)
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(97): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, Array)
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(66): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#16 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#19 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[HY000]: General error: 1215 Cannot add foreign key constraint (SQL: alter table `danh_gias` add constraint `danh_gias_ma_giang_vien_foreign` foreign key (`ma_giang_vien`) references `giang_vien` (`ma_giang_vien`))' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:769
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('alter table `da...', Array, Object(Closure))
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('alter table `da...', Array, Object(Closure))
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Blueprint.php(83): Illuminate\Database\Connection->statement('alter table `da...')
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(229): Illuminate\Database\Schema\Blueprint->build(Object(Illuminate\Database\MySqlConnection), Object(Illuminate\Database\Schema\Grammars\MySqlGrammar))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Schema\Builder.php(148): Illuminate\Database\Schema\Builder->build(Object(Illuminate\Database\Schema\Blueprint))
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\Schema\Builder->create('danh_gias', Object(Closure))
+#6 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094337_danh_gia.php(30): Illuminate\Support\Facades\Facade::__callStatic('create', Array)
+#7 C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_094337_danh_gia.php(30): Illuminate\Support\Facades\Schema::create('danh_gias', Object(Closure))
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(373): DanhGia->up()
+#9 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(380): Illuminate\Database\Migrations\Migrator->Illuminate\Database\Migrations\{closure}()
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(162): Illuminate\Database\Migrations\Migrator->runMigration(Object(DanhGia), 'up')
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(130): Illuminate\Database\Migrations\Migrator->runUp('C:\\xampp\\htdocs...', 1, false)
+#12 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Migrations\Migrator.php(97): Illuminate\Database\Migrations\Migrator->runMigrationList(Array, Array)
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Migrations\MigrateCommand.php(66): Illuminate\Database\Migrations\Migrator->run(Array, Array)
+#14 [internal function]: Illuminate\Database\Console\Migrations\MigrateCommand->fire()
+#15 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#17 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Migrations\MigrateCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 {main}  
+[2016-11-28 14:52:41] local.ERROR: exception 'Symfony\Component\Console\Exception\CommandNotFoundException' with message 'Command "make:migrate" is not defined.
+
+Did you mean one of these?
+    make:migration
+    make:policy
+    make:notification
+    make:provider
+    make:seeder
+    make:test
+    make:model
+    make:request
+    make:middleware
+    make:controller
+    make:command
+    make:event
+    make:job
+    make:mail
+    make:listener
+    make:auth' in C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php:536
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(184): Symfony\Component\Console\Application->find('make:migrate')
+#1 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2016-11-28 15:51:03] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '->' (T_OBJECT_OPERATOR)' in C:\xampp\htdocs\thesisMgr\database\migrations\2016_11_28_084800_sinh_viens.php:22
+Stack trace:
+#0 {main}  
+[2016-11-29 10:23:37] local.ERROR: exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'linh_vuc_id' in 'field list'' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:475
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(475): PDO->prepare('insert into `hu...')
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(762): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `hu...', Array)
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('insert into `hu...', Array, Object(Closure))
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('insert into `hu...', Array, Object(Closure))
+#4 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(434): Illuminate\Database\Connection->statement('insert into `hu...', Array)
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2136): Illuminate\Database\Connection->insert('insert into `hu...', Array)
+#6 [internal function]: Illuminate\Database\Query\Builder->insert(Array)
+#7 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(1451): call_user_func_array(Array, Array)
+#8 [internal function]: Illuminate\Database\Eloquent\Builder->__call('insert', Array)
+#9 [internal function]: Illuminate\Database\Eloquent\Builder->insert(Array)
+#10 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(3524): call_user_func_array(Array, Array)
+#11 [internal function]: Illuminate\Database\Eloquent\Model->__call('insert', Array)
+#12 [internal function]: App\Huong_nghien_cuu->insert(Array)
+#13 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(3538): call_user_func_array(Array, Array)
+#14 C:\xampp\htdocs\thesisMgr\database\seeds\Huong_nghien_cuuTableSeeder.php(23): Illuminate\Database\Eloquent\Model::__callStatic('insert', Array)
+#15 C:\xampp\htdocs\thesisMgr\database\seeds\Huong_nghien_cuuTableSeeder.php(23): App\Huong_nghien_cuu::insert(Array)
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(39): Huong_nghien_cuuTableSeeder->run()
+#17 C:\xampp\htdocs\thesisMgr\database\seeds\DatabaseSeeder.php(20): Illuminate\Database\Seeder->call('Huong_nghien_cu...')
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#19 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#21 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#22 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#24 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#30 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#31 {main}
+
+Next exception 'Illuminate\Database\QueryException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'linh_vuc_id' in 'field list' (SQL: insert into `huong_nghien_cuus` (`ten_huong_nghien_cuu`, `mo_ta`, `linh_vuc_id`, `ma_giang_vien`) values (Huong nghien cuu 1, none, 1, AA1))' in C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php:769
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(725): Illuminate\Database\Connection->runQueryCallback('insert into `hu...', Array, Object(Closure))
+#1 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): Illuminate\Database\Connection->run('insert into `hu...', Array, Object(Closure))
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Connection.php(434): Illuminate\Database\Connection->statement('insert into `hu...', Array)
+#3 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2136): Illuminate\Database\Connection->insert('insert into `hu...', Array)
+#4 [internal function]: Illuminate\Database\Query\Builder->insert(Array)
+#5 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Builder.php(1451): call_user_func_array(Array, Array)
+#6 [internal function]: Illuminate\Database\Eloquent\Builder->__call('insert', Array)
+#7 [internal function]: Illuminate\Database\Eloquent\Builder->insert(Array)
+#8 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(3524): call_user_func_array(Array, Array)
+#9 [internal function]: Illuminate\Database\Eloquent\Model->__call('insert', Array)
+#10 [internal function]: App\Huong_nghien_cuu->insert(Array)
+#11 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(3538): call_user_func_array(Array, Array)
+#12 C:\xampp\htdocs\thesisMgr\database\seeds\Huong_nghien_cuuTableSeeder.php(23): Illuminate\Database\Eloquent\Model::__callStatic('insert', Array)
+#13 C:\xampp\htdocs\thesisMgr\database\seeds\Huong_nghien_cuuTableSeeder.php(23): App\Huong_nghien_cuu::insert(Array)
+#14 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(39): Huong_nghien_cuuTableSeeder->run()
+#15 C:\xampp\htdocs\thesisMgr\database\seeds\DatabaseSeeder.php(20): Illuminate\Database\Seeder->call('Huong_nghien_cu...')
+#16 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#17 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#18 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#19 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#20 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#21 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#22 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#23 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#24 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#25 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#26 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#27 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#28 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#29 {main}  
+[2016-11-29 15:43:36] local.ERROR: exception 'Symfony\Component\Console\Exception\CommandNotFoundException' with message 'Command "make:service" is not defined.
+
+Did you mean one of these?
+    make:provider
+    make:policy
+    make:notification
+    make:request
+    make:seeder
+    make:migration
+    make:test
+    make:model
+    make:middleware
+    make:controller
+    make:command
+    make:event
+    make:job
+    make:mail
+    make:listener
+    make:auth' in C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php:536
+Stack trace:
+#0 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(184): Symfony\Component\Console\Application->find('make:service')
+#1 C:\xampp\htdocs\thesisMgr\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\xampp\htdocs\thesisMgr\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(121): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\xampp\htdocs\thesisMgr\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
