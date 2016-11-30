@@ -44,6 +44,10 @@ class UserController extends Controller
             else if(Auth::user()->role == 'giang_vien'){
                 $giang_vien = Auth::user()->giang_vien->user_id;
                 return view('giang_vien.profile');
+            }
+            else if(Auth::user()->role == 'sinh_vien'){
+                $sinh_vien = Auth::user()->sinh_vien->user_id;
+                return view('sinh_vien.profile');
             } else {
                 return view('');
             }

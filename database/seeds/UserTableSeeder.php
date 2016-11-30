@@ -64,7 +64,7 @@ class UserTableSeeder extends Seeder
         User::insert([
             'name'   => 'Cong',
             'password'   => Hash::make('congcong'),
-            'email'      => 'congcong.uet@gmail.com', 
+            'email'      => 'cong.uet@gmail.com', 
             'role'       => 'sinh_vien',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
