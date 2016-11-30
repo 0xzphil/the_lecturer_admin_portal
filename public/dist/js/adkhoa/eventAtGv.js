@@ -1,12 +1,3 @@
-var bomon ;
-$(document).ready(function(){
-		
-		eventOpenUploadGv();
-		eventOpenAddGV();
-		eventGetListGV();
-	    getListBomon();
-	    //console.log(window.bomon);
-});
 //hàm chuyển chế độ sang chế độ upload file excel
 function eventOpenUploadGv(){
 	$_token = $("#_token").val();
@@ -48,9 +39,14 @@ function eventOpenAddGV(){
 	$('#open-add-gv').click(function(){
 		//console.log(bomon.length);
 		$("#main-content").empty();
-		$html = '<div class="col-sm-2"></div>\
+		$html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
+                   <i class="fa fa-refresh fa-spin"></i>\
+                  <strong>Đang xử lý...</strong>\
+                </div>\
+				<div class="col-sm-2"></div>\
 				<div class="col-sm-10">\
-				<h2>Form thêm tay giảng viên</h2></div>\
+				<h2>Thêm tài khoản giảng viên thủ công</h2></div>\
 				<form class="form-horizontal">\
                 	<div class="form-group">\
 				      <label class="col-sm-2 control-label">Mã giảng viên</label>\
@@ -83,7 +79,7 @@ function eventOpenAddGV(){
 				    <div class="form-group">\
 				      <label class="col-sm-2 control-label"></label>\
 				      <div class="col-sm-8">\
-				        <a id="luuGV" class="btn btn-info">Lưu</a>\
+				        <a id="luuGV" class="btn btn-info btn-lrg ajax">Lưu</a>\
 				       <a href="/" class="btn-danger btn">Thoát</a>\
 				      </div>\
 				    </div>\
@@ -99,18 +95,23 @@ function eventGetListGV(){
 			if(status == 'success'){
 				 $object = JSON.parse(data);
 				 //console.log($object);
-				 $html = '<div class="row" style="margin-top:0px; margin-bottom:10px;"><h2 class="col-lg-8" style="margin:0px;">Danh sách giảng viên trong khoa</h2>\
-				 			<div class="col-lg-4" style="text-align:right;margin-top:10px;"><button class="btn btn-success">Thêm giảng viên</button></div></div>\
-				 		<table class=" table table-striped table-bordered table-hover">\
-						    <thead>\
-						      <tr>\
-						        <th>Mã giảng viên</th>\
-						        <th>Họ và tên</th>\
-						        <th>Email</th>\
-						        <th>Bộ môn</th>\
-						      </tr>\
-						    </thead>\
-						    <tbody>';
+				 $html = ' <section class="content"><div class="row">\
+        					<div class="col-xs-12">\
+        					<div class="box">\
+            <div class="box-header">\
+              <h2 class="box-title">Danh sách giảng viên trong khoa</h2>\
+            </div>\
+            <div class="box-body">\
+              <table id="example1" class="table table-bordered table-striped table-hover">\
+                <thead>\
+                <tr>\
+                  <th>Mã giảng viên</th>\
+                  <th>Tên giảng viên</th>\
+                  <th>Thư điện tử</th>\
+                  <th>Tên bộ môn</th>\
+                </tr>\
+                </thead>\
+                <tbody>';
 				for($i = 0 ; $i < $object.length ; $i++){
 					$html += ' <tr>\
 					        <td>'+$object[$i].ma_giang_vien+'</td>\
@@ -119,9 +120,10 @@ function eventGetListGV(){
 					        <td>'+$object[$i].ten_bo_mon+'</td>\
 					      </tr>';
 				}
-				$html += "</tbody></table>";
+				$html += "</tbody></table></div></div></section>";
 				$("#main-content").empty();
 				$("#main-content").append($html);
+				$("#example1").DataTable();
 			}
 		});
 	});
@@ -157,10 +159,11 @@ function luuGV(){
 			$email = $('#ip_email_gv').focus();
 		}
 		else{
+
 			$.get('addGV/'+$ma_giang_vien+"/"+
 				$ten_giang_vien+"/"+$email+"/"+$bomon,function(data, status){
 				if(status == 'success'){
-					console.log(data);
+					//console.log(data);
 					if(data == 'true'){
 
 						$html = '<div id="alertok" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">\
@@ -168,25 +171,24 @@ function luuGV(){
 								  <strong>Thành công!</strong> Đã thêm 1 giảng viên vào CSDL\
 								</div>\
 								';
+						$('#alertok').remove();
 						$('#main-content').append($html);
+						$('#alertok').delay(5000).fadeOut('fast');
 					}
 					else{
-						$html = '<div class="alert alert-danger" style="position:fixed;bottom:10px;right:10px;">\
+						$html = '<div id="alertfail" class="alert alert-danger" style="position:fixed;bottom:10px;right:10px;">\
 								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
 								  <strong>Thất bại!</strong> Đã có lỗi xảy ra,vui lòng kiểm tra lại thông tin\
 								</div>\
 								';
+						$('#alertfail').remove();
 						$('#main-content').append($html);
+						$('#alertfail').delay(5000).fadeOut('fast');
 					}
 				}
 			});
+
 		}
 
 	});
-}
-
-//Hàm validate email
-function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
 }
