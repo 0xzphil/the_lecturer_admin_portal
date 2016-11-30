@@ -1,11 +1,19 @@
 var bomon ;
 $(document).ready(function(){
+		//Gọi các hàm cấu hình ajax
 		ajaxLoading();
+		ajaxSetup();
+
+		// Gọi các hàm xử lý đối với tree GV
+		
 		eventOpenUploadGv();
 		eventOpenAddGV();
 		eventGetListGV();
 	    getListBomon();
-	    //console.log(window.bomon);
+	    
+
+	    // Gọi các hàm xử lý đối với tree SV
+	    eventOpenUploadSv();
 	    
 
 });
@@ -24,4 +32,10 @@ function ajaxLoading(){
     $(document).ajaxComplete(function(){
         $("#wait").css("display", "none");
     });
+}
+function ajaxSetup(){
+	$.ajaxSetup({
+            headers:
+            { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        });
 }

@@ -32,6 +32,7 @@ Route::get('/index', function(){
 	return view('index');
 });
 Route::post('/uploadGV', 'Nhan_vien_khoaController@uploadGV');
+Route::post('/uploadSV', 'Nhan_vien_khoaController@uploadSV');
 Route::get('/getListGV','Nhan_vien_khoaController@getListGV');
 Route::get('/getListBomon','Nhan_vien_khoaController@getListBomon');
 Route::get('/addGV/{ma_giang_vien}/{ten_giang_vien}/{email}/{bomon}','Nhan_vien_khoaController@addGV');

@@ -4,6 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>ThesisMgr System</title>
+  
+   <meta name="csrf_token" content="{!! csrf_token() !!}"/>
+  
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -564,9 +567,9 @@
 
 <script src="dist/js/adkhoa/handleEventAdminKhoa.js"></script>
 <script src="dist/js//adkhoa/eventAtGv.js"></script>
+<script src="dist/js//adkhoa/eventAtSv.js"></script>
 
-<script src="bootstrap/js/handleEventAdminKhoa.js"></script>
-<script src="bootstrap/js/handleEventGiangVien.js"></script>
+<!-- <script src="bootstrap/js/handleEventGiangVien.js"></script> -->
 
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
