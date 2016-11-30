@@ -24,7 +24,6 @@ class Huongnghiencuu extends Migration
                   ->on('giang_viens')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-
         });
     }
 

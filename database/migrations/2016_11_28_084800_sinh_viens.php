@@ -16,10 +16,11 @@ class SinhViens extends Migration
         Schema::create('sinh_viens', function (Blueprint $table) {
             $table->string('ma_sinh_vien', 200)->unique();
             $table->boolean('dang_ky');
+            $table->integer('user_id')->unsigned()->unique();
 
             $table->primary('ma_sinh_vien');
-            $table->foreign('ma_sinh_vien')
-                  ->references('email')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('user_id')
+                  ->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             
             $table->integer('khoa_hoc_id')->unsigned();
             $table->foreign('khoa_hoc_id')

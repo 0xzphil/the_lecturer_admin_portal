@@ -8,13 +8,14 @@ class Sinh_vien extends Model
 {
     protected $fillable = [
     	'ma_sinh_vien',
+        'user_id',
     	'dang_ky',
     	'khoa_hoc_id',
     	'ctdt_id',
     	'khoa_id'
     ];
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function khoa_hoc(){
     	return $this->belongsTo('App\Khoa_hoc');

@@ -12,7 +12,7 @@ class Danh_gia extends Model
     	'diem'
     ];
 
-    protected $timestamps = false;
+    public $timestamps = false;
 
     public function de_tai(){
     	return $this->belongsTo('App\De_tai');

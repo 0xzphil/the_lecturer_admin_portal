@@ -561,8 +561,13 @@
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- <script src="bootstrap/js/jquery-3.1.0.min.js"></script> -->
+
 <script src="dist/js/adkhoa/handleEventAdminKhoa.js"></script>
 <script src="dist/js//adkhoa/eventAtGv.js"></script>
+
+<script src="bootstrap/js/handleEventAdminKhoa.js"></script>
+<script src="bootstrap/js/handleEventGiangVien.js"></script>
+
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="plugins/morris/morris.min.js"></script>
