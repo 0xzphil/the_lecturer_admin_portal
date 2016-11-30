@@ -13,7 +13,9 @@
 
 Route::get('/','UserController@redirectAfterLogin');
 
-Route::get('/test', 'UserController@getExcelContent');
+Route::get('/test', function(){
+	return view('index');
+});
 Route::get('/test2', function() {
     return view('pages.layout.nav-top-1');
 });
