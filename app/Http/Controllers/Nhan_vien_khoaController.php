@@ -33,11 +33,11 @@ class Nhan_vien_khoaController extends Controller
     }
 
     public function getListGV(){
-        $listBo_mon = Bo_mon::where('khoa_id','=',Session::get('khoa_id'))->take(10)->get();
+        $listBo_mon = Bo_mon::where('khoa_id','=',Session::get('khoa_id'))->take(3000)->get();
         $listGV = array();
         foreach ($listBo_mon as $value) {
             //echo $value;
-            $temp = Giang_vien::where('bo_mon_id','=', $value->id)->take(10)->get();
+            $temp = Giang_vien::where('bo_mon_id','=', $value->id)->take(3000)->get();
            //echo $temp;
            foreach ($temp as $value2) {
                $value2->ten_bo_mon = $value->ten_bo_mon;
@@ -88,5 +88,10 @@ class Nhan_vien_khoaController extends Controller
           return 'false';
          }
     }
-    
+    /// xử lý sự kiện nhân viên khoa up file excel khởi tạo tài khoản sinh viên
+    public function uploadSV(){
+      $destinationPath = 'uploads'; // upload path
+      $extension = Input::file('exSV')->getClientOriginalExtension(); // getting image extension
+      
+    }
 }

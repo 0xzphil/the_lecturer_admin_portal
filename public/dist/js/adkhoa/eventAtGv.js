@@ -1,20 +1,21 @@
 //hàm chuyển chế độ sang chế độ upload file excel
 function eventOpenUploadGv(){
-	$_token = $("#_token").val();
+	$_token = $('meta[name="csrf_token"]').attr('content');
+	//console.log($_token);
 	$('#open-upload-gv').click(function(){
 		$("#main-content").empty();
-		$text = '<div class="col-sm-2"></div>\
-				<div class="col-sm-10">\
-				<h2>Form tải lên file tài khoản giảng viên, hãy tải lên 1 file excel</h2></div>\
+		$text = '<br><div class=""><div class="col-lg-12 col-md-12 col-sm-12"> <div class="box box-primary">\
+            <div class="box-header with-border">\
+              <h3 class="box-title">Khởi tạo tài khoản giảng viên bằng file excel.</h3>\
+            </div>\
 			      <form class="form-horizontal" id="form-upload-GV" action="/uploadGV" method="post" enctype="multipart/form-data">\
-			         <label class="col-sm-2 control-label"></label>\
-			         <div class="col-sm-8">\
+			         <div class="box-body">\
 			            <input id="file-upload-GV"  type="file" name="image" id="image" />\
 			            <br>\
 			            <input id = "btn-upload-GV" class="btn btn-info" type="button" value="Upload">'
 			            + '<input type="hidden" name="_token" value="'+$_token+'" /> '+             
 			      '<a href="/" class="btn-danger btn">Thoát</a> \
-			      </div></form>';
+			      </div></form></div></div></div>';
 		$("#main-content").append($text);
 		eventClickBtnUploadGV();
 	});
@@ -44,10 +45,12 @@ function eventOpenAddGV(){
                    <i class="fa fa-refresh fa-spin"></i>\
                   <strong>Đang xử lý...</strong>\
                 </div>\
-				<div class="col-sm-2"></div>\
-				<div class="col-sm-10">\
-				<h2>Thêm tài khoản giảng viên thủ công</h2></div>\
+				<br><div class=""><div class="col-lg-12 col-md-12 col-sm-12"> <div class="box box-primary">\
+            <div class="box-header with-border">\
+              <h3 class="box-title">Khởi tạo tài khoản giảng viên bằng file excel.</h3>\
+            </div>\
 				<form class="form-horizontal">\
+				 <div class="box-body">\
                 	<div class="form-group">\
 				      <label class="col-sm-2 control-label">Mã giảng viên</label>\
 				      <div class="col-sm-8">\
@@ -83,7 +86,7 @@ function eventOpenAddGV(){
 				       <a href="/" class="btn-danger btn">Thoát</a>\
 				      </div>\
 				    </div>\
-              </form>';
+             </div> </form></div></div>';
         $("#main-content").append($html);
         luuGV();
 	});
@@ -94,7 +97,7 @@ function eventGetListGV(){
 		$.get('getListGV',function(data, status){
 			if(status == 'success'){
 				 $object = JSON.parse(data);
-				 //console.log($object);
+				 console.log($object);
 				 $html = ' <section class="content"><div class="row">\
         					<div class="col-xs-12">\
         					<div class="box">\

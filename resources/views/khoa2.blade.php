@@ -55,3 +55,5 @@
 @section('nguoi-dang-nhap')
 	Khoa {{$ten_khoa}}
 @endsection
+
+
