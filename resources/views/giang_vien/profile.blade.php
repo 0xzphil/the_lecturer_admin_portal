@@ -102,3 +102,8 @@
 @section('nguoi-dang-nhap')
 	GV {{Auth::user()->name}}
 @endsection
+
+
+@section('js_import')
+<script src="dist/js/gv/handleEventGiangVien.js"></script>
+@endsection

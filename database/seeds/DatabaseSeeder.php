@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Nhan_vien_khoaTableSeeder::class);
         $this->call(Sinh_vienTableSeeder::class);
         // relationship 2
+        $this->call(Linh_vuc_co_banTableSeeder::class);
         $this->call(Linh_vucTableSeeder::class);
         $this->call(Huong_nghien_cuuTableSeeder::class);
         $this->call(MapTableSeeder::class);

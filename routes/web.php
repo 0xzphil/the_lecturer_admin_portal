@@ -39,3 +39,8 @@ Route::get('/addGV/{ma_giang_vien}/{ten_giang_vien}/{email}/{bomon}','Nhan_vien_
 Route::get('/infoGV', 'Giang_VienController@getBasicInformation');
 Route::post('/editGV', 'Giang_VienController@editBasicInformation');
 Route::post('/repassGV', 'Giang_VienController@repass');
+
+
+Route::get('/listBomon','BaseController@listBomon');
+Route::get('/listLvcb','BaseController@listLvcb');
+Route::get('/listGvLv','BaseController@listGvLv');
