@@ -28,9 +28,11 @@ function ajaxLoading(){
 	 $(document).ajaxStart(function(){
         $("#wait").css("display", "block");
         //Pace.restart();
+        console.log("start");
     });
     $(document).ajaxComplete(function(){
         $("#wait").css("display", "none");
+        console.log("ajaxComplete");
     });
 }
 function ajaxSetup(){

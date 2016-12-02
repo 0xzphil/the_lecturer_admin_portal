@@ -73,7 +73,9 @@
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Các hướng nghiên cứu</h3>
+              <div style="float:right;"><input type="button" id="btn-add-hnc" value="Thêm hướng nghiên cứu" class="btn btn-primary"></div>
             </div>
+
             <!-- /.box-header -->
             <div class="box-body">
               @foreach( Auth::user()->giang_vien->huong_nghien_cuu as $huong_nghien_cuu)
@@ -106,4 +108,5 @@
 
 @section('js_import')
 <script src="dist/js/gv/handleEventGiangVien.js"></script>
+<script src="dist/js/gv/eventgiangvien1.js"></script>
 @endsection
