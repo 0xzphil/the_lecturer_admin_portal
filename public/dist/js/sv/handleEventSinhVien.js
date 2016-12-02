@@ -10,6 +10,10 @@ function getListBomon(argument) {
 	
 }
 
+function getListLvcb(argument) {
+	// body...
+}
+
 
 function function_name(argument) {
 	// body...

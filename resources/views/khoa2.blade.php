@@ -55,5 +55,9 @@
 @section('nguoi-dang-nhap')
 	Khoa {{$ten_khoa}}
 @endsection
-
+@section('js_import')
+  <script src="dist/js/adkhoa/handleEventAdminKhoa.js"></script>
+  <script src="dist/js/adkhoa/eventAtGv.js"></script>
+  <script src="dist/js/adkhoa/eventAtSv.js"></script>
+@endsection
 

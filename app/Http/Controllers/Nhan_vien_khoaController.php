@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Services\GiangVienService;
 use App\Services\SendEmailService;
+use App\Services\SinhvienService;
 use Illuminate\Support\Facades\Input;
 use App\Giang_vien;
 use App\Khoa;
 use App\Bo_mon;
 use App\User;
+use App\Sinh_vien;
+use App\Khoa_hoc;
+use App\Ctdt;
 use Session;
 
 
@@ -88,10 +92,45 @@ class Nhan_vien_khoaController extends Controller
           return 'false';
          }
     }
-    /// xử lý sự kiện nhân viên khoa up file excel khởi tạo tài khoản sinh viên
+
+    // xử lý sự kiện nhân viên khoa up file excel khởi tạo tài khoản sinh viên
     public function uploadSV(){
       $destinationPath = 'uploads'; // upload path
       $extension = Input::file('exSV')->getClientOriginalExtension(); // getting image extension
       
+      $fileName = rand(11111,99999).'.'.$extension; // renameing image
+        Input::file('exSV')->move($destinationPath, $fileName); // uploading file to given path
+        // sending back with message
+        Session::flash('success', 'Upload successfully'.$destinationPath.$fileName.$extension); 
+        $sinhvienService = new SinhvienService();
+        $result =  $sinhvienService->handleFileExcel("uploads/". $fileName );
+        //return Redirect::to('upload');
+        // $sendMail = new SendEmailService();
+        // $password = substr(hash('sha512',rand()),0,6); 
+        // $sendMail->basic_email('hieunm.hk@gmail.com', $password);
+        return $result;
+    }
+
+    public function getListSV(){
+        $sinhvienService = new SinhvienService();
+        return $sinhvienService->getListJsonInfoSvByKhoaId(Session::get('khoa_id'));
+    }
+
+    public function getListKhoahoc(){
+        return json_encode(Khoa_hoc::all());
+    }
+
+    public function getListCtdt(){
+        return json_encode(Ctdt::all());
+    }
+    public function addSV($ma_sinh_vien , $ten_sinh_vien , $khoa_hoc , $ctdt){
+      $sinhvienService = new SinhvienService();
+      $result = $sinhvienService->addOneSV($ma_sinh_vien,$ten_sinh_vien,$khoa_hoc,$ctdt,Session::get('khoa_id'));
+      if($result == true){
+        return "true";
+      }
+      else {
+        return "false";
+      }
     }
 }

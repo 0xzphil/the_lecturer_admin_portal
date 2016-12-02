@@ -35,7 +35,12 @@ Route::post('/uploadGV', 'Nhan_vien_khoaController@uploadGV');
 Route::post('/uploadSV', 'Nhan_vien_khoaController@uploadSV');
 Route::get('/getListGV','Nhan_vien_khoaController@getListGV');
 Route::get('/getListBomon','Nhan_vien_khoaController@getListBomon');
+Route::get('/getListSV','Nhan_vien_khoaController@getListSV');
+Route::get('/getListKhoahoc','Nhan_vien_khoaController@getListKhoahoc');
+Route::get('/getListCtdt','Nhan_vien_khoaController@getListCtdt');
+
 Route::get('/addGV/{ma_giang_vien}/{ten_giang_vien}/{email}/{bomon}','Nhan_vien_khoaController@addGV');
+Route::get('/addSV/{ma_sinh_vien}/{ten_sinh_vien}/{khoa_hoc}/{ctdt}','Nhan_vien_khoaController@addSV');
 
 Route::get('/infoGV', 'Giang_VienController@getBasicInformation');
 Route::post('/editGV', 'Giang_VienController@editBasicInformation');
@@ -45,3 +50,6 @@ Route::post('/repassGV', 'Giang_VienController@repass');
 Route::get('/listBomon','BaseController@listBomon');
 Route::get('/listLvcb','BaseController@listLvcb');
 Route::get('/listGvLv','BaseController@listGvLv');
+
+Route::get('/getSession', 'BaseController@getSession');
+Route::get('/getSession2', 'BaseController@getSession2');
