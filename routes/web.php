@@ -50,3 +50,6 @@ Route::post('/repassGV', 'Giang_VienController@repass');
 Route::get('/listBomon','BaseController@listBomon');
 Route::get('/listLvcb','BaseController@listLvcb');
 Route::get('/listGvLv','BaseController@listGvLv');
+
+Route::get('/getSession', 'BaseController@getSession');
+Route::get('/getSession2', 'BaseController@getSession2');

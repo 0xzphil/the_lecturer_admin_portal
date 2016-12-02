@@ -38,7 +38,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Danh sách đơn vị</h3>
+              <h3 class="box-title">Danh sách đơn vị khoa {{ $bo_mons[0]->khoa->ten_khoa }}</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -55,39 +55,19 @@
               <table class="table table-hover">
                 <tr>
                   <th>ID</th>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                  <th>Reason</th>
+                  <th>Tên bộ môn</th>
+                  <th>Mô tả</th>
                 </tr>
+                @foreach ($bo_mons as $bo_mon)
                 <tr>
-                  <td>183</td>
-                  <td>John Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-success">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                  <td>{{ $bo_mon->id }}</td>
+                  <td>{{ $bo_mon->ten_bo_mon }}</td>
+                  <td>{{ $bo_mon->mo_ta }}</td>
+                  
                 </tr>
-                <tr>
-                  <td>219</td>
-                  <td>Alexander Pierce</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-warning">Pending</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>657</td>
-                  <td>Bob Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-primary">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>175</td>
-                  <td>Mike Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-danger">Denied</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
+                @endforeach
+                
+                
               </table>
             </div>
             <!-- /.box-body -->
