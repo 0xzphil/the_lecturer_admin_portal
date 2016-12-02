@@ -16,7 +16,7 @@ class Sinh_vienTableSeeder extends Seeder
         Sinh_vien::insert([
         	'ma_sinh_vien' => '14020347',
             'user_id' => 5,
-        	'dang_ky' => true,
+        	'dang_ky' => false,
         	'khoa_hoc_id' => 1,
         	'ctdt_id' => 1,
         	'khoa_id' => 1
@@ -25,7 +25,7 @@ class Sinh_vienTableSeeder extends Seeder
         Sinh_vien::insert([
         	'ma_sinh_vien' => '14020377',
             'user_id' => 6,
-        	'dang_ky' => true,
+        	'dang_ky' => false,
         	'khoa_hoc_id' => 1,
         	'ctdt_id' => 1,
         	'khoa_id' => 1

@@ -97,8 +97,13 @@ function eventGetListGV(){
 		$.get('getListGV',function(data, status){
 			if(status == 'success'){
 				 $object = JSON.parse(data);
-				 console.log($object);
-				 $html = ' <section class="content"><div class="row">\
+				 //console.log($object);
+				 $html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
+                   <i class="fa fa-refresh fa-spin"></i>\
+                  <strong>Đang xử lý...</strong>\
+                </div>\
+				  <section class="content"><div class="row">\
         					<div class="col-xs-12">\
         					<div class="box">\
             <div class="box-header">\
@@ -136,7 +141,8 @@ function eventGetListGV(){
 function getListBomon(){
 	 $.get('getListBomon',function(data, status){
 		if(status == 'success'){
-			handledate(data);
+			//handledate(data);
+			bomon = JSON.parse(data);
 		}
 	});
 }
@@ -166,7 +172,7 @@ function luuGV(){
 			$.get('addGV/'+$ma_giang_vien+"/"+
 				$ten_giang_vien+"/"+$email+"/"+$bomon,function(data, status){
 				if(status == 'success'){
-					//console.log(data);
+					console.log(data);
 					if(data == 'true'){
 
 						$html = '<div id="alertok" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">\
