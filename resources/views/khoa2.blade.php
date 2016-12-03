@@ -37,8 +37,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-             <li><a id="" href="#">Khóa học</a></li>
-            <li><a id="" href="#">Chương trình đào tạo</a></li>
+             <li><a id="open-khoahoc" href="#">Khóa học</a></li>
+            <li><a id="open-ctdt" href="#">Chương trình đào tạo</a></li>
           </ul>
         </li>
   </li>
@@ -59,5 +59,6 @@
   <script src="dist/js/adkhoa/handleEventAdminKhoa.js"></script>
   <script src="dist/js/adkhoa/eventAtGv.js"></script>
   <script src="dist/js/adkhoa/eventAtSv.js"></script>
+  <script src="dist/js/adkhoa/eventAtKhCtdt.js"></script>
 @endsection
 
