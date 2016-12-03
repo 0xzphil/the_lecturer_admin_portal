@@ -138,6 +138,7 @@
 
 @section('js_import')
 <script src="dist/js/sv/handleEventSinhVien.js"></script>
+<script src="dist/js/j2lib.js"></script>
 
 <!-- InputMask -->
 <script src="plugins/input-mask/jquery.inputmask.js"></script>
@@ -147,5 +148,6 @@
 <!-- iCheck 1.0.1 -->
 <script src="plugins/iCheck/icheck.min.js"></script>
 <script src="plugins/select2/select2.full.min.js"></script>
+
 
 @endsection

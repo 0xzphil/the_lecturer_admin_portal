@@ -11,7 +11,8 @@ class Khoa extends Model
     	'ten_khoa', 
     	'chu_nhiem_khoa', 
     	'mo_ta', 
-    	'van_phong_khoa'
+    	'van_phong_khoa',
+    	'dang_ky'
     ];
     public $timestamps = false;
     public function nhan_vien_khoa()

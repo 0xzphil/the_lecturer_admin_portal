@@ -49,7 +49,5 @@ Route::get('/listBomon','BaseController@listBomon');
 Route::get('/listLvcb','BaseController@listLvcb');
 Route::get('/listGvLv','BaseController@listGvLv');
 
-Route::get('/getSession', 'BaseController@getSession');
-Route::get('/getSession2', 'BaseController@getSession2');
-
+Route::post('/guiDeTai', 'De_TaiController@guiDeTai');
 

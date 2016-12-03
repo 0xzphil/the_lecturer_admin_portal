@@ -45,43 +45,37 @@ function nhapDeTai() {
         <div class="box-body">\
           <div class="row">\
             <div class="col-md-6">\
+            	<form id="formId">\
               <div class="form-group">\
                 <label>Tên giảng viên</label>\
-                <select class="form-control select2" id="chon-gv" style="width: 100%;">'
+                <select class="form-control select2" name="gvid" id="chon-gv" style="width: 100%;">'
                   + optionHtml +
                 '</select>\
               </div>\
               <!-- /.form-group -->\
               <div class="form-group">\
-                <label>Tên đề tài</label>\
-                <select class="form-control select2" disabled="disabled" style="width: 100%;">\
-                  <option selected="selected">Alabama</option>\
-                  <option>Alaska</option>\
-                  <option>California</option>\
-                  <option>Delaware</option>\
-                  <option>Tennessee</option>\
-                  <option>Texas</option>\
-                  <option>Washington</option>\
-                </select>\
-              </div>\
+                  <label>Tên đề tài</label>\
+                  <textarea class="form-control" rows="3" name="ten_de_tai" placeholder="Nhập tên đề tài ..."></textarea>\
+                </div>\
               <!-- /.form-group -->\
+              	</form>\
             </div>\
+            </div>\
+            <div class="box-footer">\
+                <button type="submit" id="xacNhanDeTai" class="btn btn-primary">Gửi đề tài</button>\
             </div>\
             </div>';
         $('#content').append(formDeTai);
         $(function () {
-        		//Initialize Select2 Elements
-    	    	$(".select2").select2();
+    		//Initialize Select2 Elements
+	    	$(".select2").select2();
         });
 
         $('#chon-gv').change(function() {
           /* Act on the event */
           console.log($('#chon-gv').val());
         });
+        J2lib.ajaxPost('xacNhanDeTai', 'formId', 'guiDeTai');
     });
         
-}
-
-function function_name(argument) {
-	// body...
 }
