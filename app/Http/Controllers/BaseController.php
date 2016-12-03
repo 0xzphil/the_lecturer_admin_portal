@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Bo_mon;
+
 use Session;
 use App\Linh_vuc_co_ban;
 
@@ -38,4 +39,5 @@ class BaseController extends Controller
     	# code...
     	return Session::all();
     }
+
 }

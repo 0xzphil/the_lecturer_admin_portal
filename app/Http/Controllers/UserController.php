@@ -33,7 +33,7 @@ class UserController extends Controller
     public function redirectAfterLogin(){
         if(isset(Auth::user()->role)){
             // create session variables
-            //$this->sessionStart();
+
             if(Auth::user()->role == 'khoa'){
                 $nhan_vien_khoa =  Nhan_vien_khoa::where('user_id','=', Auth::user()->id)->firstOrFail();
                 $khoa_id =  $nhan_vien_khoa->khoa_id;
@@ -47,6 +47,7 @@ class UserController extends Controller
             }
             else if(Auth::user()->role == 'giang_vien'){
                 $giang_vien = Auth::user()->giang_vien->user_id;
+                Session::put('ma_giang_vien',Auth::user()->giang_vien->ma_giang_vien);
                 return view('giang_vien.profile');
             }
             else if(Auth::user()->role == 'sinh_vien'){

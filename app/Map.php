@@ -10,7 +10,7 @@ class Map extends Model
     	'linh_vuc_id',
     	'huong_nghien_cuu_id'
     ];
-
+    public $timestamps  = false;
     public function linh_vuc(){
     	return $this->belongsTo('App\Linh_vuc');
     }
