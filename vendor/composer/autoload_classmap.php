@@ -44,6 +44,7 @@ return array(
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\Services\\GiangVienService' => $baseDir . '/app/Services/GiangVienService.php',
+    'App\\Services\\Helper\\SinhvienInfo' => $baseDir . '/app/Services/Helper/SinhvienInfo.php',
     'App\\Services\\SendEmailService' => $baseDir . '/app/Services/SendEmailService.php',
     'App\\Services\\SinhvienService' => $baseDir . '/app/Services/SinhvienService.php',
     'App\\Sinh_vien' => $baseDir . '/app/Sinh_vien.php',

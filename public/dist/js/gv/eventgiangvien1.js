@@ -41,7 +41,7 @@ function openAddHnc(){
 				    <div class="form-group">\
 				    	<div class="col-sm-2"></div>\
 				    	<div class="col-sm-8">\
-				     	<button id="saveHnc" class="btn btn-info">Lưu</button>\
+				     	<a id="saveHnc" class="btn btn-info">Lưu</a>\
 				     	<a class="btn btn-danger" href="/">Thoát</a></div>\
 				    </div>\
              </div> </form></div></div>';
@@ -52,6 +52,40 @@ function openAddHnc(){
 }
 
 function saveHnc(){
+	$('#saveHnc').click(function(){
+		$ten_huong_nc = $('#ip_chu_de').val();
+		$mo_ta = $('#ip_mo_ta').val();
+		$linh_vuc_lq = $('#ip_linh_vuc_lq').val();
+		//console.log($ten_huong_nc,$mo_ta,$linh_vuc_lq);
+		if($ten_huong_nc!= null && $mo_ta != null){
+			$.get('addHNC/'+$ten_huong_nc+"/"+$mo_ta+"/"+$linh_vuc_lq,
+				function(data , status){
+						console.log(data)
+						if(status == "success"){
+							if(data == "true"){
+								$html = '<div id="alertok" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">\
+									  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
+									  <strong>Thành công!</strong> Đã thêm 1 sinh viên vào CSDL\
+									</div>\
+									';
+								$('#alertok').remove();
+								$('#main-content').append($html);
+								$('#alertok').delay(5000).fadeOut('fast');
+							}
+							else{
+								$html = '<div id="alertfail" class="alert alert-danger" style="position:fixed;bottom:10px;right:10px;">\
+									  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
+									  <strong>Thất bại!</strong> Đã có lỗi xảy ra,vui lòng kiểm tra lại thông tin\
+									</div>\
+									';
+								$('#alertfail').remove();
+								$('#main-content').append($html);
+								$('#alertfail').delay(5000).fadeOut('fast');
+							}
+						}
+					});
+		}
+	});
 }
 function getListLinhVuc(){
 	$.get('listLvcb',function(data,status){
@@ -59,7 +93,7 @@ function getListLinhVuc(){
 			//console.log(data);
 			//linhvuc = JSON.parse(data);
 			linhvuc = data;
-			console.log(linhvuc);
+			//console.log(linhvuc);
 		}
 	});
 }

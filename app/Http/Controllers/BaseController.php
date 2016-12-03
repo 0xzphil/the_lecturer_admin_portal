@@ -39,5 +39,5 @@ class BaseController extends Controller
     	# code...
     	return Session::all();
     }
-    
+
 }
