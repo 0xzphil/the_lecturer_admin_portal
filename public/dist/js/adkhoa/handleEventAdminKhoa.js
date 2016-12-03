@@ -21,7 +21,10 @@ $(document).ready(function(){
 	    eventOpenUploadSv();
 	    getListSV();
 	    eventOpenAddSV();
-	    
+
+	    // gọi các hàm xử lí đối với tree khóa học và chường trình đào tạo
+	    openKhoahoc();
+	    openCtdt()
 
 });
 
@@ -55,9 +58,11 @@ function ajaxLoading(){
 	 $(document).ajaxStart(function(){
         $("#wait").css("display", "block");
         //Pace.restart();
+        console.log("start");
     });
     $(document).ajaxComplete(function(){
         $("#wait").css("display", "none");
+        console.log("ajaxComplete");
     });
 }
 function ajaxSetup(){

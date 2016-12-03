@@ -39,7 +39,7 @@ Route::get('/getListCtdt','Nhan_vien_khoaController@getListCtdt');
 
 Route::get('/addGV/{ma_giang_vien}/{ten_giang_vien}/{email}/{bomon}','Nhan_vien_khoaController@addGV');
 Route::get('/addSV/{ma_sinh_vien}/{ten_sinh_vien}/{khoa_hoc}/{ctdt}','Nhan_vien_khoaController@addSV');
-
+Route::get('/addHNC/{ten_huong_nghien_cuu}/{mo_ta}/{listlinhvuc}','Huong_Nghien_CuuController@addHNC');
 Route::get('/infoGV', 'Giang_VienController@getBasicInformation');
 Route::post('/editGV', 'Giang_VienController@editBasicInformation');
 Route::post('/repassGV', 'Giang_VienController@repass');

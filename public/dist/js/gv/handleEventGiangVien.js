@@ -4,6 +4,12 @@ $(document).ready(function() {
 	var dataGV;
 	editGV();
 	repassGV();
+	//mo form thêm hướng nghiên cứu cho giảng viên
+	
+	openAddHnc();
+
+	//tải về lĩnh vực cơ bản khi tải trang
+	getListLinhVuc();
 });
 
 /**
