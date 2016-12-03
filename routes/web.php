@@ -13,9 +13,7 @@
 
 Route::get('/','UserController@redirectAfterLogin');
 
-Route::get('/test', function(){
-	return view('index');
-});
+Route::get('/test', 'BaseController@test');
 Route::get('/test2', function() {
     return view('pages.layout.nav-top-1');
 });
@@ -53,3 +51,5 @@ Route::get('/listGvLv','BaseController@listGvLv');
 
 Route::get('/getSession', 'BaseController@getSession');
 Route::get('/getSession2', 'BaseController@getSession2');
+
+

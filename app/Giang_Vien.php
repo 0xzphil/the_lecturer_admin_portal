@@ -21,6 +21,10 @@ class Giang_vien extends Model
 
     public $timestamps = false;
 
+    protected $hidden = [
+        'password', 'remember_token', 
+    ];
+
     public function user()
     {
     	# code...

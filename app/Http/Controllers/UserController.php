@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\BaseController;
 use Auth;
 use Excel;
 use Session;
+use Sismgr;
 use App\Nhan_vien_khoa;
 use App\Khoa;
 
@@ -50,8 +50,9 @@ class UserController extends Controller
             }
             else if(Auth::user()->role == 'sinh_vien'){
                 $sinh_vien = Auth::user()->sinh_vien->user_id;
-                $bo_mon = BaseController::listBomon();
-                return view('sinh_vien.profile')->with('bo_mons',  $bo_mon);
+                $linh_vuc_cbs = Sismgr::listLvcb();
+                $bo_mons = Sismgr::listBomon();
+                return view('sinh_vien.profile', compact('bo_mons', 'linh_vuc_cbs'));
             } else {
                 return view('');
             }

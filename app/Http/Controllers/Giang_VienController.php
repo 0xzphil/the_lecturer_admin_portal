@@ -64,4 +64,6 @@ class Giang_VienController extends Controller
          $user->password = Hash::make($request->get('new_pass'));
          return response()->json(['message'=> 'success']);
       }
+
+
 }

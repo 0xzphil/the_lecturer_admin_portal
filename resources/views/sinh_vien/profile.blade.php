@@ -10,20 +10,27 @@
           </a>
           <ul class="treeview-menu">
             <li><a id="repass-gv" href="#">Đổi mật khẩu</a></li>
-            <li><a id="open-add-gv" href="#">Thêm GV thủ công</a></li>
+            <li><a id="open-add-gv" href="#">abc</a></li>
 
           </ul>
         </li>
         <li class=" treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Quản lí đề tài</span>
+            <i class="fa fa-dashboard"></i> <span>Đề tài</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a id="open-upload-sv" href="#">Khởi tạo bằng excel</a></li>
+            @if(Auth::user()->sinh_vien->dang_ky == 1)
+            <li><a id="open-de-tai" href="#">Đăng ký đề tài</a></li>
+
+            @else
+            <li><a> Bạn không đủ điều kiện<br/> đăng ký đề tài</a></li>
+            @endif
+            <!-- 
             <li><a id="open-add-sv" href="#">Thêm GV thủ công</a></li>
+ -->
           </ul>
         </li>
 @endsection
@@ -33,8 +40,9 @@
         Sinh viên Browser
       </h1>
     </section>
-    <section class="content">
-        <div class="row">
+    <section class="content" id="content">
+        <input type="hidden" name="gvdata" id="gvdata" value="{{ Sismgr::listGv('form1') }}">
+        <div class="row" >
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
@@ -96,39 +104,17 @@
               <table class="table table-hover">
                 <tr>
                   <th>ID</th>
-                  <th>User</th>
-                  <th>Date</th>
-                  <th>Status</th>
-                  <th>Reason</th>
+                  <th>Tên</th>
+                  <th>Mô tả</th>
                 </tr>
+                @foreach($linh_vuc_cbs as $linh_vuc_cb)
                 <tr>
-                  <td>183</td>
-                  <td>John Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-success">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                  <td>{{ $linh_vuc_cb->id }}</td>
+                  <td>{{ $linh_vuc_cb->ten }}</td>
+                  <td>{{ $linh_vuc_cb->mo_ta }}</td>
                 </tr>
-                <tr>
-                  <td>219</td>
-                  <td>Alexander Pierce</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-warning">Pending</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>657</td>
-                  <td>Bob Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-primary">Approved</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
-                <tr>
-                  <td>175</td>
-                  <td>Mike Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-danger">Denied</span></td>
-                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                </tr>
+                @endforeach
+                
               </table>
             </div>
             <!-- /.box-body -->
@@ -151,5 +137,15 @@
 
 
 @section('js_import')
-<script src="dist/js/gv/handleEventSinhVien.js"></script>
+<script src="dist/js/sv/handleEventSinhVien.js"></script>
+
+<!-- InputMask -->
+<script src="plugins/input-mask/jquery.inputmask.js"></script>
+<script src="plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
+<!-- iCheck 1.0.1 -->
+<script src="plugins/iCheck/icheck.min.js"></script>
+<script src="plugins/select2/select2.full.min.js"></script>
+
 @endsection
