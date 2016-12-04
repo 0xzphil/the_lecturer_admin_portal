@@ -20,6 +20,7 @@ class Khoa extends Migration
             $table->string('chu_nhiem_khoa',40);
             $table->string('mo_ta', 9000);
             // list string
+            $table->boolean('dang_ky')->default(false);
             $table->string('van_phong_khoa');
             //
         });

@@ -9,6 +9,7 @@ use App\Bo_mon;
 
 use Session;
 use App\Linh_vuc_co_ban;
+use Sismgr;
 
 class BaseController extends Controller
 {
@@ -26,18 +27,11 @@ class BaseController extends Controller
     	# code...
     	return Linh_vuc_co_ban::all();
     }
-    public function getSession(Request $request)
-    {
-    	# code...
-    	Session::put('abd', 123);
-    	$request->session()->put('abc', 124);
-    	return Session::all();
-    }
 
-    public function getSession2()
+    public static function getListGv()
     {
-    	# code...
-    	return Session::all();
+        # code...
+        return Giang_vien::all();
     }
 
 }

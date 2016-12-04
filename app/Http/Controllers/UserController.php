@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\BaseController;
 use Auth;
 use Excel;
 use Session;
+use Sismgr;
 use App\Nhan_vien_khoa;
 use App\Khoa;
 
@@ -33,14 +33,15 @@ class UserController extends Controller
     public function redirectAfterLogin(){
         if(isset(Auth::user()->role)){
             // create session variables
-
+        	$this->sessionStart();
             if(Auth::user()->role == 'khoa'){
-                $nhan_vien_khoa =  Nhan_vien_khoa::where('user_id','=', Auth::user()->id)->firstOrFail();
-                $khoa_id =  $nhan_vien_khoa->khoa_id;
+                //$nhan_vien_khoa =  Nhan_vien_khoa::where('user_id','=', Auth::user()->id)->firstOrFail();
+                //$khoa_id =  $nhan_vien_khoa->khoa_id;
+               	$khoa_id = Session::get('khoa_id');
                 $khoa = Khoa::find($khoa_id);
                 //$khoa = Khoa::find(Session::get('khoa_id'));
                 Session::put('ten_khoa', $khoa->ten_khoa);
-                Session::put('khoa_id', $khoa_id);
+                //Session::put('khoa_id', $khoa_id);
                 Session::put('name', Auth::user()->name);
                //echo $khoa->ten_khoa;
                 return view('khoa2')->with('ten_khoa', $khoa->ten_khoa);
@@ -52,8 +53,9 @@ class UserController extends Controller
             }
             else if(Auth::user()->role == 'sinh_vien'){
                 $sinh_vien = Auth::user()->sinh_vien->user_id;
-                $bo_mon = BaseController::listBomon();
-                return view('sinh_vien.profile')->with('bo_mons',  $bo_mon);
+                $linh_vuc_cbs = Sismgr::listLvcb();
+                $bo_mons = Sismgr::listBomon();
+                return view('sinh_vien.profile', compact('bo_mons', 'linh_vuc_cbs'));
             } else {
                 return view('');
             }
@@ -66,10 +68,14 @@ class UserController extends Controller
         # code...
         $role = Auth::user()->role;
        // echo Auth::user()->role;
-        if( $role!= 'giang_vien'){
-            $khoa_id = Auth::user()->$role->khoa_id;
-        } else {
-            $khoa_id = Auth::user()->$role->bo_mon->khoa_id;
+        if( $role == 'giang_vien'){
+            $khoa_id = Auth::user()->giang_vien->bo_mon->khoa_id;
+        } else 
+        if( $role == 'sinh_vien'){
+            $khoa_id = Auth::user()->sinh_vien->khoa_id;
+        } else
+        if ( $role == 'khoa'){
+            $khoa_id = Auth::user()->nhan_vien_khoa->khoa_id;
         }
         Session::put('khoa_id', $khoa_id);
     }
