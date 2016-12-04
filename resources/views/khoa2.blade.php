@@ -52,10 +52,75 @@
                   <strong>Đang xử lý...</strong>
                 </div>
 @endsection
+
+<div class="example-modal">
+        <div class="modal fade" id="modal1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Thêm mới khóa học</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <label class="col-sm-3">Tên khóa học</label>
+                  <div class="col-sm-9">
+                    <input class="form-control" id="ip_tenkhoahoc" type="text" placeholder="Tên khóa học">
+                  </div>
+                </div>
+
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="saveKhoahoc">Lưu</button>
+              </div>
+            </div>o
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+      <!-- /.example-modal -->
+
+<div class="example-modal">
+        <div class="modal fade" id="modal2">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Thêm chương trình đào tạo</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <label class="col-sm-3">Tên CDTD</label>
+                  <div class="col-sm-9">
+                    <input class="form-control" id="ip_tenctdt" type="text" placeholder="Tên chương trình đào tạo">
+                  </div>
+                </div>
+
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="saveCtdt">Lưu</button>
+              </div>
+            </div>o
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+
 @section('nguoi-dang-nhap')
 	Khoa {{$ten_khoa}}
 @endsection
 @section('js_import')
+ <script src="dist/js/adkhoa/api.js"></script>
   <script src="dist/js/adkhoa/handleEventAdminKhoa.js"></script>
   <script src="dist/js/adkhoa/eventAtGv.js"></script>
   <script src="dist/js/adkhoa/eventAtSv.js"></script>

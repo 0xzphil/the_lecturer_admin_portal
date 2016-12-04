@@ -45,18 +45,11 @@ function eventClickBtnUploadSV(){
 			      data: formdata,
 			      processData: false, 
 			      success:function(data){
-			      	 console.log(data);
+			      	 //console.log(data);
 			       	 $result = JSON.parse(data);
 
-			       	 console.log($result.done);
-			       	 $html = '<div id="alertok" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">\
-								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
-								  <strong>Thông báo!</strong> Đã thêm thành công:'+$result.done+', thất bại:'+$result.fail+' \
-								</div>\
-								';
-						$('#alertok').remove();
-						$('#main-content').append($html);
-						$('#alertok').delay(5000).fadeOut('fast');
+			       	 //console.log($result.done);
+			       	 createAlert('success', 'Thông báo! Đã thêm thành công:'+$result.done+', thất bại:'+$result.fail);
 			      }
 			});
 		}
@@ -149,24 +142,10 @@ function saveSV(){
 				function(data , status){
 					if(status == "success"){
 						if(data == "true"){
-							$html = '<div id="alertok" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">\
-								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
-								  <strong>Thành công!</strong> Đã thêm 1 sinh viên vào CSDL\
-								</div>\
-								';
-							$('#alertok').remove();
-							$('#main-content').append($html);
-							$('#alertok').delay(5000).fadeOut('fast');
+							createAlert('success', 'Thành công! Đã thêm 1 sinh viên vào database.');
 						}
 						else{
-							$html = '<div id="alertfail" class="alert alert-danger" style="position:fixed;bottom:10px;right:10px;">\
-								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
-								  <strong>Thất bại!</strong> Đã có lỗi xảy ra,vui lòng kiểm tra lại thông tin\
-								</div>\
-								';
-							$('#alertfail').remove();
-							$('#main-content').append($html);
-							$('#alertfail').delay(5000).fadeOut('fast');
+							createAlert('danger', 'Thất bại! Kiểm tra lại thông tin đã nhập.');
 						}
 					}
 				});
@@ -179,7 +158,7 @@ function getListSV(){
 		$.get('getListSV',function(data, status){
 			if(status == 'success'){
 				$object = JSON.parse(data);
-				 //console.log($object);
+				 console.log($object[0]);
 				 $html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
                   <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
                    <i class="fa fa-refresh fa-spin"></i>\

@@ -24,7 +24,9 @@ $(document).ready(function(){
 
 	    // gọi các hàm xử lí đối với tree khóa học và chường trình đào tạo
 	    openKhoahoc();
-	    openCtdt()
+	    openCtdt();
+	    saveKhoahoc();
+	    saveCtdt();
 
 });
 

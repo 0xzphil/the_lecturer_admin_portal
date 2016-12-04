@@ -133,4 +133,27 @@ class Nhan_vien_khoaController extends Controller
         return "false";
       }
     }
+
+    public function addKhoahoc($khoa_hoc1){
+     // var_dump($khoa_hoc1);
+      try {
+        $khoa_hoc = new Khoa_hoc();
+        $khoa_hoc->mo_ta = $khoa_hoc1;
+        $khoa_hoc->save();
+        return "true";
+      } catch (Exception $e) {
+        return "false";
+      }
+    }
+
+    public function addCtdt($ctdt1){
+      try {
+        $ctdt = new Ctdt();
+        $ctdt->mo_ta = $ctdt1;
+        $ctdt->save();
+        return 'true';
+      } catch (Exception $e) {
+        return 'false';
+      }
+    }
 }

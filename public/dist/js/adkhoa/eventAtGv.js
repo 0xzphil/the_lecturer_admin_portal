@@ -174,25 +174,10 @@ function luuGV(){
 				if(status == 'success'){
 					console.log(data);
 					if(data == 'true'){
-
-						$html = '<div id="alertok" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">\
-								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
-								  <strong>Thành công!</strong> Đã thêm 1 giảng viên vào CSDL\
-								</div>\
-								';
-						$('#alertok').remove();
-						$('#main-content').append($html);
-						$('#alertok').delay(5000).fadeOut('fast');
+						createAlert('success','Thành công! Đã thêm 1 giảng viên vào database.');
 					}
 					else{
-						$html = '<div id="alertfail" class="alert alert-danger" style="position:fixed;bottom:10px;right:10px;">\
-								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
-								  <strong>Thất bại!</strong> Đã có lỗi xảy ra,vui lòng kiểm tra lại thông tin\
-								</div>\
-								';
-						$('#alertfail').remove();
-						$('#main-content').append($html);
-						$('#alertfail').delay(5000).fadeOut('fast');
+						createAlert('danger', 'Thất bại! Kiểm tra lại thông tin đã nhập.')
 					}
 				}
 			});
