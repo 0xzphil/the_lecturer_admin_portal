@@ -45,6 +45,22 @@ var J2lib = J2lib || (function function_name(argument) {
 			        }
 		    	});
     		})
+		},
+		ajaxGet: function (url, callback) {
+			$.ajax({
+				url: url,
+				type: 'GET',
+				dataType: 'json',
+			})
+			.done(function(data) {
+				callback(data);
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("complete");
+			});
 		}
 	}
 })();

@@ -30,13 +30,14 @@ class DeTais extends Migration
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
 
-            $table->boolean('trang_thai_gv');
-            $table->boolean('trung');
-            $table->boolean('ho_so');
-            $table->boolean('hop_thuc');
-            $table->boolean('hoan_tat');
-            $table->boolean('rut');
-            $table->boolean('qd_rut');
+            $table->enum('trang_thai_gv', ['chua_xac_nhan', 'tu_choi', 'dong_y'])->default('chua_xac_nhan');
+            $table->boolean('trung')->default(false);
+            $table->boolean('duoc_phep_sua_doi')->default(false);
+            $table->boolean('ho_so')->default(false);
+            $table->boolean('hop_thuc')->default(false);
+            $table->boolean('hoan_tat')->default(false);
+            $table->boolean('rut')->default(false);
+            $table->boolean('qd_rut')->default(false);
         });
     }
 
