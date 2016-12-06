@@ -2,10 +2,21 @@
 var dataDeTai;
 
 $(document).ready(function() {
-
+	//var info = '#info1';
+    //window.history.pushState({page: info}, null, info);
 	nhapDeTai();
 });
 
+/*$(window).on('popstate',function(e){
+    var state = e.originalEvent.state;
+    if(state != null){
+        if(state.hasOwnProperty('window')){
+            //callback on window
+            window[state.window].call(window,state);
+        }
+    }
+});
+*/
 
 function getListBomon(argument) {
 	// body...
@@ -27,7 +38,8 @@ function nhapDeTai() {
   	var gvdata = $.parseJSON($('#gvdata').val());
 	$('#open-de-tai').click(function () {
 		// body...
-		
+			//var info = '#info2';
+    //window.history.pushState({page: info}, null, info);
 	   	console.log(dataDeTai);
 		console.log(gvdata[0]);
 		$('#content').empty();
@@ -53,7 +65,12 @@ function nhapDeTai() {
 			/* Act on the event */
 			console.log($('#chon-gv').val());
     	});
+    	$('#rutDangKy').click(function () {
+    		// body...
+    		console.log(window.history);
+    	});
     	J2lib.ajaxPost('xacNhanDeTai', 'formId', 'guiDeTai');
+
     });
 }
 
@@ -94,7 +111,7 @@ function formDeTaiFunc(optionHtml) {
 
 function formTrangThaiFunc() {
 	// body...
-	var trang_thai_giang_vien;
+/*	var trang_thai_giang_vien;
 	if(dataDeTai.sv.trang_thai_gv == 'chua_xac_nhan'){
 		trang_thai_giang_vien = '<span class="label label-warning">Chưa xác nhận</span>';
 	} else 
@@ -108,10 +125,10 @@ function formTrangThaiFunc() {
 	if(dataDeTai.sv.trung == 1){
 		trung = '<span class="label label-danger">Trùng đề tài</span>';
 	} else trung = '<span class="label label-success">Không trùng</span>';
-
+*/
 	var contentHtml;
 	if(dataDeTai.check == 7){
-		contentHtml = '';
+		return '';
 	}
 	return '<div class="col-md-4">\
           <div class="box">\

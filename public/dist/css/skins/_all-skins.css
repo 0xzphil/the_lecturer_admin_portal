@@ -3,10 +3,11 @@
  * ----------
  */
 .skin-blue .main-header .navbar {
-  background-color: #3c8dbc;
+  border-bottom: 5px solid #697ec4;
+  background-color: #fff;
 }
 .skin-blue .main-header .navbar .nav > li > a {
-  color: #ffffff;
+  color: #555;
 }
 .skin-blue .main-header .navbar .nav > li > a:hover,
 .skin-blue .main-header .navbar .nav > li > a:active,
@@ -15,7 +16,7 @@
 .skin-blue .main-header .navbar .nav .open > a:hover,
 .skin-blue .main-header .navbar .nav .open > a:focus,
 .skin-blue .main-header .navbar .nav > .active > a {
-  background: rgba(0, 0, 0, 0.1);
+  background: #697ec4;
   color: #f6f6f6;
 }
 .skin-blue .main-header .navbar .sidebar-toggle {
@@ -26,7 +27,7 @@
   background: rgba(0, 0, 0, 0.1);
 }
 .skin-blue .main-header .navbar .sidebar-toggle {
-  color: #fff;
+  color: rgba(105, 126, 196, 1);
 }
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
   background-color: #367fa9;
@@ -43,15 +44,15 @@
   }
 }
 .skin-blue .main-header .logo {
-  background-color: #367fa9;
+  background-color: transparent;
   color: #ffffff;
   border-bottom: 0 solid transparent;
 }
 .skin-blue .main-header .logo:hover {
-  background-color: #357ca5;
+  background-color: transparent;
 }
 .skin-blue .main-header li.user-header {
-  background-color: #3c8dbc;
+  background-color: #697ec4;
 }
 .skin-blue .content-header {
   background: transparent;
@@ -59,27 +60,33 @@
 .skin-blue .wrapper,
 .skin-blue .main-sidebar,
 .skin-blue .left-side {
-  background-color: #222d32;
+  background-color: #2e3136;
 }
 .skin-blue .user-panel > .info,
 .skin-blue .user-panel > .info > a {
   color: #fff;
 }
 .skin-blue .sidebar-menu > li.header {
-  color: #4b646f;
-  background: #1a2226;
+  border-top: 1px solid #1c1e22;
+  border-bottom:  1px solid #1c1e22;
+  color: #fff;
+  background: rgb(40, 43, 48);
 }
 .skin-blue .sidebar-menu > li > a {
-  border-left: 3px solid transparent;
+  border-left: 4px solid transparent;
 }
 .skin-blue .sidebar-menu > li:hover > a,
 .skin-blue .sidebar-menu > li.active > a {
   color: #ffffff;
   background: #1e282c;
-  border-left-color: #3c8dbc;
+  border-left-color: #697ec4;
+  background: -webkit-linear-gradient(left,#282b30 85%,#2e3136);
+    background: -moz-linear-gradient(left,#282b30 85%,#2e3136);
+    background: -o-linear-gradient(left,#282b30 85%,#2e3136);
+    background: -ms-linear-gradient(left,#282b30 85%,#2e3136);
+    background: linear-gradient(to right,#282b30 85%,#2e3136);
 }
 .skin-blue .sidebar-menu > li > .treeview-menu {
-  margin: 0 1px;
   background: #2c3b41;
 }
 .skin-blue .sidebar a {
@@ -89,7 +96,15 @@
   text-decoration: none;
 }
 .skin-blue .treeview-menu > li > a {
+	border-left: 4px solid;
+	border-left-color: rgba(105, 126, 196, 0.3);
   color: #8aa4af;
+
+  background: -webkit-linear-gradient(left,#282b30 85%,rgba(40, 43, 48, 0.3));
+    background: -moz-linear-gradient(left,#282b30 85%,rgba(40, 43, 48, 0.3));
+    background: -o-linear-gradient(left,#282b30 85%,rgba(40, 43, 48, 0.3));
+    background: -ms-linear-gradient(left,#282b30 85%,rgba(40, 43, 48, 0.3));
+    background: linear-gradient(to right,#282b30 85%,rgba(40, 43, 48, 0.3));
 }
 .skin-blue .treeview-menu > li.active > a,
 .skin-blue .treeview-menu > li > a:hover {
@@ -97,18 +112,29 @@
 }
 .skin-blue .sidebar-form {
   border-radius: 3px;
-  border: 1px solid #374850;
+  border: 1px solid rgba(0,0,0,.1);
   margin: 10px 10px;
+      -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
 }
 .skin-blue .sidebar-form input[type="text"],
 .skin-blue .sidebar-form .btn {
+	color: #4D4F52;
   box-shadow: none;
-  background-color: #374850;
-  border: 1px solid transparent;
+  background-color: #24272B;
+  border-width:  1px 1px 1px 0px ;
+  border-color: #212327 ;
+  border-style:  solid ;
   height: 35px;
 }
 .skin-blue .sidebar-form input[type="text"] {
-  color: #666;
+  color: #4D4F52;
+
   border-top-left-radius: 2px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -117,13 +143,13 @@
 .skin-blue .sidebar-form input[type="text"]:focus,
 .skin-blue .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
   background-color: #fff;
-  color: #666;
+  color: #4D4F52;
 }
 .skin-blue .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
   border-left-color: #fff;
 }
 .skin-blue .sidebar-form .btn {
-  color: #999;
+  color: #67696D;
   border-top-left-radius: 0;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;

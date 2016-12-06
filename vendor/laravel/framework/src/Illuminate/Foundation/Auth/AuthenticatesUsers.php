@@ -39,9 +39,7 @@ trait AuthenticatesUsers
             return $this->sendLockoutResponse($request);
         }
 
-        $credentials = $this->credentials($request);
-
-        if ($this->guard()->attempt($credentials, $request->has('remember'))) {
+        if ($this->attemptLogin($request)) {
             return $this->sendLoginResponse($request);
         }
 
@@ -62,9 +60,21 @@ trait AuthenticatesUsers
     protected function validateLogin(Request $request)
     {
         $this->validate($request, [
-            $this->username() => 'required',
-            'password' => 'required',
+            $this->username() => 'required', 'password' => 'required',
         ]);
+    }
+
+    /**
+     * Attempt to log the user into the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function attemptLogin(Request $request)
+    {
+        return $this->guard()->attempt(
+            $this->credentials($request), $request->has('remember')
+        );
     }
 
     /**
@@ -109,7 +119,7 @@ trait AuthenticatesUsers
     /**
      * Get the failed login response instance.
      *
-     * @param \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendFailedLoginResponse(Request $request)
@@ -134,7 +144,7 @@ trait AuthenticatesUsers
     /**
      * Log the user out of the application.
      *
-     * @param  Request  $request
+     * @param \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
@@ -145,7 +155,7 @@ trait AuthenticatesUsers
 
         $request->session()->regenerate();
 
-        return redirect('/login');
+        return redirect('/');
     }
 
     /**

@@ -23,7 +23,7 @@
           </a>
           <ul class="treeview-menu">
             @if(Auth::user()->sinh_vien->dang_ky == 1)
-            <li><a id="open-de-tai" href="#">Đăng ký đề tài</a></li>
+            <li><a id="open-de-tai" >Đăng ký đề tài</a></li>
 
             @else
             <li><a> Bạn không đủ điều kiện<br/> đăng ký đề tài</a></li>
