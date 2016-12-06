@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Services\GiangVienService;
 use App\Services\SendEmailService;
 use App\Services\SinhvienService;
+use App\Services\QldtService;
 use Illuminate\Support\Facades\Input;
 use App\Giang_vien;
 use App\Khoa;
@@ -19,7 +20,10 @@ use Session;
 
 
 class Nhan_vien_khoaController extends Controller
-{
+{   
+     /**
+      * Hàm upload danh sách giảng viên bằng file excel
+      */
      public function uploadGV() {
         $destinationPath = 'uploads'; // upload path
         $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
@@ -28,14 +32,18 @@ class Nhan_vien_khoaController extends Controller
         // sending back with message
         Session::flash('success', 'Upload successfully'.$destinationPath.$fileName.$extension); 
         $giangvienService = new GiangVienService();
-        $giangvienService->handleFileExcel("uploads/". $fileName );
+        return  $giangvienService->handleFileExcel("uploads/". $fileName );
         //return Redirect::to('upload');
         // $sendMail = new SendEmailService();
         // $password = substr(hash('sha512',rand()),0,6); 
         // $sendMail->basic_email('hieunm.hk@gmail.com', $password);
-        return redirect('/');
+        
     }
 
+
+    /**
+     * Hàm lấy ra danh sách giảng viên trong khoa hiện tại
+     */
     public function getListGV(){
         $listBo_mon = Bo_mon::where('khoa_id','=',Session::get('khoa_id'))->take(3000)->get();
         $listGV = array();
@@ -70,6 +78,9 @@ class Nhan_vien_khoaController extends Controller
        echo $response;
     }
 
+    /**
+     * Hàm lấy danh sách bộ môn trong khoa
+     */
     public function getListBomon(){
        $listBo_mon = Bo_mon::whereRaw('khoa_id = ?',[Session::get('khoa_id')])->get();
        echo $listBo_mon;
@@ -96,33 +107,41 @@ class Nhan_vien_khoaController extends Controller
     // xử lý sự kiện nhân viên khoa up file excel khởi tạo tài khoản sinh viên
     public function uploadSV(){
       $destinationPath = 'uploads'; // upload path
-      $extension = Input::file('exSV')->getClientOriginalExtension(); // getting image extension
+      $extension = Input::file('exSV')->getClientOriginalExtension();
+
+      $fileName = rand(11111,99999).'.'.$extension; 
+      Input::file('exSV')->move($destinationPath, $fileName); 
+      Session::flash('success', 'Upload successfully'.$destinationPath.$fileName.$extension); 
       
-      $fileName = rand(11111,99999).'.'.$extension; // renameing image
-        Input::file('exSV')->move($destinationPath, $fileName); // uploading file to given path
-        // sending back with message
-        Session::flash('success', 'Upload successfully'.$destinationPath.$fileName.$extension); 
-        $sinhvienService = new SinhvienService();
-        $result =  $sinhvienService->handleFileExcel("uploads/". $fileName );
-        //return Redirect::to('upload');
-        // $sendMail = new SendEmailService();
-        // $password = substr(hash('sha512',rand()),0,6); 
-        // $sendMail->basic_email('hieunm.hk@gmail.com', $password);
-        return $result;
+      $sinhvienService = new SinhvienService();
+      $result =  $sinhvienService->handleFileExcel("uploads/". $fileName );  
+      return $result;
     }
 
+    /**
+     * Hàm lấy ra danh sách sinh viên trong khoa
+     */
     public function getListSV(){
         $sinhvienService = new SinhvienService();
         return $sinhvienService->getListJsonInfoSvByKhoaId(Session::get('khoa_id'));
     }
 
+
+    /**
+     * Hàm lấy ra list khóa học
+     */
     public function getListKhoahoc(){
         return json_encode(Khoa_hoc::all());
     }
 
+    /**
+     * Hàm lấy ra list Chương trình đào tạo
+     */
     public function getListCtdt(){
         return json_encode(Ctdt::all());
     }
+
+    //Hàm thêm mới 1 tài khoản sinh viên vào DB
     public function addSV($ma_sinh_vien , $ten_sinh_vien , $khoa_hoc , $ctdt){
       $sinhvienService = new SinhvienService();
       $result = $sinhvienService->addOneSV($ma_sinh_vien,$ten_sinh_vien,$khoa_hoc,$ctdt,Session::get('khoa_id'));
@@ -134,8 +153,8 @@ class Nhan_vien_khoaController extends Controller
       }
     }
 
+    // Hàm thêm 1 khóa học
     public function addKhoahoc($khoa_hoc1){
-     // var_dump($khoa_hoc1);
       try {
         $khoa_hoc = new Khoa_hoc();
         $khoa_hoc->mo_ta = $khoa_hoc1;
@@ -146,6 +165,7 @@ class Nhan_vien_khoaController extends Controller
       }
     }
 
+    //Hàm thêm mới 1 Chương trình đào tạo
     public function addCtdt($ctdt1){
       try {
         $ctdt = new Ctdt();
@@ -155,5 +175,33 @@ class Nhan_vien_khoaController extends Controller
       } catch (Exception $e) {
         return 'false';
       }
+    }
+
+    /**
+     * Hàm upload danh sách các sinh viên được đăng ký đề tài 
+     */
+    public function uploadKt(){
+      $destinationPath = 'uploads'; // upload path
+      $extension = Input::file('exKt')->getClientOriginalExtension();
+
+      $fileName = rand(11111,99999).'.'.$extension; 
+      Input::file('exKt')->move($destinationPath, $fileName); 
+      
+      $qldtService = new QldtService();
+      $result =  $qldtService->handleFileExcel("uploads/". $fileName );  
+      return $result;
+    }
+    /**
+     * Hàm chuyển trạng thái sinh viên sang được đăng ký
+     */
+    function addSVDDK($ma_sinh_vien){
+        try {
+            $sinh_vien = Sinh_vien::find($ma_sinh_vien);
+            $sinh_vien->dang_ky = 1;
+            $sinh_vien->save();
+            return "true";
+        } catch (\Exception $e) {
+          return "false";
+        }
     }
 }

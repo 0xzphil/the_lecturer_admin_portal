@@ -31,6 +31,7 @@ Route::get('/index', function(){
 });
 Route::post('/uploadGV', 'Nhan_vien_khoaController@uploadGV');
 Route::post('/uploadSV', 'Nhan_vien_khoaController@uploadSV');
+Route::post('/uploadKt','Nhan_vien_khoaController@uploadKt');
 Route::get('/getListGV','Nhan_vien_khoaController@getListGV');
 Route::get('/getListBomon','Nhan_vien_khoaController@getListBomon');
 Route::get('/getListSV','Nhan_vien_khoaController@getListSV');
@@ -42,6 +43,7 @@ Route::get('/addSV/{ma_sinh_vien}/{ten_sinh_vien}/{khoa_hoc}/{ctdt}','Nhan_vien_
 Route::get('/addHNC/{ten_huong_nghien_cuu}/{mo_ta}/{listlinhvuc}','Huong_Nghien_CuuController@addHNC');
 Route::get('addKhoahoc/{khoa_hoc}', "Nhan_vien_khoaController@addKhoahoc");
 Route::get('addCtdt/{ctdt}', "Nhan_vien_khoaController@addCtdt");
+Route::get('addSVDDK/{msv}','Nhan_vien_khoaController@addSVDDK');
 
 Route::get('/infoGV', 'Giang_VienController@getBasicInformation');
 Route::post('/editGV', 'Giang_VienController@editBasicInformation');

@@ -28,6 +28,11 @@ $(document).ready(function(){
 	    saveKhoahoc();
 	    saveCtdt();
 
+	    //gọi các hàm ở tree quản lý đăng ký đề tài
+	    openKhoitao();
+	    openSVDDK();
+	    addSVDDK();
+
 });
 
 //hàm tải về danh sách khóa học
@@ -72,4 +77,12 @@ function ajaxSetup(){
             headers:
             { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
         });
+}
+function validateMSV(msv){
+	if(msv.length != 8){
+		return false;
+	}
+	else{
+		return !isNaN(msv);
+	}
 }

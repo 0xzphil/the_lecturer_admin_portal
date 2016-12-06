@@ -21,7 +21,8 @@ class GiangVienService
 	}
 	public function handleFileExcel($pathFile){
 		$return = "";
-
+		$done = 0 ;
+		$fail = 0 ;
 		$result = Excel::load($pathFile,function($reader){})->get();
 
 		//$result = $result->toJson();
@@ -47,13 +48,16 @@ class GiangVienService
 				$email = new SendEmailService();
 				$email->basic_email("hieunm.hk@gmail.com",$password);
 
-				
+				$done++;
 			}
 			catch(\Exception $e){
 				//echo "exception: ".$i ;
+				$fail++;
 				continue;
+				
 			}
 		}
+		return '{"done":'.$done.',"fail":'.$fail.'}';
 	} 
 	public function addOneGV($ma_giang_vien, $ten_giang_vien , $email, $bo_mon_id){
 		try{

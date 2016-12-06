@@ -29,7 +29,6 @@
     25 => 'App\\Providers\\RouteServiceProvider',
     26 => 'Collective\\Html\\HtmlServiceProvider',
     27 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
-    28 => 'App\\Providers\\SismgrServiceProvider',
   ),
   'eager' => 
   array (
@@ -48,7 +47,6 @@
     12 => 'App\\Providers\\EventServiceProvider',
     13 => 'App\\Providers\\RouteServiceProvider',
     14 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
-    15 => 'App\\Providers\\SismgrServiceProvider',
   ),
   'deferred' => 
   array (
