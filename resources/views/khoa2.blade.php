@@ -49,11 +49,14 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
+          <ul class="treeview-menu" id="treeQldt">
              <li><a id="open-khoitao" href="#">Khởi tạo</a></li>
-             <li><a id="open-time-dk" href="#">Mở đợt đăng ký</a></li>
-             <li><a id="close-time-dk" href="#">Đóng đợt đăng ký</a></li>
             <li><a id="open-svddk" href="#">Sinh viên và đề tài</a></li>
+            @if ( Auth::user()->nhan_vien_khoa->khoa->dang_ky)            
+             <li><a id="close-time-dk" href="#" data-toggle="modal" data-target="#modal4">Đóng đợt đăng ký</a></li>
+             @else
+              <li><a id="open-time-dk" href="#">Mở đợt đăng ký</a></li>
+              @endif
           </ul>
         </li>
 
@@ -86,18 +89,15 @@
   </li>
 @endsection
 @section('main-content')
-
-	 
-
    <section class="content">
-      <h1 style="margin-top: 0px;" id="hhh" > Khoa {{$ten_khoa}} </h1>
+      <h1 style="margin-top: 0px;" id="h1khoa"> Khoa {{$ten_khoa}} </h1>
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>{{App\Giang_vien::all()->count()}}</h3>
+              <h3 id="h3slgv">{{App\Giang_vien::all()->count()}}</h3>
 
               <p>Giảng viên</p>
             </div>
@@ -112,7 +112,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>{{App\Sinh_vien::all()->count()}}</h3>
+              <h3 id="h3slsv">{{App\Sinh_vien::all()->count()}}</h3>
 
               <p>Sinh viên</p>
             </div>
@@ -127,7 +127,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>{{App\Bo_mon::whereRaw('khoa_id = ?',[Session::get('khoa_id')])->get()->count()}}</h3>
+              <h3 id="h3slbm">{{App\Bo_mon::whereRaw('khoa_id = ?',[Session::get('khoa_id')])->get()->count()}}</h3>
 
               <p>Bộ môn</p>
             </div>
@@ -142,7 +142,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>{{App\Phong_thi_nghiem::whereRaw('khoa_id = ?',[Session::get('khoa_id')])->get()->count()}}</h3>
+              <h3 id="h3slptn">{{App\Phong_thi_nghiem::whereRaw('khoa_id = ?',[Session::get('khoa_id')])->get()->count()}}</h3>
 
               <p>Phòng thí nghiêm</p>
             </div>
@@ -262,6 +262,33 @@
         <!-- /.modal -->
 </div>
 <!--Hết modal thêm mới sinh viên vào danh sách được đăng ký-->
+
+<!-- Modal đóng đăng ký  -->
+<div class="example-modal">
+        <div class="modal fade" id="modal4">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Thông báo</h4>
+              </div>
+              <div class="modal-body">
+                <h3>Khoa {{$ten_khoa}} sẽ đóng đợt đăng ký đề tài và xuất công văn + phụ lục.</h3>
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="btnclosetimedk">Đóng đăng ký</button>
+              </div>
+            </div>o
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal đóng đăng ký-->
 
 
 @section('nguoi-dang-nhap')

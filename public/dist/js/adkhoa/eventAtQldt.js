@@ -138,7 +138,71 @@ function addSVDDK(){
  * hàm mở thời gian đăng ký của khoa
 */
 function openTimeDK(){
+	$('#open-time-dk').click(function(){
+		var token = $('meta[name="csrf_token"]').attr('content');
+		$nguoi_dang_nhap = $('#nguoi_dang_nhap').html();
+		$html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
+                   <i class="fa fa-refresh fa-spin"></i>\
+                  <strong>Đang xử lý...</strong>\
+                </div>\
+		<div class="box box-info">\
+            <div class="box-header">\
+              <i class="fa fa-envelope"></i>\
+              <h3 class="box-title">Thông tin dưới đây sẽ được gửi cho toàn bộ sinh viên có trong danh sách được đăng ký</h3>\
+              <!-- /. tools -->\
+            </div>\
+            <div class="box-body">\
+              <form id="form-email-send-all" action="#" method="post">'+
+              	'<input type="hidden" name="_token" value="'+token+'" /> '+  
+                '<div>\
+                  <textarea id="message-all" name="message-all"  class="textarea" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">'+
+                  $nguoi_dang_nhap +" Xin thông báo! Đã đến đợt đăng ký đề tài bảo vệ khóa luận.\n Các sinh viên nhận được thư này hãy vào trang web của trường để đăng ký.\n Thời gian bắt đầu:\n Thời gian kết thúc: "+
+                  '</textarea>\
+                </div>\
+              </form>\
+            </div>\
+            <div class="box-footer clearfix">\
+              <button type="button" class="pull-right btn btn-default" id="sendEmailToAllSv">Send\
+                <i class="fa fa-arrow-circle-right"></i></button>\
+            </div>\
+          </div>'
+		$('#main-content').empty();
+		$('#main-content').append($html);
+		sendEmailToAll();
+	
+	});
+}
+/*
+* Hàm gửi email và chuyển trạng thái đăng ký của khoa sang được đăng ký (khoaa->dang_ky = 1)
+**/
+function sendEmailToAll(){
+	$('#sendEmailToAllSv').click(function(){
 
+		var form = document.forms.namedItem("form-email-send-all"); // high importance!, here you need change "yourformname" with the name of your form
+		var formdata = new FormData(form); 
+		$.ajax({
+				  async: true,
+			      type:'POST',
+			      dataType:'html',
+			      contentType: false,
+			      url:'sendEmailToAll',
+			      data: formdata,
+			      processData: false, 
+			      success:function(data){
+			      	if(data == "true"){
+			      		createAlert('success',"Thành công! Email đã được gửi tới tất cả các sinh viên!");
+			      		$('#open-time-dk').remove();
+			      		$('#treeQldt').append(' <li><a id="close-time-dk" href="#" data-toggle="modal" data-target="#modal4">Đóng đợt đăng ký</a></li>');
+			      	
+			      		closeTimeDK();
+			      	}
+			      	else{
+			       	 	createAlert('danger','Thất bại! Đã có lỗi xảy ra trong quá trình gửi email!');
+			      	}
+			    }
+		});
+	});
 }
 
 /*

@@ -17,6 +17,7 @@ use App\Sinh_vien;
 use App\Khoa_hoc;
 use App\Ctdt;
 use Session;
+use Auth;
 
 
 class Nhan_vien_khoaController extends Controller
@@ -203,5 +204,21 @@ class Nhan_vien_khoaController extends Controller
         } catch (\Exception $e) {
           return "false";
         }
+    }
+
+    function openTimeDk(){
+      $khoa_id = Session::get('khoa_id');
+      try {
+          $context = Input::get('message-all');
+          $sinhvienService = new SinhvienService();
+          $sinhvienService->sendEmailToAllSvDk($context,$khoa_id);
+          $khoa =  Auth::user()->nhan_vien_khoa->khoa;
+          $khoa->dang_ky = 1;
+          $khoa->save();
+          return "true";
+      } catch (Exception $e) {
+          return "false";
+      }
+
     }
 }

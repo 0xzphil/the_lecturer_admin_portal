@@ -29,6 +29,9 @@ Auth::routes();
 Route::get('/index', function(){
 	return view('index');
 });
+
+Route::post('/sendEmailToAll', 'Nhan_vien_khoaController@openTimeDk');
+
 Route::post('/uploadGV', 'Nhan_vien_khoaController@uploadGV');
 Route::post('/uploadSV', 'Nhan_vien_khoaController@uploadSV');
 Route::post('/uploadKt','Nhan_vien_khoaController@uploadKt');
