@@ -51,8 +51,8 @@
           </a>
           <ul class="treeview-menu">
              <li><a id="open-khoitao" href="#">Khởi tạo</a></li>
-             <li><a id="#" href="#">Mở đợt đăng ký</a></li>
-             <li><a id="#" href="#">Đóng đợt đăng ký</a></li>
+             <li><a id="open-time-dk" href="#">Mở đợt đăng ký</a></li>
+             <li><a id="close-time-dk" href="#">Đóng đợt đăng ký</a></li>
             <li><a id="open-svddk" href="#">Sinh viên và đề tài</a></li>
           </ul>
         </li>

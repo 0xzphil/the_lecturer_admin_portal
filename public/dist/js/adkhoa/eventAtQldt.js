@@ -133,3 +133,17 @@ function addSVDDK(){
 		}
 	});
 }
+
+/*
+ * hàm mở thời gian đăng ký của khoa
+*/
+function openTimeDK(){
+
+}
+
+/*
+* hàm đóng thời gian đăng ký của khoa
+*/
+function closeTimeDK(){
+
+}
