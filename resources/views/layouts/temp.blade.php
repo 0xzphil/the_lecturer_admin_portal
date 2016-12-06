@@ -191,7 +191,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">@yield('nguoi-dang-nhap')</span>
+              <span class="hidden-xs" id="nguoi_dang_nhap">@yield('nguoi-dang-nhap')</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -503,7 +503,7 @@
 
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="plugins/morris/morris.min.js"></script>
+<!-- <script src="plugins/morris/morris.min.js"></script> -->
 <!-- Sparkline -->
 <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -528,7 +528,7 @@
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
- <script src="dist/js/pages/dashboard.js"></script>
+ <!-- <script src="dist/js/pages/dashboard.js"></script> -->
  <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 </body>

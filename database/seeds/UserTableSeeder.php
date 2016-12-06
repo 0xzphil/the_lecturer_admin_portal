@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
-        // 
+        // 2
         User::insert([
         	'name'   => 'Hieu',
             'password'   => Hash::make('hieuhieu'),

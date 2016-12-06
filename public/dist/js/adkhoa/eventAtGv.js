@@ -4,11 +4,16 @@ function eventOpenUploadGv(){
 	//console.log($_token);
 	$('#open-upload-gv').click(function(){
 		$("#main-content").empty();
-		$text = '<br><div class=""><div class="col-lg-12 col-md-12 col-sm-12"> <div class="box box-primary">\
+		$text = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
+                   <i class="fa fa-refresh fa-spin"></i>\
+                  <strong>Đang xử lý...</strong>\
+                </div>\
+		<br><div class=""><div class="col-lg-12 col-md-12 col-sm-12"> <div class="box box-primary">\
             <div class="box-header with-border">\
-              <h3 class="box-title">Khởi tạo tài khoản giảng viên bằng file excel.</h3>\
+              <h3 class="box-title col-lg-10">Khởi tạo tài khoản giảng viên bằng file excel.</h3>\
             </div>\
-			      <form class="form-horizontal" id="form-upload-GV" action="/uploadGV" method="post" enctype="multipart/form-data">\
+			      <form class="form-horizontal" name="form-upload-GV" action="#" enctype="multipart/form-data">\
 			         <div class="box-body">\
 			            <input id="file-upload-GV"  type="file" name="image" id="image" />\
 			            <br>\
@@ -28,7 +33,24 @@ function eventClickBtnUploadGV(){
 			alert("Bạn chưa chọn bất kỳ file nào!!!");
 		}
 		else if($extention == 'xlsx' || $extention == 'xls'){
-			$('#form-upload-GV').submit();
+			var form = document.forms.namedItem("form-upload-GV"); // high importance!, here you need change "yourformname" with the name of your form
+			var formdata = new FormData(form); 
+			$.ajax({
+				  async: true,
+			      type:'POST',
+			      dataType:'html',
+			      contentType: false,
+			      url:'uploadGV',
+			      data: formdata,
+			      processData: false, 
+			      success:function(data){
+			      	 //console.log(data);
+			       	 $result = JSON.parse(data);
+
+			       	 //console.log($result.done);
+			       	 createAlert('success', 'Thông báo! Đã thêm thành công:'+$result.done+', thất bại:'+$result.fail);
+			      }
+			});
 		}
 		else{
 			alert("Xin lỗi, định dạng file không đúng, làm ơn hãy chọn 1 file .xls hoặc .xlsx");
@@ -39,7 +61,112 @@ function eventClickBtnUploadGV(){
 function eventOpenAddGV(){
 	$('#open-add-gv').click(function(){
 		//console.log(bomon.length);
-		$("#main-content").empty();
+		appendFormGV();
+	});
+}
+//hàm lấy list giáo viên vào show ra 
+function eventGetListGV(){
+	$('#open-ds-gv').click(function(){
+		$.get('getListGV',function(data, status){
+			if(status == 'success'){
+				 $object = JSON.parse(data);
+				 //console.log($object);
+				 $html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
+                   <i class="fa fa-refresh fa-spin"></i>\
+                  <strong>Đang xử lý...</strong>\
+                </div>\
+				  <section class="content"><div class="row">\
+        					<div class="col-xs-12">\
+        					<div class="box box-primary">\
+            <div class="box-header with-border">\
+              <h2 class="box-title col-lg-10">Danh sách giảng viên trong khoa</h2>\
+              <button id="btn-addGV" class="col-lg-2 btn btn-primary">Thêm giảng viên</button>\
+            </div>\
+            <div class="box-body">\
+              <table id="example1" class="table table-bordered table-striped table-hover">\
+                <thead>\
+                <tr>\
+                  <th>Mã giảng viên</th>\
+                  <th>Tên giảng viên</th>\
+                  <th>Thư điện tử</th>\
+                  <th>Tên bộ môn</th>\
+                </tr>\
+                </thead>\
+                <tbody>';
+				for($i = 0 ; $i < $object.length ; $i++){
+					$html += ' <tr class="row-gv">\
+					        <td>'+$object[$i].ma_giang_vien+'</td>\
+					        <td>'+$object[$i].name+'</td>\
+					        <td>'+$object[$i].email+'</td>\
+					        <td>'+$object[$i].ten_bo_mon+'</td>\
+					      </tr>';
+				}
+				$html += "</tbody></table></div></div></section>";
+				$("#main-content").empty();
+				$("#main-content").append($html);
+				$("#example1").DataTable();
+				$('#btn-addGV').click(function(){
+					appendFormGV();
+				});
+				rowGvClick();
+			}
+		});
+	});
+}
+
+//hàm lấy tất cả bộ môn của 1 khoa về
+function getListBomon(){
+	 $.get('getListBomon',function(data, status){
+		if(status == 'success'){
+			//handledate(data);
+			bomon = JSON.parse(data);
+		}
+	});
+}
+function handledate(data){
+	bomon = JSON.parse(data);
+	//console.log(bomon);
+}
+
+//Hàm xử lý sự kiện khi bấm lưu giáo viên
+function luuGV(){
+	$('#luuGV').click(function(){
+		$ma_giang_vien = $('#ip_ma_giang_vien').val();
+		$ten_giang_vien = $('#ip_ten_giang_vien').val();
+		$email = $('#ip_email_gv').val();
+		$bomon = $('#ip_bomon').val();
+		if($ma_giang_vien == ""){
+			$('#ip_ma_giang_vien').focus();
+		}
+		else if($ten_giang_vien == ""){
+			$('#ip_ten_giang_vien').focus();
+		}
+		else if(!validateEmail($email)){
+			$email = $('#ip_email_gv').focus();
+		}
+		else{
+
+			$.get('addGV/'+$ma_giang_vien+"/"+
+				$ten_giang_vien+"/"+$email+"/"+$bomon,function(data, status){
+				if(status == 'success'){
+					console.log(data);
+					if(data == 'true'){
+						createAlert('success','Thành công! Đã thêm 1 giảng viên vào database.');
+					}
+					else{
+						createAlert('danger', 'Thất bại! Kiểm tra lại thông tin đã nhập.')
+					}
+				}
+			});
+
+		}
+
+	});
+}
+
+function appendFormGV(){
+	$("#main-content").empty();
 		$html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
                   <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
                    <i class="fa fa-refresh fa-spin"></i>\
@@ -89,115 +216,13 @@ function eventOpenAddGV(){
              </div> </form></div></div>';
         $("#main-content").append($html);
         luuGV();
-	});
-}
-//hàm lấy list giáo viên vào show ra 
-function eventGetListGV(){
-	$('#open-ds-gv').click(function(){
-		$.get('getListGV',function(data, status){
-			if(status == 'success'){
-				 $object = JSON.parse(data);
-				 //console.log($object);
-				 $html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
-                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
-                   <i class="fa fa-refresh fa-spin"></i>\
-                  <strong>Đang xử lý...</strong>\
-                </div>\
-				  <section class="content"><div class="row">\
-        					<div class="col-xs-12">\
-        					<div class="box">\
-            <div class="box-header">\
-              <h2 class="box-title">Danh sách giảng viên trong khoa</h2>\
-            </div>\
-            <div class="box-body">\
-              <table id="example1" class="table table-bordered table-striped table-hover">\
-                <thead>\
-                <tr>\
-                  <th>Mã giảng viên</th>\
-                  <th>Tên giảng viên</th>\
-                  <th>Thư điện tử</th>\
-                  <th>Tên bộ môn</th>\
-                </tr>\
-                </thead>\
-                <tbody>';
-				for($i = 0 ; $i < $object.length ; $i++){
-					$html += ' <tr>\
-					        <td>'+$object[$i].ma_giang_vien+'</td>\
-					        <td>'+$object[$i].name+'</td>\
-					        <td>'+$object[$i].email+'</td>\
-					        <td>'+$object[$i].ten_bo_mon+'</td>\
-					      </tr>';
-				}
-				$html += "</tbody></table></div></div></section>";
-				$("#main-content").empty();
-				$("#main-content").append($html);
-				$("#example1").DataTable();
-			}
-		});
-	});
 }
 
-//hàm lấy tất cả bộ môn của 1 khoa về
-function getListBomon(){
-	 $.get('getListBomon',function(data, status){
-		if(status == 'success'){
-			//handledate(data);
-			bomon = JSON.parse(data);
-		}
-	});
-}
-function handledate(data){
-	bomon = JSON.parse(data);
-	//console.log(bomon);
-}
-
-//Hàm xử lý sự kiện khi bấm lưu giáo viên
-function luuGV(){
-	$('#luuGV').click(function(){
-		$ma_giang_vien = $('#ip_ma_giang_vien').val();
-		$ten_giang_vien = $('#ip_ten_giang_vien').val();
-		$email = $('#ip_email_gv').val();
-		$bomon = $('#ip_bomon').val();
-		if($ma_giang_vien == ""){
-			$('#ip_ma_giang_vien').focus();
-		}
-		else if($ten_giang_vien == ""){
-			$('#ip_ten_giang_vien').focus();
-		}
-		else if(!validateEmail($email)){
-			$email = $('#ip_email_gv').focus();
-		}
-		else{
-
-			$.get('addGV/'+$ma_giang_vien+"/"+
-				$ten_giang_vien+"/"+$email+"/"+$bomon,function(data, status){
-				if(status == 'success'){
-					console.log(data);
-					if(data == 'true'){
-
-						$html = '<div id="alertok" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">\
-								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
-								  <strong>Thành công!</strong> Đã thêm 1 giảng viên vào CSDL\
-								</div>\
-								';
-						$('#alertok').remove();
-						$('#main-content').append($html);
-						$('#alertok').delay(5000).fadeOut('fast');
-					}
-					else{
-						$html = '<div id="alertfail" class="alert alert-danger" style="position:fixed;bottom:10px;right:10px;">\
-								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
-								  <strong>Thất bại!</strong> Đã có lỗi xảy ra,vui lòng kiểm tra lại thông tin\
-								</div>\
-								';
-						$('#alertfail').remove();
-						$('#main-content').append($html);
-						$('#alertfail').delay(5000).fadeOut('fast');
-					}
-				}
-			});
-
-		}
-
+//xử lý sự kiện khi click vào 1 dòng giảng viên
+function rowGvClick(){
+	$('.row-gv').click(function(){
+		$('#main-content').empty();
+		$text = $(this).children(":first").html();
+		$('#main-content').append($text);
 	});
 }

@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Excel;
 use Session;
-use Sismgr;
+use Sismgr  ;
 use App\Nhan_vien_khoa;
 use App\Khoa;
+
 
 class UserController extends Controller
 {

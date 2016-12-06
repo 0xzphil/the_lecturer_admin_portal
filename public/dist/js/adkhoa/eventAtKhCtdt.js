@@ -12,7 +12,7 @@ function openKhoahoc(){
         					<div class="box">\
             <div class="box-header">\
               <h2 class="box-title col-sm-10">Danh sách khóa học</h2>\
-              <button class="btn btn-primary col-sm-2">Thêm khóa học</button>\
+              <button class="btn btn-primary col-sm-2" data-toggle="modal" data-target="#modal1">Thêm khóa học</button>\
             </div>\
             <div class="box-body">\
               <table id="example1" class="table table-bordered table-striped table-hover">\
@@ -49,7 +49,7 @@ function openCtdt(){
         					<div class="box">\
             <div class="box-header">\
               <h2 class="box-title col-sm-10">Danh sách khóa học</h2>\
-              <button class="btn btn-primary col-sm-2">Thêm chương trình đào tạo</button>\
+              <button class="btn btn-primary col-sm-2" data-toggle="modal" data-target="#modal2">Thêm chương trình đào tạo</button>\
             </div>\
             <div class="box-body">\
               <table id="example3" class="table table-bordered table-striped table-hover">\
@@ -70,4 +70,54 @@ function openCtdt(){
 				$("#main-content").append($html);
 				$("#example3").DataTable();
 	});
+}
+
+// xử lý sự kiện khi bấm lưu 1 khóa học
+function saveKhoahoc(){
+  $('#saveKhoahoc').click(function(){
+      $khoa_hoc = $('#ip_tenkhoahoc').val();
+      if($khoa_hoc == ""){
+        $('#ip_tenkhoahoc').focus();
+      }
+      else{
+        $('#modal1').modal('toggle');
+        $.get('addKhoahoc/'+$khoa_hoc,function(data, status){
+          if(status == 'success'){
+            //alert(data);
+            
+            if(data == "true"){
+              createAlert('success',"Thành công! Đã thêm 1 khóa học vào database.");
+            }
+            else{
+              createAlert('danger',"Thất bại! Vui lòng kiểm tra lại thông tin.");
+            }
+          }
+        });
+      }
+  });
+}
+
+// xử lý sự kiện khi bấm lưu 1 chương trình đào tạo
+
+function saveCtdt(){
+  $('#saveCtdt').click(function(){
+    $ctdt = $('#ip_tenctdt').val();
+    if($ctdt ==""){
+      $('#ip_tenctdt').focus();
+    }
+    else{
+      $('#modal2').modal('toggle');
+      $.get('addCtdt/'+$ctdt,function(data,status){
+        if(status == 'success'){
+           if(data == "true"){
+              createAlert('success',"Thành công! Đã thêm 1 CTDT vào database.");
+            }
+            else{
+              createAlert('danger',"Thất bại! Vui lòng kiểm tra lại thông tin.");
+            }
+        }
+      });
+    }
+  });
+
 }

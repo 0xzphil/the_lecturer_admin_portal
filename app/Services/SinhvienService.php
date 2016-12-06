@@ -102,7 +102,9 @@ class SinhvienService
 		}
 		
 	}
-
+	/*
+	* hàm lấy thong tin sinh viên ra theo đối tượng SinhvienInfo trong thư mục helper
+	*/
 	public function getListJsonInfoSvByKhoaId($khoa_id){
 		$result = array();
 		$listSv = Sinh_vien::whereRaw('khoa_id = ?',[$khoa_id])->get();
@@ -118,6 +120,16 @@ class SinhvienService
 			array_push($result, $sinhvienInfo);
 		}
 		return json_encode($result);
+	}
+
+	public function sendEmailToAllSvDk($context,$khoa_id){
+		$listSv = Sinh_vien::whereRaw('khoa_id = ? and dang_ky=1',[$khoa_id])->get();
+		for($i = 0 ; $i < $listSv->count() ; $i++){
+			$email = new SendEmailService();
+
+			$email->notify_mail("fizz.uet@gmail.com",$context);
+		}
+
 	}
 }
 

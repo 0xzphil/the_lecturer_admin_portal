@@ -45,18 +45,11 @@ function eventClickBtnUploadSV(){
 			      data: formdata,
 			      processData: false, 
 			      success:function(data){
-			      	 console.log(data);
+			      	 //console.log(data);
 			       	 $result = JSON.parse(data);
 
-			       	 console.log($result.done);
-			       	 $html = '<div id="alertok" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">\
-								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
-								  <strong>Thông báo!</strong> Đã thêm thành công:'+$result.done+', thất bại:'+$result.fail+' \
-								</div>\
-								';
-						$('#alertok').remove();
-						$('#main-content').append($html);
-						$('#alertok').delay(5000).fadeOut('fast');
+			       	 //console.log($result.done);
+			       	 createAlert('success', 'Thông báo! Đã thêm thành công:'+$result.done+', thất bại:'+$result.fail);
 			      }
 			});
 		}
@@ -70,7 +63,104 @@ function eventClickBtnUploadSV(){
 function eventOpenAddSV(){
 	$('#open-add-sv').click(function(){
 		//console.log(bomon.length);
-		$("#main-content").empty();
+		appendFormSV();
+	});
+}
+
+//Hàm xử lý lưu sinh viên ở chế độ thêm thủ công sinh viên 
+function saveSV(){
+	$('#luuSV').click(function(){
+		$ma_sinh_vien = $('#ip_ma_sinh_vien').val();
+		$ten_sinh_vien = $('#ip_ten_sinh_vien').val();
+		$khoa_hoc = $('#ip_khoahoc').val();
+		$ctdt = $('#ip_ctdt').val();
+		if($ma_sinh_vien == '' || $ma_sinh_vien.length != 8){
+			$('#ip_ma_sinh_vien').focus();
+			$('.help-block').css('display','block');
+		}
+
+		else if($ten_sinh_vien == ''){
+			$('#ip_ten_sinh_vien').focus();
+		}
+		else{
+			$.get('addSV/'+$ma_sinh_vien+"/"+$ten_sinh_vien+"/"+$khoa_hoc+"/"+$ctdt,
+				function(data , status){
+					if(status == "success"){
+						if(data == "true"){
+							createAlert('success', 'Thành công! Đã thêm 1 sinh viên vào database.');
+						}
+						else{
+							createAlert('danger', 'Thất bại! Kiểm tra lại thông tin đã nhập.');
+						}
+					}
+				});
+		}
+	});
+}
+
+function getListSV(){
+	$('#open-ds-sv').click(function(){
+		$.get('getListSV',function(data, status){
+			if(status == 'success'){
+				$object = JSON.parse(data);
+				 //console.log($object[0]);
+				 $html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
+                   <i class="fa fa-refresh fa-spin"></i>\
+                  <strong>Đang xử lý...</strong>\
+                </div>\
+				 <section class="content"><div class="row">\
+        					<div class="col-xs-12">\
+        					<div class="box">\
+            <div class="box-header">\
+              <h2 class="box-title col-md-10">Danh sách sinh viên trong khoa</h2>\
+              <button class = "col-md-2 btn btn-primary" id="btn-addSV">Thêm sinh viên</button>\
+            </div>\
+            <div class="box-body">\
+              <table id="example1" class="table table-bordered table-striped table-hover">\
+                <thead>\
+                <tr>\
+                  <th>Mã sinh viên</th>\
+                  <th>Tên sinh viên</th>\
+                  <th>Thư điện tử</th>\
+                  <th>Khóa học</th>\
+                  <th>Chương trình đào tạo</th>\
+                  <th>Trạng thái</th>\
+                </tr>\
+                </thead>\
+                <tbody>';
+				for($i = 0 ; $i < $object.length ; $i++){
+					var tt;
+					if($object[$i].dang_ky == 1){
+						tt = "Được đăng ký";
+					}
+					else{
+						tt = "Chưa được đăng ký";
+					}
+					$html += ' <tr>\
+					        <td>'+$object[$i].ma_sinh_vien +'</td>\
+					        <td>'+$object[$i].ten_sinh_vien+'</td>\
+					        <td>'+$object[$i].ma_sinh_vien+"@vnu.edu.vn"+'</td>\
+					        <td>'+$object[$i].khoa_hoc+'</td>\
+					        <td>'+$object[$i].ctdt+'</td>\
+					        <td>'+tt+'</td>\
+					      </tr>';
+				}
+				$html += "</tbody></table></div></div></section>";
+				$("#main-content").empty();
+				$("#main-content").append($html);
+				$("#example1").DataTable();
+				$('#btn-addSV').click(function(){
+					appendFormSV();
+				});
+			}
+		});
+	});
+}
+
+//
+function appendFormSV(){
+	$("#main-content").empty();
 		$html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
                   <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
                    <i class="fa fa-refresh fa-spin"></i>\
@@ -126,106 +216,4 @@ function eventOpenAddSV(){
              </div> </form></div></div>';
         $("#main-content").append($html);
         saveSV();
-	});
-}
-
-//Hàm xử lý lưu sinh viên ở chế độ thêm thủ công sinh viên 
-function saveSV(){
-	$('#luuSV').click(function(){
-		$ma_sinh_vien = $('#ip_ma_sinh_vien').val();
-		$ten_sinh_vien = $('#ip_ten_sinh_vien').val();
-		$khoa_hoc = $('#ip_khoahoc').val();
-		$ctdt = $('#ip_ctdt').val();
-		if($ma_sinh_vien == '' || $ma_sinh_vien.length != 8){
-			$('#ip_ma_sinh_vien').focus();
-			$('.help-block').css('display','block');
-		}
-
-		else if($ten_sinh_vien == ''){
-			$('#ip_ten_sinh_vien').focus();
-		}
-		else{
-			$.get('addSV/'+$ma_sinh_vien+"/"+$ten_sinh_vien+"/"+$khoa_hoc+"/"+$ctdt,
-				function(data , status){
-					if(status == "success"){
-						if(data == "true"){
-							$html = '<div id="alertok" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">\
-								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
-								  <strong>Thành công!</strong> Đã thêm 1 sinh viên vào CSDL\
-								</div>\
-								';
-							$('#alertok').remove();
-							$('#main-content').append($html);
-							$('#alertok').delay(5000).fadeOut('fast');
-						}
-						else{
-							$html = '<div id="alertfail" class="alert alert-danger" style="position:fixed;bottom:10px;right:10px;">\
-								  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>\
-								  <strong>Thất bại!</strong> Đã có lỗi xảy ra,vui lòng kiểm tra lại thông tin\
-								</div>\
-								';
-							$('#alertfail').remove();
-							$('#main-content').append($html);
-							$('#alertfail').delay(5000).fadeOut('fast');
-						}
-					}
-				});
-		}
-	});
-}
-
-function getListSV(){
-	$('#open-ds-sv').click(function(){
-		$.get('getListSV',function(data, status){
-			if(status == 'success'){
-				$object = JSON.parse(data);
-				 //console.log($object);
-				 $html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
-                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
-                   <i class="fa fa-refresh fa-spin"></i>\
-                  <strong>Đang xử lý...</strong>\
-                </div>\
-				 <section class="content"><div class="row">\
-        					<div class="col-xs-12">\
-        					<div class="box">\
-            <div class="box-header">\
-              <h2 class="box-title">Danh sách sinh viên trong khoa</h2>\
-            </div>\
-            <div class="box-body">\
-              <table id="example1" class="table table-bordered table-striped table-hover">\
-                <thead>\
-                <tr>\
-                  <th>Mã sinh viên</th>\
-                  <th>Tên sinh viên viên</th>\
-                  <th>Thư điện tử</th>\
-                  <th>Khóa học</th>\
-                  <th>Chương trình đào tạo</th>\
-                  <th>Trạng thái</th>\
-                </tr>\
-                </thead>\
-                <tbody>';
-				for($i = 0 ; $i < $object.length ; $i++){
-					var tt;
-					if($object[$i].dang_ky == 1){
-						tt = "Được đăng ký";
-					}
-					else{
-						tt = "Chưa được đăng ký";
-					}
-					$html += ' <tr>\
-					        <td>'+$object[$i].ma_sinh_vien +'</td>\
-					        <td>'+$object[$i].ten_sinh_vien+'</td>\
-					        <td>'+$object[$i].ma_sinh_vien+"@vnu.edu.vn"+'</td>\
-					        <td>'+$object[$i].khoa_hoc+'</td>\
-					        <td>'+$object[$i].ctdt+'</td>\
-					        <td>'+tt+'</td>\
-					      </tr>';
-				}
-				$html += "</tbody></table></div></div></section>";
-				$("#main-content").empty();
-				$("#main-content").append($html);
-				$("#example1").DataTable();
-			}
-		});
-	});
 }
