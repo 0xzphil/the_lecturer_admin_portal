@@ -24,8 +24,8 @@ class De_TaiRequest extends FormRequest
     public function rules()
     {
         return [
-        	'gvid'       => 'required|integer',
-        	'ten_de_tai' => 'required|string|min:3|max:999'
+        	'ten_de_tai'    => 'required|string|min:3|max:999',
+        	'ma_giang_vien' => 'required|string|min:1|max:999',
             //
         ];
     }

@@ -55,4 +55,4 @@ Route::get('/listLvcb','BaseController@listLvcb');
 Route::get('/listGvLv','BaseController@listGvLv');
 
 Route::post('/guiDeTai', 'De_TaiController@guiDeTai');
-
+Route::get('/layDeTai', 'De_TaiController@layDeTai');

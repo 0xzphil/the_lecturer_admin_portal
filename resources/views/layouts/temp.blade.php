@@ -596,8 +596,8 @@
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<!-- <script src="dist/js/pages/dashboard.js"></script>
- --><!-- AdminLTE for demo purposes -->
+ <script src="dist/js/pages/dashboard.js"></script>
+ <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
