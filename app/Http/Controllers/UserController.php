@@ -54,7 +54,7 @@ class UserController extends Controller
             }
             else if(Auth::user()->role == 'sinh_vien'){
                 $sinh_vien = Auth::user()->sinh_vien->user_id;
-                $linh_vuc_cbs = Sismgr::listLvcb();
+                $linh_vuc_cbs = Sismgr::listLv();
                 $bo_mons = Sismgr::listBomon();
                 return view('sinh_vien.profile', compact('bo_mons', 'linh_vuc_cbs'));
             } else {

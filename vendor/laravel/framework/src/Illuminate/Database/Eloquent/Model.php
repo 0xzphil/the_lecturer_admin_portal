@@ -109,7 +109,9 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
      *
      * @var array
      */
-    protected $hidden = [];
+    protected $hidden = [
+        'password', 'remember_token', 
+    ];
 
     /**
      * The attributes that should be visible in arrays.

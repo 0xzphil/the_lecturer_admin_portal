@@ -54,8 +54,10 @@ Route::post('/repassGV', 'Giang_VienController@repass');
 
 
 Route::get('/listBomon','BaseController@listBomon');
+Route::get('/listLinhvuc','BaseController@listLinhvuc');
 Route::get('/listLvcb','BaseController@listLvcb');
-Route::get('/listGvLv','BaseController@listGvLv');
+Route::get('/listGvLv/{id}','BaseController@listGvLv');
+Route::get('/listGvbm/{id}','BaseController@listGvbm');
 
 Route::post('/guiDeTai', 'De_TaiController@guiDeTai');
 Route::get('/layDeTai', 'De_TaiController@layDeTai');
