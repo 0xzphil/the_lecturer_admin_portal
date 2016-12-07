@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Map;
 
 class MapTableSeeder extends Seeder
 {
@@ -12,5 +13,17 @@ class MapTableSeeder extends Seeder
     public function run()
     {
         //
+        Map::insert([
+            'linh_vuc_id' => 1,
+            'huong_nghien_cuu_id' => 1
+        ]);
+        Map::insert([
+            'linh_vuc_id' => 2,
+            'huong_nghien_cuu_id' => 1
+        ]);
+        Map::insert([
+            'linh_vuc_id' => 3,
+            'huong_nghien_cuu_id' => 1
+        ]);
     }
 }

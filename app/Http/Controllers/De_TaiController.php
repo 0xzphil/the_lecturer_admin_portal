@@ -28,9 +28,10 @@ class De_TaiController extends Controller
 	{
 		# code...
 		# 
-		$kiemTra = $this->kiemTraDeTai();
-    	$this->ma_sinh_vien = Auth::user()->sinh_vien->ma_sinh_vien;
-		return response()->json(['sv' => De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first(), 'check' => $kiemTra]);
+		
+    	$msv = Auth::user()->sinh_vien->ma_sinh_vien;
+		$kiemTra = $this->kiemTraDeTai($msv);
+		return response()->json(['sv' => De_tai::where('ma_sinh_vien', $msv)->first(), 'check' => $kiemTra]);
 	}
     /**
      * [guiDeTai description]
@@ -41,20 +42,20 @@ class De_TaiController extends Controller
     public function guiDeTai(De_TaiRequest $request)
     {
 
-    	$this->ma_sinh_vien = Auth::user()->sinh_vien->ma_sinh_vien;
-    	$kiemTra = $this->kiemTraDeTai();
-    	if($kiemTra == 1 || $kiemTra == 2 || $kiemTra == 6){
+    	$msv = Auth::user()->sinh_vien->ma_sinh_vien;
+    	$kiemTra = $this->kiemTraDeTai($msv);
+    	if($kiemTra == 1 || $kiemTra == 2 ){
     		return response()->json(['message' => 'fail', 'err'=> 'Gửi đề tài thất bại', 'numberCheck' => $kiemTra]);
     	} else 
     	if($kiemTra == 3 || $kiemTra == 4 || $kiemTra == 5 ){
-    		$this->destroyAndStore($request);
+    		$this->destroyAndStore($request, $msv);
     		return response()->json(['message' => 'refresh', 'err'=> 'Gửi lại đề tài thành công', 'numberCheck' => $kiemTra]);
     	} else
     	if($kiemTra == 7){
-    		$this->store($request);
+    		$this->store($request, $msv);
     		return response()->json(['message' => 'success', 'err'=> 'Gửi đề tài thành công', 'numberCheck' => $kiemTra]);
     	}
-    	return De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first();
+    	return De_tai::where('ma_sinh_vien', $msv)->first();
     }
 
     /**
@@ -62,7 +63,7 @@ class De_TaiController extends Controller
      * @param  [type] $request [description]
      * @return [type]          [description]
      */
-    public function kiemTraDeTai()
+    public function kiemTraDeTai($msv)
     {
     	# khoa chưa mở đăng ký
     	if(Khoa::where('id', Session::get('khoa_id'))->first()->dang_ky == 0){
@@ -74,29 +75,29 @@ class De_TaiController extends Controller
     	}
     	// 3 trạng thái giảng viên: tiếp nhận, từ chối và chưa phản hồi
     	# đã có đề tài và giảng viên từ chối tiếp nhận sinh viên này
-    	if(De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first() != NULL
-    		&& De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first()->trang_thai_gv == 'tu_choi'){
+    	if(De_tai::where('ma_sinh_vien', $msv)->first() != NULL
+    		&& De_tai::where('ma_sinh_vien', $msv)->first()->trang_thai_gv == 'tu_choi'){
 	    	return 3;
 	    }
 	    
 	    # đã có đề tài và giảng viên chưa phản hồi
-    	if(De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first() != NULL
-    		&& De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first()->trang_thai_gv == 'chua_xac_nhan'){
+    	if(De_tai::where('ma_sinh_vien', $msv)->first() != NULL
+    		&& De_tai::where('ma_sinh_vien', $msv)->first()->trang_thai_gv == 'chua_xac_nhan'){
 	    	return 4;
 	    }
 	    # đã có đề tài và giảng viên đồng ý tiếp nhận sinh viên này và đề tài bị trùng
-    	if(De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first() != NULL
-    		&& De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first()->trang_thai_gv == 'dong_y'
-    		&& De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first()->trung == 1){
+    	if(De_tai::where('ma_sinh_vien', $msv)->first() != NULL
+    		&& De_tai::where('ma_sinh_vien', $msv)->first()->trang_thai_gv == 'dong_y'
+    		&& De_tai::where('ma_sinh_vien', $msv)->first()->trung == 1){
 	    	return 5;
 	    }
 	    # đã có đề tài và giảng viên đồng ý tiếp nhận sinh viên này và đề tài không trùng, sinh viên yêu cầu sửa đổi, và nhà trường chấp thuận
-    	if(De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first() != NULL
+    	/*if(De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first() != NULL
     		&& De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first()->trang_thai_gv == 'dong_y'
     		&& De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first()->trung == 0
     		&& De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first()->duoc_phep_sua_doi == 0){
 	    	return 6;
-	    }
+	    }*/
 	    # chưa có đề tài nào
 	    return 7;
     }
@@ -106,7 +107,7 @@ class De_TaiController extends Controller
      * @param  [type] $request [description]
      * @return [type]          [description]
      */
-    public function store($request)
+    public function store($request, $msv)
     {
     	# code...
     	$deTai = new De_tai();
@@ -133,20 +134,20 @@ class De_TaiController extends Controller
      * @param  [type] $request [description]
      * @return [type]          [description]
      */
-    public function destroyAndStore($request)
+    public function destroyAndStore($request, $msv)
     {
     	# code...
-    	$this->deleteRow();
-    	$this->store($request);
+    	$this->deleteRow($msv);
+    	$this->store($request, $msv);
     }
 
     /**
      * [deleteRow description]
      * @return [type] [description]
      */
-    public function deleteRow()
+    public function deleteRow($msv)
     {
     	# code...
-    	De_tai::where('ma_sinh_vien', $this->ma_sinh_vien)->first()->delete();
+    	De_tai::where('ma_sinh_vien', $msv)->first()->delete();
     }
 }

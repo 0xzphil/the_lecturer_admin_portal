@@ -16,9 +16,9 @@ var J2lib = J2lib || (function function_name(argument) {
 			// body...
 			alert('bac');
 		},
-		ajaxPost: function (idClick, idForm, url) {
+		ajaxPost: function (idForm, url, callback) {
 			// body...
-			$('#'+ idClick ).click(function () {
+			
 		    	// body...
 		    	var data = $('#'+ idForm).serialize();
 			    console.log(data);
@@ -36,6 +36,7 @@ var J2lib = J2lib || (function function_name(argument) {
 
 			        success: function(data){
 			        	console.log(data);
+			        	callback();
 			        }, 
 
 			        error: function(data){
@@ -44,7 +45,7 @@ var J2lib = J2lib || (function function_name(argument) {
 			            console.log(data.responseText);
 			        }
 		    	});
-    		})
+    		
 		},
 		ajaxGet: function (url, callback) {
 			$.ajax({

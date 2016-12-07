@@ -22,7 +22,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            @if(Auth::user()->sinh_vien->dang_ky == 1)
+            @if(Auth::user()->sinh_vien->dang_ky==1 and Auth::user()->sinh_vien->khoa->dang_ky==1)
             <li><a id="open-de-tai" >Đăng ký đề tài</a></li>
 
             @else
@@ -43,20 +43,11 @@
     <section class="content" id="content">
         <input type="hidden" name="gvdata" id="gvdata" value="{{ Sismgr::listGv('form1') }}">
         <div class="row" >
-        <div class="col-xs-12">
+        <div class="col-md-8">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Danh sách đơn vị khoa {{ $bo_mons[0]->khoa->ten_khoa }}</h3>
-
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
+           
             </div>
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
@@ -66,8 +57,8 @@
                   <th>Tên bộ môn</th>
                   <th>Mô tả</th>
                 </tr>
-                @foreach ($bo_mons as $bo_mon)
-                <tr>
+                @foreach ($bo_mons as $key=>$bo_mon)
+                <tr id="bomon{{$key}}">
                   <td>{{ $bo_mon->id }}</td>
                   <td>{{ $bo_mon->ten_bo_mon }}</td>
                   <td>{{ $bo_mon->mo_ta }}</td>
@@ -79,12 +70,7 @@
               </table>
             </div>
             <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
         </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Danh sách lĩnh vực</h3>
@@ -107,10 +93,10 @@
                   <th>Tên</th>
                   <th>Mô tả</th>
                 </tr>
-                @foreach($linh_vuc_cbs as $linh_vuc_cb)
-                <tr>
+                @foreach($linh_vuc_cbs as $key=> $linh_vuc_cb)
+                <tr id="linhvuc{{$key}}">
                   <td>{{ $linh_vuc_cb->id }}</td>
-                  <td>{{ $linh_vuc_cb->ten }}</td>
+                  <td>{{ $linh_vuc_cb->ten_linh_vuc }}</td>
                   <td>{{ $linh_vuc_cb->mo_ta }}</td>
                 </tr>
                 @endforeach
@@ -119,7 +105,14 @@
             </div>
             <!-- /.box-body -->
           </div>
-          <!-- /.box -->
+          <!-- md6-->
+        </div>
+        <div class="col-md-4" id='listGvLayRa'>
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Khoa {{ $bo_mons[0]->khoa->ten_khoa }} bao gồm {{ Sismgr::soLuongGv() }} giảng viên</h3>
+           	</div>
+          </div>
         </div>
       </div>
       
@@ -138,6 +131,7 @@
 
 @section('js_import')
 <script src="dist/js/sv/handleEventSinhVien.js"></script>
+<script src="dist/js/sv/handleTableSvbr.js"></script>
 <script src="dist/js/j2lib.js"></script>
 
 <!-- InputMask -->

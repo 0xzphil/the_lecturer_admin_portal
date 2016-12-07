@@ -5,8 +5,9 @@ use Auth;
 use Session;
 use App\Giang_vien;
 use App\Linh_vuc_co_ban;
+use App\Linh_vuc;
 use App\Bo_mon;
-
+use App\Khoa;
 /**
 * 
 */
@@ -34,6 +35,12 @@ class Sismgr
     	return Linh_vuc_co_ban::all();
     }
 
+    public function listLv()
+    {
+    	# code...
+    	return Linh_vuc::all();
+    }
+
     /**
      * [getListGv description]
      * @return [type] [description]
@@ -51,6 +58,12 @@ class Sismgr
     {
     	# code...
     	return Giang_vien::join('users', 'users.id', '=', 'giang_viens.user_id');
+    }
+
+    public function soLuongGv()
+    {
+    	# code...
+    	return Khoa::join('bo_mons', 'khoas.id', '=', 'bo_mons.khoa_id')->join('giang_viens', 'bo_mons.id', '=', 'giang_viens.bo_mon_id')->count();
     }
 }
 

@@ -20,5 +20,17 @@ class Huong_nghien_cuuTableSeeder extends Seeder
             'mo_ta' => 'none',
             'ma_giang_vien' => 'AA1'
         ]);
+        Huong_nghien_cuu::insert([
+            
+            'ten_huong_nghien_cuu' => 'Huong nghien cuu 2',
+            'mo_ta' => 'none',
+            'ma_giang_vien' => 'AA1'
+        ]);
+        Huong_nghien_cuu::insert([
+            
+            'ten_huong_nghien_cuu' => 'Huong nghien cuu 3',
+            'mo_ta' => 'none',
+            'ma_giang_vien' => 'AA1'
+        ]);
     }
 }

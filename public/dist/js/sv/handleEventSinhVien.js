@@ -1,5 +1,5 @@
 
-var dataDeTai;
+var data;
 
 $(document).ready(function() {
 	//var info = '#info1';
@@ -27,23 +27,17 @@ function layDeTai() {
 	// body...
 	J2lib.ajaxGet('layDeTai', function (data) {
 		// body...
-		dataDeTai = data;
+		formTrangThaiFunc(data);
 	});
 }
 
 
 function nhapDeTai() {
-	layDeTai();
+	
 	// body...
   	var gvdata = $.parseJSON($('#gvdata').val());
 	$('#open-de-tai').click(function () {
-		// body...
-			//var info = '#info2';
-    //window.history.pushState({page: info}, null, info);
-	   	console.log(dataDeTai);
-		console.log(gvdata[0]);
 		$('#content').empty();
-
 	    var optionHtml = '';
 	    for (var i = gvdata.length - 1; i >= 0; i--) {
 			if (i == gvdata.length - 1) {
@@ -51,11 +45,11 @@ function nhapDeTai() {
 			} else 
 				optionHtml += '<option value="'+ gvdata[i].ma_giang_vien +'">'+ gvdata[i].name +'</option>\n';
 	    }
-	    var formTrangThai = formTrangThaiFunc();
 		var formDeTai = formDeTaiFunc(optionHtml);
 
 	    $('#content').append(formDeTai);
-		$('#content').append(formTrangThai);
+		layDeTai();
+
 	    $(function () {
 			//Initialize Select2 Elements
 	    	$(".select2").select2();
@@ -69,7 +63,13 @@ function nhapDeTai() {
     		// body...
     		console.log(window.history);
     	});
-    	J2lib.ajaxPost('xacNhanDeTai', 'formId', 'guiDeTai');
+    	$('#xacNhanDeTai').click(function (argument) {
+    		// body...
+    		J2lib.ajaxPost('formId', 'guiDeTai', function () {
+    			layDeTai();
+    		});
+    		
+    	});
 
     });
 }
@@ -109,28 +109,29 @@ function formDeTaiFunc(optionHtml) {
         </div>';
 }
 
-function formTrangThaiFunc() {
-	// body...
-/*	var trang_thai_giang_vien;
-	if(dataDeTai.sv.trang_thai_gv == 'chua_xac_nhan'){
+function formTrangThaiFunc(data) {
+	console.log(data);
+	$('#info2').remove();
+	var contentHtml;
+	if(data.check == 7){
+		contentHtml = '';
+	} else {
+		var trang_thai_giang_vien;
+	if(data.sv.trang_thai_gv == 'chua_xac_nhan'){
 		trang_thai_giang_vien = '<span class="label label-warning">Chưa xác nhận</span>';
 	} else 
-	if(dataDeTai.sv.trang_thai_gv == 'dong_y'){
+	if(data.sv.trang_thai_gv == 'dong_y'){
 		trang_thai_giang_vien = '<span class="label label-success">Đồng ý</span>';
 	} else 
-	if(dataDeTai.sv.trang_thai_gv == 'tu_choi'){
+	if(data.sv.trang_thai_gv == 'tu_choi'){
 		trang_thai_giang_vien = '<span class="label label-danger">Từ chối</span>';
 	};
 	var trung;
-	if(dataDeTai.sv.trung == 1){
+	if(data.sv.trung == 1){
 		trung = '<span class="label label-danger">Trùng đề tài</span>';
 	} else trung = '<span class="label label-success">Không trùng</span>';
-*/
-	var contentHtml;
-	if(dataDeTai.check == 7){
-		return '';
-	}
-	return '<div class="col-md-4">\
+
+	contentHtml =  '<div class="col-md-4" id="info2">\
           <div class="box">\
             <div class="box-header">\
               <h3 class="box-title">Trạng thái đề tài của bạn</h3>\
@@ -138,13 +139,13 @@ function formTrangThaiFunc() {
             <div class="box-body box-profile">\
             <ul class="list-group list-group-unbordered">\
                 <li class="list-group-item">\
-                  <b>Mã giảng viên</b> <a class="pull-right">'+ dataDeTai.sv.ma_giang_vien +'</a>\
+                  <b>Mã giảng viên</b> <a class="pull-right">'+ data.sv.ma_giang_vien +'</a>\
                 </li>\
                 <li class="list-group-item">\
-                  <b>Mã sinh viên</b> <a class="pull-right">'+ dataDeTai.sv.ma_sinh_vien +'</a>\
+                  <b>Mã sinh viên</b> <a class="pull-right">'+ data.sv.ma_sinh_vien +'</a>\
                 </li>\
                 <li class="list-group-item">\
-                  <b>Tên đề tài</b> <a class="pull-right">'+ dataDeTai.sv.ten_de_tai +'</a>\
+                  <b>Tên đề tài</b> <a class="pull-right">'+ data.sv.ten_de_tai +'</a>\
                 </li>\
                 <li class="list-group-item">\
                   <b>Quyết định giảng viên</b> <a class="pull-right">'+ trang_thai_giang_vien +'</a>\
@@ -161,4 +162,6 @@ function formTrangThaiFunc() {
           </div>\
           <!-- /.box -->\
         </div>';
+    }
+    $('#content').append(contentHtml);
 }
