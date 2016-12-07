@@ -29,4 +29,7 @@ class De_tai extends Model
     public function danh_gia(){
     	return $this->hasMany('App\Danh_gia');
     }
+    public function giang_vien(){
+        return $this->belongsTo('App\Giang_vien','ma_giang_vien','ma_giang_vien');      
+    }
 }

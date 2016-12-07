@@ -53,7 +53,7 @@
              <li><a id="open-khoitao" href="#">Khởi tạo</a></li>
             <li><a id="open-svddk" href="#">Sinh viên và đề tài</a></li>
             @if ( Auth::user()->nhan_vien_khoa->khoa->dang_ky)            
-             <li><a id="close-time-dk" href="#" data-toggle="modal" data-target="#modal4">Đóng đợt đăng ký</a></li>
+             <li><a id="close-time-dk" href="/closeTimeDk" data-toggle="modal" data-target="">Đóng đợt đăng ký</a></li>
              @else
               <li><a id="open-time-dk" href="#">Mở đợt đăng ký</a></li>
               @endif
@@ -155,7 +155,7 @@
         <!-- ./col -->
       </div>
     </section>
-   <div id="wait" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">
+   <div id="wait" class="alert alert-success" style="z-index: 1000; position:fixed;bottom:10px;right:10px;">
                   <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
                   <i class="fa fa-refresh fa-spin"></i>
                   <strong>Đang xử lý...</strong>

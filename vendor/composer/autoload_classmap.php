@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Bo_monTableSeeder' => $baseDir . '/database/seeds/Bo_monTableSeeder.php',
     'Bomon' => $baseDir . '/database/migrations/2016_11_05_174652_bomon.php',
+    'CongVan' => $baseDir . '/database/migrations/2016_12_07_144159_Cong_van.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CtdtTableSeeder' => $baseDir . '/database/seeds/CtdtTableSeeder.php',
