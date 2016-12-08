@@ -121,7 +121,7 @@ function repassGV() {
 	// body...
 	$('#repass-gv').click(function(event) {
 		/* Act on the event */
-		$('#gvcontent').empty();
+		$('#main-content').empty();
 		var passwordContent = '<div class="box-header with-border">\
             <h3 class="box-title">Chỉnh sửa mật khẩu</h3>\
             </div>\

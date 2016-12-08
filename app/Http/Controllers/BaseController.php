@@ -53,4 +53,9 @@ class BaseController extends Controller
         return Giang_vien::all();
     }
 
+    public function infoGvById($id)
+    {
+    	# code...
+    	return User::leftJoin('giang_viens', 'users.id', '=', 'giang_viens.user_id')->leftJoin('huong_nghien_cuus', 'huong_nghien_cuus.ma_giang_vien', '=', 'giang_viens.ma_giang_vien')->leftJoin('maps', 'huong_nghien_cuus.id', '=', 'maps.huong_nghien_cuu_id')->leftJoin('linh_vucs', 'linh_vucs.id', '=', 'maps.linh_vuc_id')->where('giang_viens.user_id', $id)->get(['giang_viens.ma_giang_vien', 'users.name', 'giang_viens.user_id', 'users.email']);
+    }
 }

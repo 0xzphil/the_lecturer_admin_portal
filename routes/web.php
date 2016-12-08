@@ -57,6 +57,7 @@ Route::get('addSVDDK/{msv}','Nhan_vien_khoaController@addSVDDK');
 
 
 Route::get('/infoGV', 'Giang_VienController@getBasicInformation');
+Route::get('/infoGV/{id}', 'BaseController@infoGvById');
 Route::post('/editGV', 'Giang_VienController@editBasicInformation');
 Route::post('/repassGV', 'Giang_VienController@repass');
 
