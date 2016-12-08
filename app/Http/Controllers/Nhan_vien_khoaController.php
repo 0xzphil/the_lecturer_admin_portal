@@ -232,14 +232,16 @@ class Nhan_vien_khoaController extends Controller
     }
 
     function closeTimeDk(){
-         $wordService = new WordService();
+        // $wordService = new WordService();
         // $wordService->xuat_cong_van1('hello',"Công nghệ thông tin",40,"dkdt2016.xlsx");
         // return Response::download('hello.docx', 'hello.docx');
       
         // $wordService->xuat_cong_van2('qdtRut',"CÔNG NGHỆ THÔNG TIN","14020169","Nguyễn Minh Hiếu","Đề tài nghiên cứu số 1", "PGS.TS Phạm Ngọc Hùng");
         // return Response::download('qdtRut.docx', 'qdtRut.docx');
 
-      $wordService->xuat_cong_van3('qdtSua',"CÔNG NGHỆ THÔNG TIN","14020169","Nguyễn Minh Hiếu","Đề tài nghiên cứu số 1", "PGS.TS Phạm Ngọc Hùng","PGS.TS Phạm Ngọc Hùng","Đề tài số 2");
-        return Response::download('qdtSua.docx', 'qdtSua.docx');
+      // $wordService->xuat_cong_van3('qdtSua',"CÔNG NGHỆ THÔNG TIN","14020169","Nguyễn Minh Hiếu","Đề tài nghiên cứu số 1", "PGS.TS Phạm Ngọc Hùng","PGS.TS Phạm Ngọc Hùng","Đề tài số 2");
+      //   return Response::download('qdtSua.docx', 'qdtSua.docx');
+      
+      
     }
 }

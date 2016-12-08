@@ -226,5 +226,7 @@ function sendEmailToAll(){
 * hàm đóng thời gian đăng ký của khoa
 */
 function closeTimeDK(){
-
+	$('#btnclosetimedk').click(function(){
+		
+	});
 }
