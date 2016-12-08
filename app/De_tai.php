@@ -21,12 +21,16 @@ class De_tai extends Model
     ];
 
     public $timestamps = false;
-
+    //$sinhvien =  $detai->sinh_vien
+    //$sinhvien->user->name  
     public function sinh_vien(){
     	return $this->belongsTo('App\Sinh_vien');
     }
 
     public function danh_gia(){
     	return $this->hasMany('App\Danh_gia');
+    }
+    public function giang_vien(){
+        return $this->belongsTo('App\Giang_vien','ma_giang_vien','ma_giang_vien');      
     }
 }

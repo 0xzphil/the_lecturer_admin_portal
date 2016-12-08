@@ -30,6 +30,7 @@ Route::get('/index', function(){
 	return view('index');
 });
 
+Route::get('/closeTimeDk' , 'Nhan_vien_khoaController@closeTimeDk');
 Route::post('/sendEmailToAll', 'Nhan_vien_khoaController@openTimeDk');
 
 Route::post('/uploadGV', 'Nhan_vien_khoaController@uploadGV');
@@ -40,13 +41,20 @@ Route::get('/getListBomon','Nhan_vien_khoaController@getListBomon');
 Route::get('/getListSV','Nhan_vien_khoaController@getListSV');
 Route::get('/getListKhoahoc','Nhan_vien_khoaController@getListKhoahoc');
 Route::get('/getListCtdt','Nhan_vien_khoaController@getListCtdt');
+Route::get('/getListSVandDt','Nhan_vien_khoaController@svanddt');
 
 Route::get('/addGV/{ma_giang_vien}/{ten_giang_vien}/{email}/{bomon}','Nhan_vien_khoaController@addGV');
 Route::get('/addSV/{ma_sinh_vien}/{ten_sinh_vien}/{khoa_hoc}/{ctdt}','Nhan_vien_khoaController@addSV');
 Route::get('/addHNC/{ten_huong_nghien_cuu}/{mo_ta}/{listlinhvuc}','Huong_Nghien_CuuController@addHNC');
+
+Route::get('/suaHNC/{id}/{sua_ten_huong_nghien_cuu}/{sua_mo_ta}/{sua_listlinhvuc}','Huong_Nghien_CuuController@suaHNC');
+//Route::get('/getOneHnc/{id}','Huong_Nghien_CuuController@getOneHnc');
+Route::get('/xoaHNC/{id}','Huong_Nghien_CuuController@xoaHNC');
+
 Route::get('addKhoahoc/{khoa_hoc}', "Nhan_vien_khoaController@addKhoahoc");
 Route::get('addCtdt/{ctdt}', "Nhan_vien_khoaController@addCtdt");
 Route::get('addSVDDK/{msv}','Nhan_vien_khoaController@addSVDDK');
+
 
 Route::get('/infoGV', 'Giang_VienController@getBasicInformation');
 Route::get('/infoGV/{id}', 'BaseController@infoGvById');

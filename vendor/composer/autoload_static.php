@@ -356,6 +356,7 @@ class ComposerStaticInit1132d8a751cdc78319e36bb5dd5f6575
     public static $classMap = array (
         'Bo_monTableSeeder' => __DIR__ . '/../..' . '/database/seeds/Bo_monTableSeeder.php',
         'Bomon' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_174652_bomon.php',
+        'CongVan' => __DIR__ . '/../..' . '/database/migrations/2016_12_07_144159_Cong_van.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CtdtTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CtdtTableSeeder.php',

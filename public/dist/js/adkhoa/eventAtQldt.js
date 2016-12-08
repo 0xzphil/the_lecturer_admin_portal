@@ -61,7 +61,7 @@ function eventClickBtnUploadKt(){
 
 function openSVDDK(){
 	$('#open-svddk').click(function(){
-		$.get('getListSV',function(data, status){
+		$.get('getListSVandDt',function(data, status){
 			if(status == 'success'){
 				$object = JSON.parse(data);
 				 //console.log($object[0]);
@@ -74,34 +74,51 @@ function openSVDDK(){
         					<div class="col-xs-12">\
         					<div class="box">\
             <div class="box-header">\
-              <h2 class="box-title col-lg-9">Danh sách sinh viên trong khoa</h2>\
+              <h2 class="box-title col-lg-9">Danh sách sinh viên và đề tài</h2>\
               <button class="btn btn-primary col-lg-3" data-toggle="modal" data-target="#modal3">Thêm sinh viên vào danh sách</button>\
             </div>\
             <div class="box-body">\
-              <table id="tb-svdk" class="table table-bordered table-striped table-hover">\
+              <table id="tb-sv-dt" class="table table-bordered table-striped table-hover">\
                 <thead>\
                 <tr>\
                   <th>STT</th>\
                   <th>Mã sinh viên</th>\
                   <th>Tên sinh viên</th>\
+                  <th>Đề tài</th>\
+                  <th>Giảng viên hướng dẫn</th>\
+                  <th>Ghi chú</th>\
                 </tr>\
                 </thead>\
                 <tbody>';
                 var stt = 1;
 				for($i = 0 ; $i < $object.length ; $i++){
-					if($object[$i].dang_ky == 1){
 						$html += ' <tr>\
 					        <td>'+stt+'</td>\
 					        <td>'+$object[$i].ma_sinh_vien+'</td>\
-					        <td>'+$object[$i].ten_sinh_vien+'</td>\
-					      </tr>';
+					        <td>'+$object[$i].ten_sinh_vien+'</td>';
+					     if($object[$i].ten_de_tai == ""){
+					     	$html += '<td>Chưa có</td><td>Chưa có</td>'
+					     }
+					     else{
+					     	$html += '<td>'+$object[$i].ten_de_tai+'</td>';
+					     	$html += '<td>'+$object[$i].ten_gv+'</td>';
+					     }
+					     if($object[$i].rut == 1){
+					     	$html += '<td> Xin rút </td>';
+					     }
+					     else if($object[$i].sua == 1){
+					     	$html += '<td> Xin sửa </td>';
+					     }
+					     else{
+					     	$html += '<td> Không </td>';
+					     }
 					     stt++;
-					}
+					
 				}
 				$html += "</tbody></table></div></div></section>";
 				$("#main-content").empty();
 				$("#main-content").append($html);
-				$("#tb-svdk").DataTable();
+				$("#tb-sv-dt").DataTable();
 			}
 		});
 	});
@@ -209,5 +226,7 @@ function sendEmailToAll(){
 * hàm đóng thời gian đăng ký của khoa
 */
 function closeTimeDK(){
-
+	$('#btnclosetimedk').click(function(){
+		
+	});
 }

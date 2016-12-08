@@ -10,6 +10,13 @@ $(document).ready(function() {
 
 	//tải về lĩnh vực cơ bản khi tải trang
 	getListLinhVuc();
+	//xư lí sự kiện khi ấn nút sửa
+	openSuaHnc();
+	//hàm xóa hướng nghiên cứu
+	xoaHnc();
+
+	//Xử lý sự kiện khi bấm vào mỗi nút xóa
+	onclickXoa();
 });
 
 /**
@@ -24,7 +31,7 @@ function editGV() {
 	$('#editgv').click(function() {
 		/* Act on the event */
 		$('#gvcontent').empty();
-		var editContent = '<div class="box-header with-border">\
+		var editContent = '<div class="box-header wi-border">\
             <h3 class="box-title">Thông tin chỉnh sửa</h3>\
             </div>\
             <!-- /.box-header -->\

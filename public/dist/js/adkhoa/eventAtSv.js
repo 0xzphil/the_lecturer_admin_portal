@@ -4,7 +4,7 @@ function eventOpenUploadSv(){
 	//console.log(token);
 	$('#open-upload-sv').click(function(){
 		$("#main-content").empty();
-		$text = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
+		$text = '<div id="wait" class="alert alert-success" style="z-index:1000; display:none;position:fixed;bottom:10px;right:10px;">\
                   <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
                    <i class="fa fa-refresh fa-spin"></i>\
                   <strong>Đang xử lý...</strong>\
@@ -114,7 +114,7 @@ function getListSV(){
         					<div class="box">\
             <div class="box-header">\
               <h2 class="box-title col-md-10">Danh sách sinh viên trong khoa</h2>\
-              <button class = "col-md-2 btn btn-primary" id="btn-addSV">Thêm sinh viên</button>\
+              <button class = "col-md-2 btn btn-primary" id="btn-addSV">Thêm tài khoản sinh viên</button>\
             </div>\
             <div class="box-body">\
               <table id="example1" class="table table-bordered table-striped table-hover">\

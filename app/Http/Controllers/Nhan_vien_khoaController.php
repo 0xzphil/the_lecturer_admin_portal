@@ -8,6 +8,7 @@ use App\Services\GiangVienService;
 use App\Services\SendEmailService;
 use App\Services\SinhvienService;
 use App\Services\QldtService;
+use App\Services\WordService;
 use Illuminate\Support\Facades\Input;
 use App\Giang_vien;
 use App\Khoa;
@@ -18,6 +19,7 @@ use App\Khoa_hoc;
 use App\Ctdt;
 use Session;
 use Auth;
+use Response;
 
 
 class Nhan_vien_khoaController extends Controller
@@ -220,5 +222,26 @@ class Nhan_vien_khoaController extends Controller
           return "false";
       }
 
+    }
+
+    function svanddt(){
+       $sinhvienService = new SinhvienService();
+       $khoa_id = Session::get('khoa_id');
+       return $sinhvienService->getListJsonInfoSvByKhoaId2($khoa_id);
+       //return $sinhvienService->getListJsonInfoSvByKhoaId2($khoa_id);
+    }
+
+    function closeTimeDk(){
+        // $wordService = new WordService();
+        // $wordService->xuat_cong_van1('hello',"Công nghệ thông tin",40,"dkdt2016.xlsx");
+        // return Response::download('hello.docx', 'hello.docx');
+      
+        // $wordService->xuat_cong_van2('qdtRut',"CÔNG NGHỆ THÔNG TIN","14020169","Nguyễn Minh Hiếu","Đề tài nghiên cứu số 1", "PGS.TS Phạm Ngọc Hùng");
+        // return Response::download('qdtRut.docx', 'qdtRut.docx');
+
+      // $wordService->xuat_cong_van3('qdtSua',"CÔNG NGHỆ THÔNG TIN","14020169","Nguyễn Minh Hiếu","Đề tài nghiên cứu số 1", "PGS.TS Phạm Ngọc Hùng","PGS.TS Phạm Ngọc Hùng","Đề tài số 2");
+      //   return Response::download('qdtSua.docx', 'qdtSua.docx');
+      
+      
     }
 }

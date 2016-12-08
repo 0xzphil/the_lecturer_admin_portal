@@ -155,7 +155,7 @@
         <!-- ./col -->
       </div>
     </section>
-   <div id="wait" class="alert alert-success" style="position:fixed;bottom:10px;right:10px;">
+   <div id="wait" class="alert alert-success" style="z-index: 1000; position:fixed;bottom:10px;right:10px;">
                   <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
                   <i class="fa fa-refresh fa-spin"></i>
                   <strong>Đang xử lý...</strong>

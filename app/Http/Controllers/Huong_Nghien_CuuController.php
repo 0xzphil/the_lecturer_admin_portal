@@ -24,4 +24,37 @@ class Huong_Nghien_CuuController extends Controller
          }
     }
 
+    public function xoaHNC($id){
+        $hncService = new HuongNghienCuuService();
+        $result = $hncService->xoaHNC($id);
+         if($result == true){
+          return 'true';
+         }
+         else{
+          return 'false';
+         }
+    }
+
+    public function suaHNC($id,$suaTenHnc,$suaMota,$suaLinhvuclq){
+        $hncService = new HuongNghienCuuService();
+         $result = $hncService->suaHNC($id,$suaTenHnc,$suaMota,$suaLinhvuclq);
+         if($result == true){
+          return 'true';
+         }
+         else{
+          return 'false';
+         }
+    }
+
+    // public function getOneHnc($id){
+    //     $hncService = new HuongNghienCuuService();
+    //      $result = $hncService->getOneHnc($id);
+    //      if($result == true){
+    //       return 'true';
+    //      }
+    //      else{
+    //       return 'false';
+    //      }
+    // }
 }
+
