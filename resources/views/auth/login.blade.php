@@ -22,7 +22,7 @@
                 {{ Form::label('exampleInputEmail1', 'Địa chỉ email')}}
 
                 {{ Form::email('email', null, ['class'=>'form-control', 'id' => 'exampleInputEmail1','foo' => 'bar' , 'placeholder'=>'Nhập địa chỉ email'])}}
-
+                
                 </div>
 
                 <div class="form-group">
