@@ -9,6 +9,7 @@ use App\Services\SendEmailService;
 use App\Services\SinhvienService;
 use App\Services\QldtService;
 use App\Services\WordService;
+use App\Services\ExcelService;
 use Illuminate\Support\Facades\Input;
 use App\Giang_vien;
 use App\Khoa;
@@ -231,17 +232,28 @@ class Nhan_vien_khoaController extends Controller
        //return $sinhvienService->getListJsonInfoSvByKhoaId2($khoa_id);
     }
 
-    function closeTimeDk(){
-        // $wordService = new WordService();
-        // $wordService->xuat_cong_van1('hello',"Công nghệ thông tin",40,"dkdt2016.xlsx");
-        // return Response::download('hello.docx', 'hello.docx');
-      
+    // hàm này ko có ý nghĩa , chỉ để test hệ thống
+    function closeTimeDk1(){
+        $wordService = new WordService();
+        $wordService->xuat_cong_van1('hello',"Công nghệ thông tin",40,"dkdt2016.xlsx");
+        //return Response::download('hello.docx');
+        return 'ok';
         // $wordService->xuat_cong_van2('qdtRut',"CÔNG NGHỆ THÔNG TIN","14020169","Nguyễn Minh Hiếu","Đề tài nghiên cứu số 1", "PGS.TS Phạm Ngọc Hùng");
         // return Response::download('qdtRut.docx', 'qdtRut.docx');
 
       // $wordService->xuat_cong_van3('qdtSua',"CÔNG NGHỆ THÔNG TIN","14020169","Nguyễn Minh Hiếu","Đề tài nghiên cứu số 1", "PGS.TS Phạm Ngọc Hùng","PGS.TS Phạm Ngọc Hùng","Đề tài số 2");
       //   return Response::download('qdtSua.docx', 'qdtSua.docx');
-      
-      
+      // $excelService = new ExcelService();
+      // $excelService->exportListSvDt("1");
+      // $file= public_path(). "/download/excel/test1.xlsx";
+      // return Response::download($file);
+     // return Response::download('../download/excel/test1.xlsx');
+      //return 'ok';
+    }
+
+    function closeTimeDk(){
+        $excelService = new ExcelService();
+        $excelService->exportListSvDt("danh_sach_khoa_CNTT" ,"1");
+        return "ok";
     }
 }

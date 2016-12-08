@@ -57,7 +57,7 @@ class WordService
 			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => TRUE,'align' => 'justify'));
 
 		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-		$objWriter->save($filename.".docx");
+		$objWriter->save('download/word/'.$filename.".docx");
 
 	}
 	/*tạo file công văn quyết định xin rút đề tài của sinh viên */
