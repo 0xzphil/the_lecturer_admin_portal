@@ -21,7 +21,8 @@ class De_tai extends Model
     ];
 
     public $timestamps = false;
-
+    //$sinhvien =  $detai->sinh_vien
+    //$sinhvien->user->name  
     public function sinh_vien(){
     	return $this->belongsTo('App\Sinh_vien');
     }

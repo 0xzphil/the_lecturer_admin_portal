@@ -25,6 +25,7 @@
           <ul class="treeview-menu">
             <li><a id="open-upload-sv" href="#">Khởi tạo bằng excel</a></li>
             <li><a id="open-add-sv" href="#">Thêm GV thủ công</a></li>
+            <li><a id="open-duyet-de-tai" href="#">Duyệt Đề tài</a></li>
           </ul>
         </li>
 @endsection
