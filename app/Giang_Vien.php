@@ -44,4 +44,7 @@ class Giang_vien extends Model
         //$this->primaryKey = 'ma_giang_vien'; 
     	return $this->hasMany('App\Huong_nghien_cuu', 'ma_giang_vien', 'ma_giang_vien');
     }
+    public function de_tai(){
+        return $this->hasMany('App\De_tai');
+    }
 }

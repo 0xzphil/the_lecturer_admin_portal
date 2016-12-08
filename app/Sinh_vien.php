@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sinh_vien extends Model
 {
+    protected $primaryKey = 'ma_sinh_vien';
     protected $fillable = [
     	'ma_sinh_vien',
         'user_id',
@@ -26,8 +27,13 @@ class Sinh_vien extends Model
     public function ctdt(){
     	return $this->belongsTo('App\Ctdt');
     }
+    /** 
+     * [de_tai description]
+     * 1 sinh viên thì có 1 đề tài
+     * @return [type] [description]
+     */
     public function de_tai(){
-    	return $this->hasMany('App\De_tai');
+    	return $this->hasOne('App\De_tai');
     }
     public function user(){
     	return $this->belongsTo('App\User');

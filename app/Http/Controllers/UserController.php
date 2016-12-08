@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Excel;
 use Session;
-use Sismgr;
+use Sismgr  ;
 use App\Nhan_vien_khoa;
 use App\Khoa;
+
 
 class UserController extends Controller
 {
@@ -53,7 +54,7 @@ class UserController extends Controller
             }
             else if(Auth::user()->role == 'sinh_vien'){
                 $sinh_vien = Auth::user()->sinh_vien->user_id;
-                $linh_vuc_cbs = Sismgr::listLvcb();
+                $linh_vuc_cbs = Sismgr::listLv();
                 $bo_mons = Sismgr::listBomon();
                 return view('sinh_vien.profile', compact('bo_mons', 'linh_vuc_cbs'));
             } else {

@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+@import url('fonts/BreeSerif.otf')
 /*!
  *   AdminLTE v2.3.8
  *   Author: Almsaeed Studio
@@ -10,6 +11,10 @@
  * Core: General Layout Style
  * -------------------------
  */
+@font-face {
+	font-family: BreeSerif;
+	src: url('fonts/BreeSerif.otf') format('opentype');
+}
 html,
 body {
   height: 100%;
@@ -21,7 +26,8 @@ body {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /*font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+  font-family: 'latoregular', sans-serif;
   font-weight: 400;
   overflow-x: hidden;
   overflow-y: auto;
@@ -96,6 +102,8 @@ body {
 }
 .content-wrapper,
 .right-side {
+  background: url('../img/broken.png');
+  padding-top: 50px;
   min-height: 100%;
   background-color: #ecf0f5;
   z-index: 800;
@@ -164,7 +172,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'ralewayregular', sans-serif;
+
 }
 /* General Links */
 a {
@@ -192,7 +201,12 @@ a:focus {
  * ----------------------
  */
 .main-header {
-  position: relative;
+	    background-color: transparent;/*
+	-webkit-box-shadow: 0px -8px 8px 11px rgba(0,0,0,0.28);
+-moz-box-shadow: 0px -8px 8px 11px rgba(0,0,0,0.28);
+box-shadow: 0px -8px 8px 11px rgba(0,0,0,0.28);*/
+  width: 100%;
+  position: fixed;
   max-height: 100px;
   z-index: 1030;
 }
@@ -416,7 +430,7 @@ a:focus {
  */
 .main-sidebar,
 .left-side {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   padding-top: 50px;
@@ -565,7 +579,7 @@ a:focus {
   list-style: none;
   padding: 0;
   margin: 0;
-  padding-left: 5px;
+  padding-left: 0px;
 }
 .sidebar-menu .treeview-menu .treeview-menu {
   padding-left: 20px;
@@ -1263,12 +1277,22 @@ a:focus {
   border-color: #3c8dbc;
   box-shadow: none;
 }
-.form-control::-moz-placeholder,
-.form-control:-ms-input-placeholder,
-.form-control::-webkit-input-placeholder {
-  color: #bbb;
-  opacity: 1;
+
+.form-control::-moz-placeholder{
+	color:red;
+	opacity:1;
 }
+.form-control:-ms-input-placeholder{
+	color:red;
+}
+.form-control::-webkit-input-placeholder{
+	letter-spacing: .3px;
+	font-size: 10;
+	font-weight: 600;
+	color:#67696D;
+}
+
+
 .form-control:not(select) {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -1756,7 +1780,8 @@ a:focus {
 .box-header > .ion,
 .box-header .box-title {
   display: inline-block;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 20px;
   margin: 0;
   line-height: 1;
 }

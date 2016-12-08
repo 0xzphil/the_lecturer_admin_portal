@@ -23,6 +23,14 @@ class SendEmailService
 	      });
 	      //echo "HTML Email Sent. Check your inbox.";
    }
+   public function notify_mail($email, $context){
+   		$data = array('context'=>$context);
+	      Mail::send('mailNotify', $data, function($message) use($email) {
+	         $message->to($email)->subject
+	            ('Thông báo');
+	         $message->from('hieusonson9x@gmail.com','Khoa');
+	      });
+   }
 
 	
 }

@@ -15,7 +15,7 @@ class DeTais extends Migration
     {
         Schema::create('de_tais', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ten_de_tai',200);
+            $table->string('ten_de_tai',500);
             $table->string('ma_giang_vien',20);
             $table->foreign('ma_giang_vien')
                     ->references('ma_giang_vien')
@@ -30,13 +30,16 @@ class DeTais extends Migration
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
 
-            $table->boolean('trang_thai_gv');
-            $table->boolean('trung');
-            $table->boolean('ho_so');
-            $table->boolean('hop_thuc');
-            $table->boolean('hoan_tat');
-            $table->boolean('rut');
-            $table->boolean('qd_rut');
+            $table->enum('trang_thai_gv', ['chua_xac_nhan', 'tu_choi', 'dong_y'])->default('chua_xac_nhan');
+            $table->boolean('trung')->default(false);
+            $table->boolean('yeu_cau_sua')->default(false);
+            $table->boolean('ho_so')->default(false);
+            $table->boolean('hop_thuc')->default(false);
+            $table->boolean('hoan_tat')->default(false);
+            $table->boolean('rut')->default(false);
+            $table->boolean('qd_rut')->default(false);
+            $table->string('ten_de_tai2',500)->default("");
+            $table->string('ma_giang_vien2',20)->default("");
         });
     }
 

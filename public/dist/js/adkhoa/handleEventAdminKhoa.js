@@ -1,15 +1,22 @@
 var bomon;
 var ctdt;
 var khoa_hoc;
+var ten_khoa;
+var slgv;
+var slsv;
+var slbm;
+var slptn;
 $(document).ready(function(){
 		//Gọi các hàm cấu hình ajax
 		ajaxLoading();
 		ajaxSetup();
 
 		//gọi các hàm tải về 1 số biến cần thiết
+		saveInfoHome();
 		getListBomon();
 	    getListKhoahoc();
-	   getListCtdt()
+	   	getListCtdt();
+
 
 		// Gọi các hàm xử lý đối với tree GV
 		
@@ -24,7 +31,27 @@ $(document).ready(function(){
 
 	    // gọi các hàm xử lí đối với tree khóa học và chường trình đào tạo
 	    openKhoahoc();
-	    openCtdt()
+	    openCtdt();
+	    saveKhoahoc();
+	    saveCtdt();
+
+	    /**gọi các hàm ở tree quản lý đăng ký đề tài*/
+	    	//hàm mở form khởi tạo bằng excel
+		    openKhoitao();
+
+		    //hàm mở list sinh viên được đăng ký đề tài và đề tài của họ
+		    openSVDDK();
+
+		    //Hàm lưu sinh viên vào sanh sách được đăng ký
+		    addSVDDK();
+
+		    //Hàm mở thời gian đăng ký đề tài cho các sinh viên đã ở trong danh sách
+		    openTimeDK();
+
+		    //Hàm đóng thời gian đăng kys
+		    closeTimeDK();
+	    /*Kết thúc các hàm quản lý tree đăng ký đề tài*/
+
 
 });
 
@@ -70,4 +97,27 @@ function ajaxSetup(){
             headers:
             { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
         });
+}
+/*Hàm kiểm tra hợp thức mã sinh viên*/
+function validateMSV(msv){
+	if(msv.length != 8){
+		return false;
+	}
+	else{
+		return !isNaN(msv);
+	}
+}
+/*
+*	hàm lưu 1 số thông tin ở trang home
+*/
+function saveInfoHome(){
+	$ten_khoa = $('#h1khoa').html();
+	$slgv = $('#h3slgv').html();
+	$slsv = $('#h3slsv').html();
+	$slbm = $('#h3slbm').html();
+	$slptn = $('#h3slptn').html();
+	console.log($ten_khoa,$slptn,$slgv,$slsv,$slbm);
+}
+function appendContextHome(){
+	
 }
