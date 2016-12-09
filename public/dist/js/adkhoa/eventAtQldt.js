@@ -210,9 +210,8 @@ function sendEmailToAll(){
 			      	if(data == "true"){
 			      		createAlert('success',"Thành công! Email đã được gửi tới tất cả các sinh viên!");
 			      		$('#open-time-dk').remove();
+			      		$('#close-time-dk').remove();
 			      		$('#treeQldt').append(' <li><a id="close-time-dk" href="#" data-toggle="modal" data-target="#modal4">Đóng đợt đăng ký</a></li>');
-			      	
-			      		closeTimeDK();
 			      	}
 			      	else{
 			       	 	createAlert('danger','Thất bại! Đã có lỗi xảy ra trong quá trình gửi email!');
@@ -227,6 +226,20 @@ function sendEmailToAll(){
 */
 function closeTimeDK(){
 	$('#btnclosetimedk').click(function(){
-		
+		$('#modal4').modal('hide');
+		$.get('closeTimeDk',function(data , status){
+			if(status == 'success'){
+				if(data == "ok"){
+					createAlert('success',"Thành công! Đã đóng đăng ký, Công văn và phục lục đã xuất!")
+					$('#close-time-dk').remove();
+					$('#open-time-dk').remove();
+					$('#treeQldt').append(' <li><a id="open-time-dk" href="#">Mở đợt đăng ký</a></li>');
+			      	openTimeDK();
+				}
+				else{
+					createAlert('danger','Thất bại! Thử lại sau');
+				}
+			}
+		});
 	});
 }

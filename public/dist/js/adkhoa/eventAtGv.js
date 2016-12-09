@@ -220,9 +220,9 @@ function appendFormGV(){
 
 //xử lý sự kiện khi click vào 1 dòng giảng viên
 function rowGvClick(){
-	$('.row-gv').click(function(){
-		$('#main-content').empty();
-		$text = $(this).children(":first").html();
-		$('#main-content').append($text);
-	});
+	// $('.row-gv').click(function(){
+	// 	$('#main-content').empty();
+	// 	$text = $(this).children(":first").html();
+	// 	$('#main-content').append($text);
+	// });
 }

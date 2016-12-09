@@ -33,7 +33,7 @@ class Sinh_vien extends Model
      * @return [type] [description]
      */
     public function de_tai(){
-    	return $this->hasOne('App\De_tai');
+    	return $this->hasOne('App\De_tai','ma_sinh_vien','ma_sinh_vien');
     }
     public function user(){
     	return $this->belongsTo('App\User');

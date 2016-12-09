@@ -52,6 +52,18 @@ $(document).ready(function(){
 		    closeTimeDK();
 	    /*Kết thúc các hàm quản lý tree đăng ký đề tài*/
 
+	    /*
+			Gọi các hàm ở tree quản lý  đăng ký bảo vệ 
+	    */
+	    getListDetaiBaove();
+	    clickguinhacnho();
+	    saveHoso();
+
+	    /*
+			Gọi các hàm xử lý ở tree Congvan
+	    */
+	    getListCv();
+
 
 });
 

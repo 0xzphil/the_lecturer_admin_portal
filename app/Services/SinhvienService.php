@@ -10,6 +10,8 @@ use Illuminate\Database\QueryException;
 use App\Services\SendEmailService;
 use App\Services\Helper\SinhvienInfo;
 use App\Services\Helper\SinhvienInfo2;
+use App\Services\Helper\DetaiInfo;
+use App\Services\Helper\DanhgiaInfo;
 use App\User;
 use App\Sinh_vien;
 use App\Ctdt;
@@ -136,6 +138,9 @@ class SinhvienService
 			$sinhvienInfo2->ten_sinh_vien = $listSv[$i]->user->name;
 			$de_tai = De_tai::where('ma_sinh_vien','=',$listSv[$i]->ma_sinh_vien)->first();
 			if($de_tai != null){
+				if($de_tai->bao_ve == 1){
+					continue;
+				}
 				$sinhvienInfo2->ten_de_tai = $de_tai->ten_de_tai;
 				$sinhvienInfo2->ten_gv = $de_tai->giang_vien->user->name;
 				
@@ -170,13 +175,77 @@ class SinhvienService
 	/*Hàm gửi email tới tất các sinh viên được vào danh sách đăng ký trong kỳ đăng ký đề tài nghiên cứu*/
 	public function sendEmailToAllSvDk($context,$khoa_id){
 		$listSv = Sinh_vien::whereRaw('khoa_id = ? and dang_ky=1',[$khoa_id])->get();
-		return $listSv->count();
+		//return $listSv->count();
 		for($i = 0 ; $i < $listSv->count() ; $i++){
 			$email = new SendEmailService();
 
 			$email->notify_mail("fizz.uet@gmail.com",$context);
 		}
 
+	}
+
+	/*Lấy ra các đề tài sẽ được bảo vệ*/
+	public function getDetaiBaove($khoa_id){
+		$result = array();
+
+		$listSv = Sinh_vien::whereRaw('khoa_id = ?',[$khoa_id])->get();
+		for($i = 0 ; $i < $listSv->count() ; $i++ ){
+
+			$detaiInfo = new DetaiInfo();
+
+			$de_tai = De_tai::where('ma_sinh_vien','=',$listSv[$i]->ma_sinh_vien)->first();
+			if(isset($de_tai)){
+				if( $de_tai->bao_ve != 1 ){
+					continue;
+				}
+				else{
+					$detaiInfo->ten_sinh_vien = $listSv[$i]->user->name;
+					$detaiInfo->ma_sinh_vien = $listSv[$i]->ma_sinh_vien;
+					$detaiInfo->ten_gv = $de_tai->giang_vien->user->name;
+					$detaiInfo->ten_de_tai = $de_tai->ten_de_tai;
+					$detaiInfo->ho_so = $de_tai->ho_so;
+					$detaiInfo->hop_thuc = $de_tai->hop_thuc;
+					$detaiInfo->hoan_tat = $de_tai->hoan_tat;
+
+					$listDanhgia = array();
+
+					$listDanhgia1 = $de_tai->danh_gia;
+					for($j = 0 ; $j<$listDanhgia1->count();$j++){
+						$temp = new DanhgiaInfo();
+						$temp->ten_gvdg = $listDanhgia1[$j]->giang_vien->user->name;
+						$temp->danh_gia = $listDanhgia1[$j]->nhan_xet;
+						$temp->diem = $listDanhgia1[$j]->diem;
+						array_push($listDanhgia,$temp);
+					}
+
+					$detaiInfo->listDanhgia =  $listDanhgia;
+
+				}
+				array_push($result,$detaiInfo);
+			}
+			else continue;
+
+		}
+
+		return json_encode($result);
+	}
+
+	/* hàm gửi nhắc nhở tới các sinh viên trong khoa hoàn thiện hồ sơ để bảo vệ*/
+
+	public function guinhacnho($khoa_id){
+		$listSv = Sinh_vien::whereRaw('khoa_id = ?',[$khoa_id])->get();
+		for($i = 0 ; $i < $listSv->count(); $i++){
+			$de_tai = $listSv[$i]->de_tai;
+			if(isset($de_tai)){
+				if($de_tai->bao_ve == 1&&($de_tai->ho_so != 1 || $de_tai->hop_thuc != 1 || $de_tai->hoan_tat != 1) ){
+					$sendmail = new SendEmailService();
+					//$sendmail->notify_mail($listDt[$i]->ma_sinh_vien."@vnu.edu.vn")
+					$sendmail->notify_mail('hieunm.hk@gmail.com',"Khoa xin thông báo! Hồ sơ bảo vệ tốt khóa luận tốt nghiệp của bạn chưa hoàn thành. Hãy đến văn phòng khoa hoàn tất trong thời gian sớm nhất");
+				}
+				else continue;
+			}
+			else continue;
+		}
 	}
 }
 
