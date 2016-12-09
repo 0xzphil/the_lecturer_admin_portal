@@ -23,10 +23,13 @@
           </a>
           <ul class="treeview-menu">
             @if(Auth::user()->sinh_vien->dang_ky==1 and Auth::user()->sinh_vien->khoa->dang_ky==1)
-            <li><a id="open-de-tai" >Đăng ký đề tài</a></li>
+            <li><a id="open-de-tai" >Đăng ký và sửa đổi đề tài</a></li>
+
+            <li><a id="open-trang-thai" >Trạng thái đề tài của bạn</a></li>
 
             @else
             <li><a> Bạn không đủ điều kiện<br/> đăng ký đề tài</a></li>
+            <li><a id="open-trang-thai" >Trạng thái đề tài của bạn</a></li>
             @endif
             <!-- 
             <li><a id="open-add-sv" href="#">Thêm GV thủ công</a></li>
@@ -35,13 +38,14 @@
         </li>
 @endsection
 @section('main-content')
+	
+    <input type="hidden" name="gvdata" id="gvdata" value="{{ Sismgr::listGv('form1') }}">
    <section class="content-header">
       <h1>
         Sinh viên Browser
       </h1>
     </section>
     <section class="content" id="content">
-        <input type="hidden" name="gvdata" id="gvdata" value="{{ Sismgr::listGv('form1') }}">
         <div class="row" >
         <div class="col-md-8">
           <div class="box">
