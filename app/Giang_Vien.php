@@ -45,6 +45,9 @@ class Giang_vien extends Model
     	return $this->hasMany('App\Huong_nghien_cuu', 'ma_giang_vien', 'ma_giang_vien');
     }
     public function de_tai(){
-        return $this->hasMany('App\De_tai');
+        return $this->hasMany('App\De_tai','ma_giang_vien','ma_giang_vien');
+    }
+    public function danh_gia(){
+        return $this->hasMany('App\Danh_gia','ma_giang_vien','ma_giang_vien');
     }
 }

@@ -22,6 +22,13 @@ class DanhGia extends Migration
                     ->on('de_tais')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
+            $table->string('ma_giang_vien',20);
+            $table->foreign('ma_giang_vien')
+                  ->references('ma_giang_vien')
+                   ->on('giang_viens')
+                   ->onUpdate('cascade')
+                   ->onDelete('cascade');
+
             $table->string('nhan_xet',2000);
             $table->float('diem',8,2);
         });

@@ -32,6 +32,8 @@ Route::get('/index', function(){
 
 Route::get('/closeTimeDk' , 'Nhan_vien_khoaController@closeTimeDk');
 Route::post('/sendEmailToAll', 'Nhan_vien_khoaController@openTimeDk');
+Route::get('/guinhacnho','Nhan_vien_khoaController@guinhacnho');
+Route::get('/saveHoso/{ma_sinh_vien}/{ho_so}/{hop_thuc}/{hoan_tat}','Nhan_vien_khoaController@saveHoso');
 
 Route::post('/uploadGV', 'Nhan_vien_khoaController@uploadGV');
 Route::post('/uploadSV', 'Nhan_vien_khoaController@uploadSV');
@@ -42,6 +44,8 @@ Route::get('/getListSV','Nhan_vien_khoaController@getListSV');
 Route::get('/getListKhoahoc','Nhan_vien_khoaController@getListKhoahoc');
 Route::get('/getListCtdt','Nhan_vien_khoaController@getListCtdt');
 Route::get('/getListSVandDt','Nhan_vien_khoaController@svanddt');
+Route::get('/getListDetaiBaove','Nhan_vien_khoaController@getListDetaiBaove');
+Route::get('/getListCv','Nhan_vien_khoaController@getListCv');
 
 Route::get('/addGV/{ma_giang_vien}/{ten_giang_vien}/{email}/{bomon}','Nhan_vien_khoaController@addGV');
 Route::get('/addSV/{ma_sinh_vien}/{ten_sinh_vien}/{khoa_hoc}/{ctdt}','Nhan_vien_khoaController@addSV');

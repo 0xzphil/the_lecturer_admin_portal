@@ -17,7 +17,9 @@ class De_tai extends Model
     	'hop_thuc',
     	'hoan_tat',
     	'rut',
-    	'qd_rut'
+    	'bao_ve',
+        'duoc_bao_ve',
+        'sau_bao_ve'
     ];
 
     public $timestamps = false;

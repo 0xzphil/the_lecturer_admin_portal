@@ -32,12 +32,14 @@ class ExcelService
 
 			$de_tai = De_tai::where('ma_sinh_vien','=',$listSv[$i]->ma_sinh_vien)->first();
 			if(isset($de_tai)){
-				if($de_tai->trang_thai_gv != 'dong_y' || $de_tai->trung == 1 || $de_tai->yeu_cau_sua == 1 || $de_tai->rut == 1 || $de_tai->ten_de_tai == null){
+				if($de_tai->trang_thai_gv != 'dong_y' || $de_tai->trung == 1 || $de_tai->yeu_cau_sua == 1 || $de_tai->rut == 1 || $de_tai->ten_de_tai == null ||$de_tai->bao_ve == 1){
 					continue;
 				}
 				else{
 					$temp->ten_de_tai = $de_tai->ten_de_tai;
 					$temp->ten_gv = Giang_vien::find($de_tai->ma_giang_vien)->user->name;
+					$de_tai->bao_ve = 1;
+					$de_tai->save();
 				}
 			}
 			else{

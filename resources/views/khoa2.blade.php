@@ -53,7 +53,7 @@
              <li><a id="open-khoitao" href="#">Khởi tạo</a></li>
             <li><a id="open-svddk" href="#">Sinh viên và đề tài</a></li>
             @if ( Auth::user()->nhan_vien_khoa->khoa->dang_ky)            
-             <li><a id="close-time-dk" href="/closeTimeDk" data-toggle="modal" data-target="">Đóng đợt đăng ký</a></li>
+             <li><a id="close-time-dk" href="#" data-toggle="modal" data-target="#modal4">Đóng đợt đăng ký</a></li>
              @else
               <li><a id="open-time-dk" href="#">Mở đợt đăng ký</a></li>
               @endif
@@ -62,14 +62,27 @@
 
         <li class=" treeview">
           <a href="#">
-            <i class="fa fa-graduation-cap"></i> <span>Quản lý bảo vệ đề tài</span>
+            <i class="fa fa-pencil-square-o"></i> <span>Quản lý đăng ký bảo vệ</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-             <li><a id="open-khoitao" href="#">Khởi tạo</a></li>
-            <li><a id="open-svddk" href="#">Sinh viên được đăng ký</a></li>
+             <li><a id="dsdtbv" href="#">Danh sách đăng ký bảo vệ</a></li>
+            <li><a id="chotdsbv" href="#">Chốt danh sách bảo vệ</a></li>
+          </ul>
+        </li>
+
+        <li class=" treeview">
+          <a href="#">
+            <i class="fa fa-graduation-cap"></i> <span>Bảo vệ</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+             <li><a id="dsbvdt" href="#">Danh sách bảo vệ</a></li>
+            <!-- <li><a id="open-svddk" href="#">Sinh viên được đăng ký</a></li> -->
           </ul>
         </li>
 
@@ -81,9 +94,9 @@
             </span>
           </a>
           <ul class="treeview-menu">
-             <li><a id="#" href="#">Quyết định</a></li>
-            <li><a id="#" href="#">Hủy</a></li>
-            <li><a id="#" href="#">Thay đổi</a></li>
+             <li><a id="cv" href="#">Tất cả</a></li>
+            <!-- <li><a id="#" href="#">Hủy</a></li> -->
+            <!-- <li><a id="#" href="#">Thay đổi</a></li> -->
           </ul>
         </li>
   </li>
@@ -290,6 +303,97 @@
 </div>
 <!--Hết modal đóng đăng ký-->
 
+<!-- Modal đăng ký bảo vệ  -->
+<div class="example-modal">
+        <div class="modal fade" id="modal5">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Thông tin hồ sơ bảo vệ</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                    <label class="col-sm-2" style="padding-right: 0px;">Mã sinh viên</label>
+                    <div class="col-sm-10">
+                      <input class="form-control col-sm-10" id="ip_msv_bv" type="text" disabled="disabled">
+                      
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <label class="col-sm-2" style="padding-right: 0px;">Tên sinh viên</label>
+                    <div class="col-sm-10">
+                      <input class="form-control col-sm-10" id="ip_tsv_bv" type="text" disabled="disabled">
+                      
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <label class="col-sm-2" style="padding-right: 0px;">Tên đề tài</label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control" rows="3" id="ip_tdt_bv" disabled="disabled"></textarea>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <label class="col-sm-2" style="padding-right: 0px;"> 
+                      
+                    </label>
+                    <label class="col-sm-3" style="padding-right: 0px;">Hồ sơ 
+                        <input type="checkbox" value="" id="cb-hs">
+                    </label>
+                    <label class="col-sm-3" style="padding-right: 0px;">Hợp thức 
+                        <input type="checkbox" value="" id="cb-hthuc">
+                    </label>
+                    <label class="col-sm-3" style="padding-right: 0px;">Hoàn tất
+                        <input type="checkbox" value="" id="cb-htat">
+                    </label>
+                  </div>
+
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="saveHoso">Lưu</button>
+              </div>
+            </div>o
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal đăng ký bảo vệ-->
+
+<!-- Modal gửi thông báo tới các sinh viên chưa gửi hồ sơ  -->
+<div class="example-modal">
+        <div class="modal fade" id="modal6">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Thông báo</h4>
+              </div>
+              <div class="modal-body">
+                <h3>Khoa {{$ten_khoa}} sẽ gửi thông báo tới tất cả các sinh viên chưa hoàn thiện, hồ sơ chưa được hợp thức.</h3>
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="btnguinhacnho">Gửi nhắc nhở</button>
+              </div>
+            </div>o
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal gửi thông báo tới các sinh viên chưa gửi hồ sơ -->
+
 
 @section('nguoi-dang-nhap')
 	Khoa {{$ten_khoa}}
@@ -301,5 +405,7 @@
   <script src="dist/js/adkhoa/eventAtSv.js"></script>
   <script src="dist/js/adkhoa/eventAtKhCtdt.js"></script>
   <script src="dist/js/adkhoa/eventAtQldt.js"></script>
+  <script src="dist/js/adkhoa/eventAtQlbvdt.js"></script>
+  <script src="dist/js/adkhoa/eventAtCv.js"></script>
 @endsection
 
