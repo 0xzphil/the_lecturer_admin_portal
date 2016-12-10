@@ -217,7 +217,31 @@ function formTrangThaiFunc(data) {
 	} else {
 		trangThaiClassContent = 'col-md-12';
 	}
-	if(data.check == 7){
+	console.log(data.check);
+
+	if(data.check == 1){
+		contentHtml ='<div class="'+ trangThaiClassContent + '" id="info2">\
+          <div class="box">\
+            <div class="box-header">\
+              <h3 class="box-title">Trạng thái đề tài của bạn</h3>\
+            </div>\
+            <div class="box-body box-profile">\
+              Khoa đóng đăng ký và bạn chưa có đề tài nào\
+            </div>\
+          </div>\
+        </div>';
+	} if(data.check == 2){
+		contentHtml ='<div class="'+ trangThaiClassContent + '" id="info2">\
+          <div class="box">\
+            <div class="box-header">\
+              <h3 class="box-title">Trạng thái đề tài của bạn</h3>\
+            </div>\
+            <div class="box-body box-profile">\
+              Khoa đóng đã mở đợt đăng ký và bạn không đủ điều kiện đăng ký đề tài\
+            </div>\
+          </div>\
+        </div>';
+	} else if(data.check == 7){
 		contentHtml ='<div class="'+ trangThaiClassContent + '" id="info2">\
           <div class="box">\
             <div class="box-header">\
@@ -301,11 +325,17 @@ function rutDangKy() {
 	// body...
 	$('#rutDangKy').click(function () {
 		// body.. .
-		J2lib.ajaxGet('rutDangKy', function (data) {
+		J2lib.ajaxGet('rutDangKy', function () {
 			// body...
+			checkDeTai(function () {
+				// body...
+				
   			var gvdata = $.parseJSON($('#gvdata').val());
+
+		    			console.log('Sau khi an huy: '+ dataDeTai.check);
 		    layFormDangKy(gvdata);
 		    layFormTrangThaiDeTai();
+			});
 		});
 	})
 }

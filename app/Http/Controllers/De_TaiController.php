@@ -65,6 +65,11 @@ class De_TaiController extends Controller
      */
     public function kiemTraDeTai($msv)
     {
+    	# nếu đóng đăng ký và có đề tài trong đó
+    	if(Khoa::where('id', Session::get('khoa_id'))->first()->dang_ky == 0 && 
+    		De_tai::where('ma_sinh_vien', $msv)->first() != NULL){
+    		return 10;
+    	}
     	# khoa chưa mở đăng ký
     	if(Khoa::where('id', Session::get('khoa_id'))->first()->dang_ky == 0){
     		return 1;
@@ -112,6 +117,19 @@ class De_TaiController extends Controller
 	    return 7;
     }
 
+    public function kiemTraHoSo()
+    {
+    	# code...
+    	
+    	$msv = Auth::user()->sinh_vien->ma_sinh_vien;
+    	$check = $this->kiemTraDeTai($msv);
+    	if($check!= 10){
+    		return response()->json(['check'=> 1, 'kiemTraDeTai'=> $check]);
+    	} else {
+    		$deTai =  De_tai::where('ma_sinh_vien', $msv)->first();
+    		return response()->json(['check'=> 2, 'deTai'=> $deTai]);
+    	}
+    }
     /**
      * [store description]
      * @param  [type] $request [description]
