@@ -1,7 +1,7 @@
 @extends('layouts.temp')
 
 @section('dieuhuong')
-	<li class=" treeview">
+	<li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Thông tin sinh viên</span>
             <span class="pull-right-container">
@@ -9,14 +9,15 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a id="repass-gv" href="#">Đổi mật khẩu</a></li>
-            <li><a id="open-add-gv" href="#">abc</a></li>
+            <li><a id="infoSV" href="#">Xem thông tin sinh viên</a></li>
+            <li><a id="repass-sv" href="#">Đổi mật khẩu</a></li>
 
           </ul>
-        </li>
+          </li>
+
         <li class=" treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Đề tài</span>
+            <i class="fa fa-dashboard"></i> <span>Đăng ký đề tài</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -34,6 +35,20 @@
             <!-- 
             <li><a id="open-add-sv" href="#">Thêm GV thủ công</a></li>
  -->
+          </ul>
+        </li>
+
+                  <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Bảo vệ đề tài</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a id="kiemTraHoSo" href="#">Kiểm tra hồ sơ</a></li>
+            <li><a id="kiemTraTrangThaiBaoVe" href="#">Kiểm tra trạng thái bảo vệ</a></li>
+
           </ul>
         </li>
 @endsection
@@ -136,6 +151,10 @@
 @section('js_import')
 <script src="dist/js/sv/handleEventSinhVien.js"></script>
 <script src="dist/js/sv/handleTableSvbr.js"></script>
+<script src="dist/js/sv/handleRepass.js"></script>
+<script src="dist/js/sv/handleInfoSv.js"></script>
+<script src="dist/js/sv/handleKiemTraHoSo.js"></script>
+<script src="dist/js/sv/handleBaoVeDeTai.js"></script>
 <script src="dist/js/j2lib.js"></script>
 
 <!-- InputMask -->

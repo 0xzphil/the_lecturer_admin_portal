@@ -12,17 +12,6 @@
 */
 
 Route::get('/','UserController@redirectAfterLogin');
-
-Route::get('/test', 'BaseController@test');
-Route::get('/test2', function() {
-    return view('pages.layout.nav-top-1');
-});
-Route::get('/test3', function() {
-    return view('giangvien');
-});
-
-
-
 // Route controllers
 Auth::routes();
 
@@ -79,3 +68,4 @@ Route::post('/guiDeTai', 'De_TaiController@guiDeTai');
 Route::get('/layDeTai', 'De_TaiController@layDeTai');
 
 Route::get('/rutDangKy', 'De_TaiController@rutDangKy');
+Route::get('/kiemTraHoSo', 'De_TaiController@kiemTraHoSo');
