@@ -77,3 +77,5 @@ Route::get('/listGvbm/{id}','BaseController@listGvbm');
 
 Route::post('/guiDeTai', 'De_TaiController@guiDeTai');
 Route::get('/layDeTai', 'De_TaiController@layDeTai');
+
+Route::get('/rutDangKy', 'De_TaiController@rutDangKy');

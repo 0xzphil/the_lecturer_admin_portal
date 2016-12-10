@@ -6,22 +6,16 @@ var a = 7;
 
 function handleTable(data) {
 	// body...
-	console.log(data.length);
-
 	for (var i = data.length - 1; i >= 0; i--) {
-		console.log(i+1);
 		$('#bomon'+i).click({i: i}, function (event) {
 			// body...
 			a = event.data.i;
 			J2lib.ajaxGet('listGvbm/'+(event.data.i+1), function (data) {
 				// body...
-				//console.log(event.data.i+1);
 				appendTable(data);
 			})
 		});
-		//data[i]
 	}
-	console.log(data);
 }
 
 function listBomon() {
@@ -148,10 +142,7 @@ function listLinhvuc() {
 
 function handleLinhvucTable(data) {
 	// body...
-	console.log(data.length);
-
 	for (var i = data.length - 1; i >= 0; i--) {
-		console.log(i+1);
 		$('#linhvuc'+i).click({i: i}, function (event) {
 			// body...
 			J2lib.ajaxGet('listGvLv/'+(event.data.i+1), function (data) {
