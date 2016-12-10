@@ -122,3 +122,19 @@ function clickguinhacnho(){
 		});
 	});
 }
+
+function chotDsbv(){
+	$('#chotdsbv').click(function(){
+		$.get('chotDsbv', function(data, status){
+			if(status == "success"){
+				if(data == "true"){
+					createAlert('success',"Đã chốt danh sách bảo vệ! vào mục 'Công văn' để xem danh sách bảo vệ");
+				}
+				else
+				{
+					createAlert('danger',"Đóng thất bại! Vui lòng thử lại sau.");
+				}
+			}
+		});
+	});
+}

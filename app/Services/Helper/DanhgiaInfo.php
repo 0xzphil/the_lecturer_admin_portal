@@ -6,5 +6,6 @@ class DanhgiaInfo{
 	public $ten_gvdg;
 	public $danh_gia;
 	public $diem;
+	public $id;
 }
 ?>

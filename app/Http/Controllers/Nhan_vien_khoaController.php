@@ -20,6 +20,7 @@ use App\Sinh_vien;
 use App\Khoa_hoc;
 use App\Ctdt;
 use App\Cong_van;
+use App\Danh_gia;
 use Session;
 use Auth;
 use Response;
@@ -308,5 +309,49 @@ class Nhan_vien_khoaController extends Controller
       $de_tai->hoan_tat = $hoan_tat;
       $de_tai->save();
       return "true";
+    }
+
+    /*Hàm đóng danh sách bảo vệ và xuất file excel*/
+
+    function chotDsbv(){
+       $khoa_id = Session::get('khoa_id');
+
+       $filename = "Danh_sach_duoc_bao_ve".rand(1,10000)."2016";
+
+       $excelService = new ExcelService();
+       $excelService->exportListBv($filename, $khoa_id);
+
+       $cong_van = new Cong_van();
+        $cong_van->mo_ta = "Quyết định danh sách đề tài được bảo vệ năm 2016";
+        $cong_van->khoa_id = $khoa_id;
+        $cong_van->pathfile = $filename;
+        $cong_van->save();
+        return "true";
+    }
+
+    // TRả về danh sách sinh viên và đề tài được phép bảo vệ
+    function getListBv(){
+       $sinhvienService = new SinhvienService();
+       return $sinhvienService->getDetaiDbv(Session::get('khoa_id'));
+    }
+
+    //Hàm thêm 1 phân công bảo vệ vào danh sách 
+    function pcbv($ma_sinh_vien,$ma_giang_vien){  
+        $detaiId = Sinh_vien::find($ma_sinh_vien)->de_tai->id;
+        $gv = Giang_Vien::find($ma_giang_vien);
+        if(isset($gv)){
+            $danh_gia = Danh_gia::whereRaw('ma_giang_vien = ? and de_tai_id = ?',[$ma_giang_vien, $detaiId])->first();
+            if(isset($danh_gia)){
+              return 'trung';
+            }
+            else{
+               $danh_gia1= new Danh_gia();
+               $danh_gia1->ma_giang_vien = $ma_giang_vien;
+               $danh_gia1->de_tai_id = $detaiId;
+               $danh_gia1->save();
+               return $gv->user->name;
+            }
+        }
+        else return "false";
     }
 }

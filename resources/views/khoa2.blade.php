@@ -82,7 +82,7 @@
           </a>
           <ul class="treeview-menu">
              <li><a id="dsbvdt" href="#">Danh sách bảo vệ</a></li>
-            <!-- <li><a id="open-svddk" href="#">Sinh viên được đăng ký</a></li> -->
+            <li><a id="xdghdbv" href="#">Xuất đề nghị hội đồng bảo vệ</a></li>
           </ul>
         </li>
 
@@ -394,6 +394,39 @@
 </div>
 <!--Hết modal gửi thông báo tới các sinh viên chưa gửi hồ sơ -->
 
+<!-- Modal phân công phản biện -->
+<div class="example-modal">
+        <div class="modal fade" id="modal7">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Thêm phân công phản biện</h4>
+              </div>
+              <div class="modal-body">
+                 <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Mã giảng viên</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="pc-mgv" type="text" placeholder="Mã giảng viên">
+                      
+                    </div>
+                  </div>
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="btnphancong">Lưu</button>
+              </div>
+            </div>o
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal thêm phân công phản biện -->
+
 
 @section('nguoi-dang-nhap')
 	Khoa {{$ten_khoa}}
@@ -406,6 +439,7 @@
   <script src="dist/js/adkhoa/eventAtKhCtdt.js"></script>
   <script src="dist/js/adkhoa/eventAtQldt.js"></script>
   <script src="dist/js/adkhoa/eventAtQlbvdt.js"></script>
+  <script src="dist/js/adkhoa/eventAtDsbvdt.js"></script>
   <script src="dist/js/adkhoa/eventAtCv.js"></script>
 @endsection
 

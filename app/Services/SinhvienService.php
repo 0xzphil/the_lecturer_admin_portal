@@ -184,7 +184,7 @@ class SinhvienService
 
 	}
 
-	/*Lấy ra các đề tài sẽ được bảo vệ*/
+	/*Lấy ra các đề tài sẽ được nộp hồ sơ bảo vệ bảo vệ*/
 	public function getDetaiBaove($khoa_id){
 		$result = array();
 
@@ -195,7 +195,7 @@ class SinhvienService
 
 			$de_tai = De_tai::where('ma_sinh_vien','=',$listSv[$i]->ma_sinh_vien)->first();
 			if(isset($de_tai)){
-				if( $de_tai->bao_ve != 1 ){
+				if( $de_tai->bao_ve != 1 || $de_tai->duoc_bao_ve == 1 || $de_tai->sau_bao_ve==1 ){
 					continue;
 				}
 				else{
@@ -229,6 +229,54 @@ class SinhvienService
 
 		return json_encode($result);
 	}
+
+	/*Lấy ra các đề tài hoàn thiện hồ sơ và được bảo vệ*/
+	public function getDetaiDbv($khoa_id){
+		$result = array();
+
+		$listSv = Sinh_vien::whereRaw('khoa_id = ?',[$khoa_id])->get();
+		for($i = 0 ; $i < $listSv->count() ; $i++ ){
+
+			$detaiInfo = new DetaiInfo();
+
+			$de_tai = De_tai::where('ma_sinh_vien','=',$listSv[$i]->ma_sinh_vien)->first();
+			if(isset($de_tai)){
+				if( $de_tai->duoc_bao_ve != 1 || $de_tai->sau_bao_ve==1 ){
+					continue;
+				}
+				else{
+					$detaiInfo->ten_sinh_vien = $listSv[$i]->user->name;
+					$detaiInfo->ma_sinh_vien = $listSv[$i]->ma_sinh_vien;
+					$detaiInfo->ten_gv = $de_tai->giang_vien->user->name;
+					$detaiInfo->ten_de_tai = $de_tai->ten_de_tai;
+					$detaiInfo->ho_so = $de_tai->ho_so;
+					$detaiInfo->hop_thuc = $de_tai->hop_thuc;
+					$detaiInfo->hoan_tat = $de_tai->hoan_tat;
+
+					$listDanhgia = array();
+
+					$listDanhgia1 = $de_tai->danh_gia;
+					for($j = 0 ; $j<$listDanhgia1->count();$j++){
+						$temp = new DanhgiaInfo();
+						$temp->ten_gvdg = $listDanhgia1[$j]->giang_vien->user->name;
+						$temp->danh_gia = $listDanhgia1[$j]->nhan_xet;
+						$temp->diem = $listDanhgia1[$j]->diem;
+						$temp->id = $listDanhgia1[$j]->id;
+						array_push($listDanhgia,$temp);
+					}
+
+					$detaiInfo->listDanhgia =  $listDanhgia;
+
+				}
+				array_push($result,$detaiInfo);
+			}
+			else continue;
+
+		}
+
+		return json_encode($result);
+	}
+
 
 	/* hàm gửi nhắc nhở tới các sinh viên trong khoa hoàn thiện hồ sơ để bảo vệ*/
 

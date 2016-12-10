@@ -64,7 +64,7 @@ function openSVDDK(){
 		$.get('getListSVandDt',function(data, status){
 			if(status == 'success'){
 				$object = JSON.parse(data);
-				 //console.log($object[0]);
+				 console.log($object[0]);
 				 $html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
                   <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
                    <i class="fa fa-refresh fa-spin"></i>\

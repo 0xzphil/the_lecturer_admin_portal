@@ -58,6 +58,11 @@ $(document).ready(function(){
 	    getListDetaiBaove();
 	    clickguinhacnho();
 	    saveHoso();
+	    chotDsbv();
+
+	    /*Gọi các hàm xử lý trên tree bảo vệ*/
+	    clickDsbvdt();
+	    clickPc();
 
 	    /*
 			Gọi các hàm xử lý ở tree Congvan
@@ -128,7 +133,7 @@ function saveInfoHome(){
 	$slsv = $('#h3slsv').html();
 	$slbm = $('#h3slbm').html();
 	$slptn = $('#h3slptn').html();
-	console.log($ten_khoa,$slptn,$slgv,$slsv,$slbm);
+	//console.log($ten_khoa,$slptn,$slgv,$slsv,$slbm);
 }
 function appendContextHome(){
 	

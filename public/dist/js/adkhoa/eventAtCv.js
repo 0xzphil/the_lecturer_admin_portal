@@ -2,7 +2,7 @@ function getListCv(){
 	$('#cv').click(function(){
 		$.get('getListCv',function(data,status){
 			if(status == 'success'){
-				console.log(data);
+				//console.log(data);
 				$html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
                   <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
                    <i class="fa fa-refresh fa-spin"></i>\
