@@ -180,6 +180,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         // Fizz
         App\Providers\SismgrServiceProvider::class,
+        Roumen\Sitemap\SitemapServiceProvider::class,
     ],
 
     /*

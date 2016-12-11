@@ -182,7 +182,10 @@ class De_TaiController extends Controller
     	# code...
     	De_tai::where('ma_sinh_vien', $msv)->first()->delete();
     }
-
+    /**
+     * [rutDangKy description]
+     * @return [type] [description]
+     */
     public function rutDangKy()
     {
     	# code...
@@ -193,5 +196,80 @@ class De_TaiController extends Controller
 	    	$deTai->save();
 	    }
 	    return response()->json(['message' => 'Rút thành công']);
+    }
+    /**
+     * [listDeTai description]
+     * @param  [type] $ma_giang_vien [description]
+     * @return [type]                [description]
+     */
+    public function listDeTai()
+    {
+    	# code...
+    	$mgv = Auth::user()->giang_vien->ma_giang_vien;
+    	if($mgv != NULL){
+    		return De_tai::where('ma_giang_vien', $mgv)->where('trang_thai_gv', 'chua_xac_nhan')->get();
+    	}
+    }
+    /**
+     * [listDeTaiDaChapNhan description]
+     * @return [type] [description]
+     */
+    public function listDeTaiDaChapNhan()
+    {
+    	# code...
+    	$mgv = Auth::user()->giang_vien->ma_giang_vien;
+    	if($mgv != NULL){
+    		return De_tai::where('ma_giang_vien', $mgv)->where('trang_thai_gv', 'dong_y')->get();
+    	}
+    }
+    /**
+     * [chapNhan description]
+     * @param  [type] $ma_sinh_vien [description]
+     * @return [type]               [description]
+     */
+    public function chapNhan($ma_sinh_vien)
+    {
+    	# code...
+    	# 
+    	$deTai = De_tai::where('ma_sinh_vien', $ma_sinh_vien)->first();
+    	$mgv = Auth::user()->giang_vien->ma_giang_vien;
+    	if( $mgv == $deTai->ma_giang_vien){
+    		$deTai->trang_thai_gv = 'dong_y';
+    		$deTai->save();
+    		return $this->listDeTai();
+    	} else return 0;
+    }
+    /**
+     * [tuChoi description]
+     * @param  [type] $ma_sinh_vien [description]
+     * @return [type]               [description]
+     */
+    public function tuChoi($ma_sinh_vien)
+    {
+    	# code...
+    	# 
+    	$deTai = De_tai::where('ma_sinh_vien', $ma_sinh_vien)->first();
+    	$mgv = Auth::user()->giang_vien->ma_giang_vien;
+    	if( $mgv == $deTai->ma_giang_vien){
+    		$deTai->trang_thai_gv = 'tu_choi';
+    		$deTai->save();
+    		return $this->listDeTai();
+    	} else return 0;
+    }
+
+    public function doiTTTrung($ma_sinh_vien)
+    {
+    	# code...
+    	$deTai = De_tai::where('ma_sinh_vien', $ma_sinh_vien)->first();
+    	$mgv = Auth::user()->giang_vien->ma_giang_vien;
+    	if( $mgv == $deTai->ma_giang_vien){
+    		if($deTai->trung == 0){
+    			$deTai->trung = 1;
+    		} else {
+    			$deTai->trung = 0;
+    		}
+    		$deTai->save();
+    		return $this->listDeTaiDaChapNhan();
+    	} else return 0;
     }
 }

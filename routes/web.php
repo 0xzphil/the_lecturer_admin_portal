@@ -66,3 +66,48 @@ Route::get('/layDeTai', 'De_TaiController@layDeTai');
 
 Route::get('/rutDangKy', 'De_TaiController@rutDangKy');
 Route::get('/kiemTraHoSo', 'De_TaiController@kiemTraHoSo');
+Route::get('sitemap', function(){
+	// create new sitemap object
+	$sitemap = App::make("sitemap");
+
+	// set cache (key (string), duration in minutes
+	// (Carbon|Datetime|int), turn on/off (boolean))
+	// by default cache is disabled
+	$sitemap->setCache('laravel.sitemap', 3600);
+
+	// elements must be in nested array with 'url' and 'language' keys
+	$translations= array(
+	    array(
+	        'url'=>'http://fb.com',
+	        'language'=>'en'
+	    ),
+	    array(
+	        'url'=>'http://domain.com/tsopic',
+	        'language'=>'hr'
+	    )
+	);
+
+	$routeCollection = Route::getRoutes();
+
+	foreach ($routeCollection as $value) {
+	    //echo $value->getPath();
+	    $sitemap->add(
+	    url($value->getPath()), // loc
+	    '2012-08-25T20:10:00+02:00', // datetime modified
+	    1.0, // priority from 0.0 to 1.0
+	    'daily', // frequency
+	    null, // title
+	    null, // images array() (url|caption)
+	    $translations // translations array() (url|language)
+		);
+
+	};
+	$sitemap->store('xml', 'sitemap');
+	return $sitemap->render('xml');
+});
+
+Route::get('listDeTai', 'De_TaiController@listDeTai');
+Route::get('listDeTaiDaChapNhan', 'De_TaiController@listDeTaiDaChapNhan');
+Route::get('deTai/chapNhan/{ma_sinh_vien}', 'De_TaiController@chapNhan');
+Route::get('deTai/tuChoi/{ma_sinh_vien}', 'De_TaiController@tuChoi');
+Route::get('deTai/trung/{ma_sinh_vien}', 'De_TaiController@doiTTTrung');

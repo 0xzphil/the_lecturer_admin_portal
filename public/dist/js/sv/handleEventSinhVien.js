@@ -7,8 +7,25 @@ $(document).ready(function() {
 	//var info = '#info1';
 	nhapDeTai();
 	layTrangThai();
+	ajaxLoading();
 });
 
+function ajaxLoading(){
+	 $(document).ajaxStart(function(){
+        $("#wait").remove();
+        var ajaxc = '   <div id="wait" class="alert alert-success" style="z-index: 1000; position:fixed;bottom:10px;right:10px;">\
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
+                  <i class="fa fa-refresh fa-spin"></i>\
+                  <strong>Đang xử lý...</strong>\
+                </div>';
+        $('#main-content').append(ajaxc);
+        //Pace.restart();
+        console.log("start");
+    });
+    $(document).ajaxComplete(function(){
+        $("#wait").remove();
+    });
+}
 
 function layFormTrangThaiDeTai() {
 	// body...

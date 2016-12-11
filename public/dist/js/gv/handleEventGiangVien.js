@@ -122,7 +122,17 @@ function repassGV() {
 	$('#repass-gv').click(function(event) {
 		/* Act on the event */
 		$('#main-content').empty();
-		var passwordContent = '<div class="box-header with-border">\
+		var passwordContent = '<section class="content-header">\
+      <h1>\
+        Quản lí đề tài\
+      </h1>\
+    </section>\
+    <section class="content">\
+    <section class="content">\
+      <div class="row">\
+        <div class="col-md-12">\
+          <div class="box">\
+    <div class="box-header with-border">\
             <h3 class="box-title">Chỉnh sửa mật khẩu</h3>\
             </div>\
             <!-- /.box-header -->\
@@ -142,8 +152,8 @@ function repassGV() {
                   <input type="email" id="renew-pass" name="renew-pass" class="form-control" placeholder="Xác nhận mật khẩu mới...">\
                 </div>\
                 <a href="#" class="btn btn-primary btn-block" id="confirmPassword"><b>Xác nhận</b></a>\
-                ';
-		$('#gvcontent').append(passwordContent);
+                </div></div></div></section>';
+		$('#main-content').append(passwordContent);
 		confirmPassword();
 	});
 }

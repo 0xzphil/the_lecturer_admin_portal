@@ -25,7 +25,7 @@ function xuLiNoiDungBv(data) {
 		var bao_ve;
 		if(data.deTai.bao_ve == 1){
 			bao_ve = '<span class="label label-success">Bảo vệ</span>';
-		} else bao_ve = '<span class="label label-danger">Chưa bảo vệ</span>';
+		} else bao_v = '<span class="label label-danger">Chưa bảo vệ</span>';
 
 		var duoc_bao_ve;
 		if(data.deTai.duoc_bao_ve == 1){
