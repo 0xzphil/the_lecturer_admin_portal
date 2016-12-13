@@ -168,11 +168,6 @@
         <!-- ./col -->
       </div>
     </section>
-   <div id="wait" class="alert alert-success" style="z-index: 1000; position:fixed;bottom:10px;right:10px;">
-                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-                  <i class="fa fa-refresh fa-spin"></i>
-                  <strong>Đang xử lý...</strong>
-                </div>
 @endsection
 <!--Modal thêm mới 1 khóa học vào danh sách khóa học -->
 <div class="example-modal">
@@ -437,9 +432,9 @@
   <script src="dist/js/adkhoa/eventAtGv.js"></script>
   <script src="dist/js/adkhoa/eventAtSv.js"></script>
   <script src="dist/js/adkhoa/eventAtKhCtdt.js"></script>
-  <script src="dist/js/adkhoa/eventAtQldt.js"></script>
-  <script src="dist/js/adkhoa/eventAtQlbvdt.js"></script>
-  <script src="dist/js/adkhoa/eventAtDsbvdt.js"></script>
+  <script src="dist/js/adkhoa/eventAtQldkdt.js"></script>
+  <script src="dist/js/adkhoa/eventAtQldkbv.js"></script>
+  <script src="dist/js/adkhoa/eventAtBv.js"></script>
   <script src="dist/js/adkhoa/eventAtCv.js"></script>
 @endsection
 

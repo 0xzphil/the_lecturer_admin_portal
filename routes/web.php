@@ -24,6 +24,7 @@ Route::post('/sendEmailToAll', 'Nhan_vien_khoaController@openTimeDk');
 Route::get('/guinhacnho','Nhan_vien_khoaController@guinhacnho');
 Route::get('/saveHoso/{ma_sinh_vien}/{ho_so}/{hop_thuc}/{hoan_tat}','Nhan_vien_khoaController@saveHoso');
 Route::get('/chotDsbv','Nhan_vien_khoaController@chotDsbv');
+Route::get('/downloadFile/{pathfile}','Nhan_vien_khoaController@downloadFile');
 
 Route::post('/uploadGV', 'Nhan_vien_khoaController@uploadGV');
 Route::post('/uploadSV', 'Nhan_vien_khoaController@uploadSV');

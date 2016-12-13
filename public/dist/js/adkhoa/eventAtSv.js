@@ -1,3 +1,9 @@
+/*
+* @file: eventAtSv.js
+* @author: Nguyễn Minh Hiếu
+* @Chức năng: Xử lý sự kiện khi người dùng thao tác trên tree Quản lý tài khoản sinh viên
+*/
+
 //mở form upload tài khoản sin viên bằng excel
 function eventOpenUploadSv(){
 	var token = $('meta[name="csrf_token"]').attr('content');

@@ -273,8 +273,8 @@ class Nhan_vien_khoaController extends Controller
         $cong_van = new Cong_van();
         $cong_van->mo_ta = "Quyết định danh sách sinh viên và đề tài năm 2016";
         $cong_van->khoa_id = $khoa_id;
-        $cong_van->pathfile = $fileName;
-        $cong_van->pathattachfile = $fileNameAttach;
+        $cong_van->pathfile = $fileName.".docx";
+        $cong_van->pathattachfile = $fileNameAttach.".xlsx";
         $cong_van->save();
         return "ok";
     }
@@ -324,7 +324,7 @@ class Nhan_vien_khoaController extends Controller
        $cong_van = new Cong_van();
         $cong_van->mo_ta = "Quyết định danh sách đề tài được bảo vệ năm 2016";
         $cong_van->khoa_id = $khoa_id;
-        $cong_van->pathfile = $filename;
+        $cong_van->pathfile = $filename.".xlsx";
         $cong_van->save();
         return "true";
     }
@@ -354,4 +354,20 @@ class Nhan_vien_khoaController extends Controller
         }
         else return "false";
     }
+
+    /*Hàm xử lý download 1 file*/
+    function downloadFile($pathfile){
+        $extention = strstr($pathfile, '.');
+        if($extention == '.xlsx' ){
+          return Response::download('download/excel/'.$pathfile);
+        }
+        else if($extention == '.docx'){
+          return Response::download('download/word/'.$pathfile);
+        } 
+        else{
+           return 'Không tìm thấy file';
+        }
+
+    }
 }
+

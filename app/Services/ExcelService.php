@@ -53,6 +53,9 @@ class ExcelService
 
 		    $excel->sheet('Sheet1', function($sheet) use($result) {
 		    	$sheet->appendRow(array(
+				    'DANH SÁCH SINH VIÊN ĐƯỢC PHÉP NỘP HỒ SƠ VÀ ĐĂNG KÝ BẢO VỆ'
+				));
+		    	$sheet->appendRow(array(
 				    'Mã sinh viên', 'Tên sinh viên','Giảng viên hướng dẫn','Tên đề tài'
 				));
 				for($i = 0 ; $i < count($result); $i++){

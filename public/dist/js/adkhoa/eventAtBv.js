@@ -1,4 +1,13 @@
 /*
+* @file: eventBv.js
+* @author: Nguyễn Minh Hiếu
+* @Chức năng: Xử lý sự kiện khi người dùng thao tác trên tree Bảo vệ
+*/
+
+
+
+
+/*
 Hàm xử lý khi người dùng click vào danh sách bảo vệ
 */
 var detaibaove;
@@ -160,5 +169,12 @@ function clickPc(){
 				}
 			});
 		}
+	});
+}
+
+/* Hàm xử lý sự kiện Xuất danh dách đề nghị bảo vệ */
+function clickXdndsbv(){
+	$('#xdghdbv').click(function(){
+		alert('click')
 	});
 }

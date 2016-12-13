@@ -1,3 +1,9 @@
+/*
+* @file: eventAtCv.js
+* @author: Nguyễn Minh Hiếu
+* @Chức năng: Xử lý sự kiện khi người dùng thao tác trên tree Công văn
+*/
+
 function getListCv(){
 	$('#cv').click(function(){
 		$.get('getListCv',function(data,status){
@@ -29,8 +35,8 @@ function getListCv(){
 					$html += ' <tr class="row-dtbv">\
 					        <td>'+($i+1)+'</td>\
 					        <td>'+data[$i].mo_ta+'</td>\
-					        <td><a href="#">'+data[$i].pathfile+'</a></td>\
-					        <td><a href="#">'+data[$i].pathattachfile+'</a></td>\
+					        <td><a href="downloadFile/'+data[$i].pathfile+'" class="link-file">'+data[$i].pathfile+'</a></td>\
+					        <td><a href="downloadFile/'+data[$i].pathattachfile+'" class="link-file">'+data[$i].pathattachfile+'</a></td>\
 					      </tr>';
 				}
 				$html += "</tbody></table></div></div></section>";

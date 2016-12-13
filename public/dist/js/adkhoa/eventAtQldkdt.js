@@ -1,3 +1,9 @@
+/*
+* @file: eventAtQldkdt.js
+* @author: Nguyễn Minh Hiếu
+* @Chức năng: Xử lý sự kiện khi người dùng thao tác trên tree Quản lý đăng ký đề tái
+*/
+
 
 //xử lý sự kiện khi nhân viên khoa khởi tạo các tài khoản được đăng ký từ excel
 function openKhoitao(){

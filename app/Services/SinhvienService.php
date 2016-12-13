@@ -145,7 +145,7 @@ class SinhvienService
 				$sinhvienInfo2->ten_gv = $de_tai->giang_vien->user->name;
 				
 				$sinhvienInfo2->rut = $de_tai->rut;
-				$sinhvienInfo2->sua = $de_tai->sua;
+				$sinhvienInfo2->sua = $de_tai->yeu_cau_sua;
 
 				if($de_tai->sua){
 					$sinhvienInfo2->ten_de_tai2 = $de_tai->ten_de_tai2;

@@ -1,3 +1,9 @@
+/*
+* @file: handleEventAdminKhoa.js
+* @author: Nguyễn Minh Hiếu
+* @Chức năng: File js chính của nhánh admin khoa, có chức năng gọi các hàm trong các file con
+*/
+
 var bomon;
 var ctdt;
 var khoa_hoc;
@@ -63,6 +69,7 @@ $(document).ready(function(){
 	    /*Gọi các hàm xử lý trên tree bảo vệ*/
 	    clickDsbvdt();
 	    clickPc();
+	    clickXdndsbv();
 
 	    /*
 			Gọi các hàm xử lý ở tree Congvan
@@ -100,12 +107,17 @@ function validateEmail(email) {
 }
 function ajaxLoading(){
 	 $(document).ajaxStart(function(){
-        $("#wait").css("display", "block");
+        $("#wait").remove();
+        $html = '<div id="wait" class="alert alert-success" style="z-index: 1000; position:fixed;bottom:10px;right:10px;">\
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
+                  <i class="fa fa-refresh fa-spin"></i>\
+                  <strong>Đang xử lý...</strong>\
+                </div>';
         //Pace.restart();
-        console.log("start");
+        $('#main-content').append($html);
     });
     $(document).ajaxComplete(function(){
-        $("#wait").css("display", "none");
+        $("#wait").remove();
         console.log("ajaxComplete");
     });
 }

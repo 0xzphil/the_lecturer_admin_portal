@@ -1,3 +1,10 @@
+/*
+ * file : eventAtQldkbv.js
+ * Chức năng: xử lý các sự kiện trên tree Quản lý đăng ký bảo vệ
+*/
+
+
+
 function getListDetaiBaove(){
 	$('#dsdtbv').click(function(){
 		$.get('getListDetaiBaove',function(data, status){

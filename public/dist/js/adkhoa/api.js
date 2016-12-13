@@ -1,3 +1,9 @@
+/*
+* @file: api.js
+* @author: Nguyễn Minh Hiếu
+* @Chức năng: chức 1 số hàm chức năng của nhánh nhân viên khoa client
+*/
+
 
 //tạo alert thông báo cho người dùng ở góc bên phải màn hình
 function createAlert($type , $data){
