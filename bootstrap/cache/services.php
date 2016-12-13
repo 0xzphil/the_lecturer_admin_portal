@@ -30,6 +30,7 @@
     26 => 'Collective\\Html\\HtmlServiceProvider',
     27 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     28 => 'App\\Providers\\SismgrServiceProvider',
+    29 => 'Roumen\\Sitemap\\SitemapServiceProvider',
   ),
   'eager' => 
   array (
@@ -143,6 +144,7 @@
     'form' => 'Collective\\Html\\HtmlServiceProvider',
     'Collective\\Html\\HtmlBuilder' => 'Collective\\Html\\HtmlServiceProvider',
     'Collective\\Html\\FormBuilder' => 'Collective\\Html\\HtmlServiceProvider',
+    'sitemap' => 'Roumen\\Sitemap\\SitemapServiceProvider',
   ),
   'when' => 
   array (
@@ -183,6 +185,9 @@
     array (
     ),
     'Collective\\Html\\HtmlServiceProvider' => 
+    array (
+    ),
+    'Roumen\\Sitemap\\SitemapServiceProvider' => 
     array (
     ),
   ),

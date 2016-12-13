@@ -1,6 +1,7 @@
 @extends('layouts.temp')
 
 @section('dieuhuong')
+	<input type="hidden" id="hiddenMgv" value="{{Auth::user()->giang_vien->ma_giang_vien}}">
 	<li class=" treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>
@@ -11,7 +12,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a id="repass-gv" href="#">Đổi mật khẩu</a></li>
-            <li><a id="open-add-gv" href="#">Thêm GV thủ công</a></li>
 
           </ul>
         </li>
@@ -23,9 +23,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a id="open-upload-sv" href="#">Khởi tạo bằng excel</a></li>
-            <li><a id="open-add-sv" href="#">Thêm GV thủ công</a></li>
-            <li><a id="open-duyet-de-tai" href="#">Duyệt Đề tài</a></li>
+            <li><a id="open-duyet-de-tai" href="#">Duyệt đề tài</a></li>
+            <li><a id="open-de-tai-da-chap-nhan" href="#">Đề tài đã chấp nhận</a></li>
           </ul>
         </li>
 @endsection
@@ -182,4 +181,6 @@
 @section('js_import')
 <script src="dist/js/gv/handleEventGiangVien.js"></script>
 <script src="dist/js/gv/eventgiangvien1.js"></script>
+<script src="dist/js/j2lib.js"></script>
+<script src="dist/js/gv/handleEventDuyetDeTai.js"></script>
 @endsection

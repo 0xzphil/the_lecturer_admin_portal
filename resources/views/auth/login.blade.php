@@ -1,7 +1,7 @@
 @extends('pages.layout.nav-top-1')
 
 @section('container')
-<section class="content">
+<section class="content" style=" margin-top: 8%;">
         
         <!-- <div class="callout callout-danger">
           <h4>Warning!</h4>
@@ -9,7 +9,7 @@
           <p>The construction of this layout differs from the normal one. In other words, the HTML markup of the navbar
             and the content will slightly differ than that of the normal layout.</p>
         </div> -->
-        <div class="box box-default">
+        <div class="box box-default col-md-4">
         <div class="box-header with-border">
         <h3 class="box-title">Đăng nhập</h3>
         </div>
