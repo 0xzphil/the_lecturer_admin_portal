@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\De_TaiRequest;
 use App\Khoa;
+use App\User;
 use Auth;
 use Session;
 use App\De_tai;
@@ -266,12 +267,14 @@ class De_TaiController extends Controller
     {
     	# code...
     	$deTai = De_tai::where('ma_sinh_vien', $ma_sinh_vien)->first();
+    	$sv = User::join('sinh_viens', 'sinh_viens.user_id', '=', 'users.id')->where('sinh_viens.ma_sinh_vien', $ma_sinh_vien)->first();
+    	$email = $sv->email;
     	$mgv = Auth::user()->giang_vien->ma_giang_vien;
     	if( $mgv == $deTai->ma_giang_vien){
     		$deTai->delete();
     		$sendMail = new SendEmailService();
-    		$sendMail->notify_mail('fizz.uet@gmail.com', 'Đề tài của bạn đã bị trùng, vui lòng kiểm tra trạng thái tại hệ thống quản lí đề tài');
-    		return $this->listDeTaiDaChapNhan();
+    		$sendMail->notify_mail($email, 'Đề tài của bạn đã bị trùng, vui lòng kiểm tra trạng thái tại hệ thống quản lí đề tài');
+    		return $this->listDeTai();
     	} else return 0;
     }
 }
