@@ -18,8 +18,8 @@ class UserTableSeeder extends Seeder
         // 1
         User::insert([
         	'name'   => 'T.S Lê Đình Thanh',
-            'password'   => Hash::make('giangvien'),
-            'email'      => 'giangvien.uet@gmail.com', 
+            'password'   => Hash::make('123456'),
+            'email'      => 'thanhld.uet@gmail.com', 
             'role'       => 'giang_vien',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
@@ -27,7 +27,7 @@ class UserTableSeeder extends Seeder
         // 2
         User::insert([
         	'name'   => 'Hieu',
-            'password'   => Hash::make('hieuhieu'),
+            'password'   => Hash::make('123456'),
             'email'      => 'hieu.uet@gmail.com', 
             'role'       => 'khoa',
             'created_at' => Carbon::now(),
@@ -36,8 +36,8 @@ class UserTableSeeder extends Seeder
         // 3
         User::insert([
             'name'   => 'Phi Nguyễn',
-            'password'   => Hash::make('phiphi'),
-            'email'      => 'phi.uet@gmail.com', 
+            'password'   => Hash::make('123456'),
+            'email'      => 'phind.uet@gmail.com', 
             'role'       => 'giang_vien',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
@@ -45,15 +45,15 @@ class UserTableSeeder extends Seeder
         // 4
         User::insert([
         	'name'   => 'Nguyễn Văn Minh',
-            'password'   => Hash::make('minhminh'),
-            'email'      => 'minh.uet@gmail.com', 
-            'role'       => 'giang_vien',
+            'password'   => Hash::make('123456'),
+            'email'      => '14020345@vnu.edu.vn', 
+            'role'       => 'sinh_vien',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
         // 5
         User::insert([
-            'name'   => 'Đinh Tiến Lộc',
+            'name'   => 'Nguyễn Minh Hiếu',
             'password'   => Hash::make('123456'),
             'email'      => '14020347@vnu.edu.vn', 
             'role'       => 'sinh_vien',
@@ -62,7 +62,7 @@ class UserTableSeeder extends Seeder
         ]);
         // 6
         User::insert([
-            'name'   => 'Hữu Công',
+            'name'   => 'Nguyễn Đình Phi',
             'password'   => Hash::make('123456'),
             'email'      => '14020377@vnu.edu.vn', 
             'role'       => 'sinh_vien',
