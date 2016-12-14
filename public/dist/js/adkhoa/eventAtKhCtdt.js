@@ -1,3 +1,9 @@
+/*
+* @file: eventAtKhCtdt.js
+* @author: Nguyễn Minh Hiếu
+* @Chức năng: Xử lý sự kiện khi người dùng thao tác trên tree Khóa học và chương trình đào tạo
+*/
+
 
 //mở ra bảng danh sách các khóa học
 function openKhoahoc(){

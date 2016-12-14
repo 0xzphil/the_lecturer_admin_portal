@@ -1,3 +1,9 @@
+/*
+* @file: handleEventAdminKhoa.js
+* @author: Nguyễn Minh Hiếu
+* @Chức năng: File js chính của nhánh admin khoa, có chức năng gọi các hàm trong các file con
+*/
+
 var bomon;
 var ctdt;
 var khoa_hoc;
@@ -50,6 +56,10 @@ $(document).ready(function(){
 
 		    //Hàm đóng thời gian đăng kys
 		    closeTimeDK();
+		    //Hàm cho phép sửa 
+		    clickChophepsua();
+		    //Hàm cho phép rút
+		    clickChopheprut();
 	    /*Kết thúc các hàm quản lý tree đăng ký đề tài*/
 
 	    /*
@@ -58,7 +68,20 @@ $(document).ready(function(){
 	    getListDetaiBaove();
 	    clickguinhacnho();
 	    saveHoso();
+	    chotDsbv();
 
+	    /*Gọi các hàm xử lý trên tree quản lý phân công*/
+	    clickDsbvdt();
+	    clickPc();
+	    clickXdndsbv();
+	    luuDspb1();
+	    clickBtnxpc();
+	    /*Gọi các hàm xử lý ở tree Bảo vệ đề tài*/
+	     clickDsbv();
+	     saveDgDiem();
+	     clickXuatdsdiem()
+	     /*Xử lý các hàm sau bảo vệ*/
+	     getListSauBv();
 	    /*
 			Gọi các hàm xử lý ở tree Congvan
 	    */
@@ -95,12 +118,17 @@ function validateEmail(email) {
 }
 function ajaxLoading(){
 	 $(document).ajaxStart(function(){
-        $("#wait").css("display", "block");
+        $("#wait").remove();
+        $html = '<div id="wait" class="alert alert-success" style="z-index: 1000; position:fixed;bottom:10px;right:10px;">\
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
+                  <i class="fa fa-refresh fa-spin"></i>\
+                  <strong>Đang xử lý...</strong>\
+                </div>';
         //Pace.restart();
-        console.log("start");
+        $('#main-content').append($html);
     });
     $(document).ajaxComplete(function(){
-        $("#wait").css("display", "none");
+        $("#wait").remove();
         console.log("ajaxComplete");
     });
 }
@@ -128,7 +156,7 @@ function saveInfoHome(){
 	$slsv = $('#h3slsv').html();
 	$slbm = $('#h3slbm').html();
 	$slptn = $('#h3slptn').html();
-	console.log($ten_khoa,$slptn,$slgv,$slsv,$slbm);
+	//console.log($ten_khoa,$slptn,$slgv,$slsv,$slbm);
 }
 function appendContextHome(){
 	

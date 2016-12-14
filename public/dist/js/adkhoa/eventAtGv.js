@@ -1,3 +1,9 @@
+/*
+* @file: eventAtGv.js
+* @author: Nguyễn Minh Hiếu
+* @Chức năng: Xử lý sự kiện khi người dùng thao tác trên tree  Giảng viên
+*/
+
 //hàm chuyển chế độ sang chế độ upload file excel
 function eventOpenUploadGv(){
 	$_token = $('meta[name="csrf_token"]').attr('content');

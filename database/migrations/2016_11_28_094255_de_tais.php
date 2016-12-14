@@ -39,6 +39,9 @@ class DeTais extends Migration
             $table->boolean('rut')->default(false);
             $table->boolean('bao_ve')->default(false);
             $table->boolean('duoc_bao_ve')->default(false);
+            $table->boolean('phan_cong')->default(false);
+            $table->boolean('xuat_phan_cong')->default(false);
+            $table->boolean('chot_phan_bien')->default(false);
             $table->boolean('sau_bao_ve')->default(false);
             $table->string('ten_de_tai2',500)->default("");
             $table->string('ma_giang_vien2',20)->default("");

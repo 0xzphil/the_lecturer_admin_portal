@@ -75,14 +75,41 @@
 
         <li class=" treeview">
           <a href="#">
-            <i class="fa fa-graduation-cap"></i> <span>Bảo vệ</span>
+            <i class="fa fa-stack-exchange "></i> <span>Quản lý phân công phản biện</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-             <li><a id="dsbvdt" href="#">Danh sách bảo vệ</a></li>
-            <!-- <li><a id="open-svddk" href="#">Sinh viên được đăng ký</a></li> -->
+             <li><a id="dsbvdt" href="#">Danh sách phân công</a></li>
+            <li><a id="xdghdbv" href="#">Xuất đề nghị hội đồng bảo vệ</a></li>
+          </ul>
+        </li>
+
+        <li class=" treeview">
+          <a href="#">
+            <i class="fa fa-graduation-cap"></i> <span>Bảo vệ đề tài</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+             <li><a id="dsbvdt1" href="#">Danh sách bảo vệ</a></li>
+             <li><a id="dsdiem" href="#">Xuất danh sách điểm</a></li>
+            <!-- <li><a id="xdghdbv" href="#">Xuất đề nghị hội đồng bảo vệ</a></li> -->
+          </ul>
+        </li>
+
+        <li class=" treeview">
+          <a href="#">
+            <i class="fa fa-briefcase"></i> <span>Sau bảo vệ</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+             <li><a id="dssbv" href="#">Danh sách sau bảo vệ</a></li>
+            
           </ul>
         </li>
 
@@ -168,11 +195,6 @@
         <!-- ./col -->
       </div>
     </section>
-   <div id="wait" class="alert alert-success" style="z-index: 1000; position:fixed;bottom:10px;right:10px;">
-                  <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-                  <i class="fa fa-refresh fa-spin"></i>
-                  <strong>Đang xử lý...</strong>
-                </div>
 @endsection
 <!--Modal thêm mới 1 khóa học vào danh sách khóa học -->
 <div class="example-modal">
@@ -394,6 +416,303 @@
 </div>
 <!--Hết modal gửi thông báo tới các sinh viên chưa gửi hồ sơ -->
 
+<!-- Modal phân công phản biện -->
+<div class="example-modal">
+        <div class="modal fade" id="modal7">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Thêm phân công phản biện</h4>
+              </div>
+              <div class="modal-body">
+                 <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Mã giảng viên</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="pc-mgv" type="text" placeholder="Mã giảng viên">
+                    </div>
+                  </div>
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="btnphancong">Lưu</button>
+              </div>
+            </div>o
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal thêm phân công phản biện -->
+
+<!-- Modal chốt phân công phản biện -->
+<div class="example-modal">
+        <div class="modal fade" id="modal8">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Chốt phân công phản biện</h4>
+              </div>
+              <div class="modal-body">
+                 <div class="row">
+                    <h3 id="h3chdsbv"></h3>
+                  </div>
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="luuDspb1">Lưu</button>
+              </div>
+            </div>o
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal chốt  phân công phản biện -->
+
+<!-- Modal xuất phân công phản biện -->
+<div class="example-modal">
+        <div class="modal fade" id="modal9">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Xuất phân công phản biện</h4>
+              </div>
+              <div class="modal-body">
+                 <div class="row">
+                    <h3>Khoa sẽ xuất công văn đề nghị hội đồng bảo vệ và phụ lục kèm theo cho các đề tài đã chốt phân công. Kiểm tra chắc chắn đã phân công hết các đề tài!</h3>
+                  </div>
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="btnxpc">Xuất phân công</button>
+              </div>
+            </div>
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal xuất  phân công phản biện -->
+
+<!-- Modal thêm đánh giá và điểm  -->
+<div class="example-modal">
+        <div class="modal fade" id="modal10">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Điền thông tin phản biện và điểm</h4>
+              </div>
+              <div class="modal-body">
+                 <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Tên đề tài</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="pb-ten-de-tai" type="text" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Tên giảng viên phản biện</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="pb-ten-gv" type="text" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+                  <input type="hidden" id="iddg">
+                  <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Đánh giá</label>
+                    <div class="col-sm-9">
+                      <textarea class="form-control" rows="3" id="ip_dgpb"></textarea>
+                    </div>
+                  </div>
+                    <br>
+                  <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Điểm</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="pb-diem-de-tai" type="text">
+                    </div>
+                  </div>
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="btnluupc">Lưu</button>
+              </div>
+            </div>
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal thêm đánh giá và điểm  -->
+
+<!-- Modal chốt phản biện  -->
+<div class="example-modal">
+        <div class="modal fade" id="modal11">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Chốt phản biện</h4>
+              </div>
+              <div class="modal-body">
+                 <h2>Khoa sẽ chốt phản biện và xuất biên bản bảo vệ</h2>
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="btnchotphanbien1">Chốt phản biện</button>
+              </div>
+            </div>
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal chốt phản biện-->
+
+<!-- Modal chốt xử lý yêu cầu rút của sinh viên ở phần quản lý đăng ký đề tài  -->
+<div class="example-modal">
+        <div class="modal fade" id="modal12">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Xử lý yêu cầu sinh viên</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Mã sinh viên</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="xlmsv" type="text" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+
+                   <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Tên sinh viên</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="xltsv" type="text" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+
+                   <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Yêu cầu</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" type="text" value="Xin rút" disabled="disabled">
+                    </div>
+                  </div>
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="saveycrut">Cho phép rút</button>
+              </div>
+            </div>
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal xin rút của sinh viên-->
+
+<!-- Modal chốt xử lý yêu cầu sửa của sinh viên ở phần quản lý đăng ký đề tài  -->
+<div class="example-modal">
+        <div class="modal fade" id="modal13">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Xử lý yêu cầu sinh viên</h4>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Mã sinh viên</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="xlsmsv" type="text" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+
+                   <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Tên sinh viên</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="xlstsv" type="text" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+
+                   <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Yêu cầu</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" type="text" value="Xin sửa" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">GVHD</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="xlsgvc" type="text" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Tên đề tài</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="xlstdtc" type="text" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">GVHD mới</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="xlsgvm" type="text" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <label class="col-sm-3" style="padding-right: 0px;">Tên đề tài mới</label>
+                    <div class="col-sm-9">
+                      <input class="form-control col-sm-10" id="xlstdtm" type="text" disabled="disabled">
+                    </div>
+                  </div>
+                  <br>
+              </div>
+              <!-- end modal body !-->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Thoát</button>
+                <button type="button" class="btn btn-primary" id="saveycsua">Cho phép sửa</button>
+              </div>
+            </div>
+            <!-- /.mdal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+</div>
+<!--Hết modal xin sửa của sinh viên-->
+
 
 @section('nguoi-dang-nhap')
 	Khoa {{$ten_khoa}}
@@ -404,8 +723,11 @@
   <script src="dist/js/adkhoa/eventAtGv.js"></script>
   <script src="dist/js/adkhoa/eventAtSv.js"></script>
   <script src="dist/js/adkhoa/eventAtKhCtdt.js"></script>
-  <script src="dist/js/adkhoa/eventAtQldt.js"></script>
-  <script src="dist/js/adkhoa/eventAtQlbvdt.js"></script>
+  <script src="dist/js/adkhoa/eventAtQldkdt.js"></script>
+  <script src="dist/js/adkhoa/eventAtQldkbv.js"></script>
+  <script src="dist/js/adkhoa/eventAtPc.js"></script>
   <script src="dist/js/adkhoa/eventAtCv.js"></script>
+  <script src="dist/js/adkhoa/eventAtBvdt.js"></script>
+  <script src="dist/js/adkhoa/eventAtSauBv.js"></script>
 @endsection
 

@@ -1,3 +1,10 @@
+/*
+ * file : eventAtQldkbv.js
+ * Chức năng: xử lý các sự kiện trên tree Quản lý đăng ký bảo vệ
+*/
+
+
+
 function getListDetaiBaove(){
 	$('#dsdtbv').click(function(){
 		$.get('getListDetaiBaove',function(data, status){
@@ -117,6 +124,22 @@ function clickguinhacnho(){
 				}
 				else{
 					createAlert('danger','Gửi nhắc nhở không thành công!')
+				}
+			}
+		});
+	});
+}
+
+function chotDsbv(){
+	$('#chotdsbv').click(function(){
+		$.get('chotDsbv', function(data, status){
+			if(status == "success"){
+				if(data == "true"){
+					createAlert('success',"Đã chốt danh sách bảo vệ! vào mục 'Công văn' để xem danh sách bảo vệ");
+				}
+				else
+				{
+					createAlert('danger',"Đóng thất bại! Vui lòng thử lại sau.");
 				}
 			}
 		});

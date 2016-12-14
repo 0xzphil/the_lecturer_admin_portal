@@ -1,3 +1,9 @@
+/*
+* @file: eventAtSv.js
+* @author: Nguyễn Minh Hiếu
+* @Chức năng: Xử lý sự kiện khi người dùng thao tác trên tree Quản lý tài khoản sinh viên
+*/
+
 //mở form upload tài khoản sin viên bằng excel
 function eventOpenUploadSv(){
 	var token = $('meta[name="csrf_token"]').attr('content');
@@ -74,7 +80,7 @@ function saveSV(){
 		$ten_sinh_vien = $('#ip_ten_sinh_vien').val();
 		$khoa_hoc = $('#ip_khoahoc').val();
 		$ctdt = $('#ip_ctdt').val();
-		if($ma_sinh_vien == '' || $ma_sinh_vien.length != 8){
+		if($ma_sinh_vien == '' || $ma_sinh_vien.length != 8 || !validateMSV($ma_sinh_vien)){
 			$('#ip_ma_sinh_vien').focus();
 			$('.help-block').css('display','block');
 		}

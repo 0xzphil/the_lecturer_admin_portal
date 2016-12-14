@@ -12,7 +12,7 @@ class Danh_gia extends Model
     	'diem',
     	'ma_giang_vien'
     ];
-
+    protected $primaryKey = 'id';
     public $timestamps = false;
 
     public function de_tai(){

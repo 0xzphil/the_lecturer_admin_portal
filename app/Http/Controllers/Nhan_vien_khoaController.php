@@ -20,6 +20,8 @@ use App\Sinh_vien;
 use App\Khoa_hoc;
 use App\Ctdt;
 use App\Cong_van;
+use App\Danh_gia;
+use App\De_tai;
 use Session;
 use Auth;
 use Response;
@@ -272,8 +274,8 @@ class Nhan_vien_khoaController extends Controller
         $cong_van = new Cong_van();
         $cong_van->mo_ta = "Quyết định danh sách sinh viên và đề tài năm 2016";
         $cong_van->khoa_id = $khoa_id;
-        $cong_van->pathfile = $fileName;
-        $cong_van->pathattachfile = $fileNameAttach;
+        $cong_van->pathfile = $fileName.".docx";
+        $cong_van->pathattachfile = $fileNameAttach.".xlsx";
         $cong_van->save();
         return "ok";
     }
@@ -309,4 +311,257 @@ class Nhan_vien_khoaController extends Controller
       $de_tai->save();
       return "true";
     }
+
+    /*Hàm đóng danh sách bảo vệ và xuất file excel*/
+
+    function chotDsbv(){
+       $khoa_id = Session::get('khoa_id');
+
+       $filename = "Danh_sach_duoc_bao_ve".rand(1,10000)."2016";
+
+       $excelService = new ExcelService();
+       $excelService->exportListBv($filename, $khoa_id);
+
+       $cong_van = new Cong_van();
+        $cong_van->mo_ta = "Quyết định danh sách đề tài được bảo vệ năm 2016";
+        $cong_van->khoa_id = $khoa_id;
+        $cong_van->pathfile = $filename.".xlsx";
+        $cong_van->save();
+        return "true";
+    }
+
+    // TRả về danh sách sinh viên và đề tài được phép bảo vệ
+    function getListBv(){
+       $sinhvienService = new SinhvienService();
+       return $sinhvienService->getDetaiDbv(Session::get('khoa_id'));
+    }
+
+    //Hàm thêm 1 phân công bảo vệ vào danh sách 
+    function pcbv($ma_sinh_vien,$ma_giang_vien){  
+        $detaiId = Sinh_vien::find($ma_sinh_vien)->de_tai->id;
+        $gv = Giang_Vien::find($ma_giang_vien);
+        if(isset($gv)){
+            $danh_gia = Danh_gia::whereRaw('ma_giang_vien = ? and de_tai_id = ?',[$ma_giang_vien, $detaiId])->first();
+            if(isset($danh_gia)){
+              return 'trung';
+            }
+            else{
+               $danh_gia1= new Danh_gia();
+               $danh_gia1->ma_giang_vien = $ma_giang_vien;
+               $danh_gia1->de_tai_id = $detaiId;
+               $danh_gia1->save();
+               return $gv->user->name;
+            }
+        }
+        else return "false";
+    }
+
+    /*Hàm xử lý download 1 file*/
+    function downloadFile($pathfile){
+        $extention = strstr($pathfile, '.');
+        if($extention == '.xlsx' ){
+          return Response::download('download/excel/'.$pathfile);
+        }
+        else if($extention == '.docx'){
+          return Response::download('download/word/'.$pathfile);
+        } 
+        else{
+           return 'Không tìm thấy file';
+        }
+
+    }
+
+    /*Hàm xử lý chốt phân công phản biện của 1 sinh viên*/
+    function luuDspb1($ma_sinh_vien){
+        $de_tai = Sinh_vien::find($ma_sinh_vien)->de_tai;
+        $de_tai->phan_cong = 1;
+        $de_tai->save();
+        return "true";
+    }
+
+    /*Hàm xuất phân công và công văn quyết định hội đồng */
+    function xuatphancong(){
+       $listSV = Sinh_vien::whereRaw('khoa_id = ?',[Session::get('khoa_id')])->get();
+       for($i = 0 ; $i < $listSV->count() ; $i++){
+          $de_tai = $listSV[$i]->de_tai;
+          if(isset($de_tai)){
+            if($de_tai->duoc_bao_ve == 1 && $de_tai->phan_cong == 0 && $de_tai->sau_bao_ve == 0 && $de_tai->xuat_phan_cong == 0){
+              return 'false';
+            }
+          }
+       }
+
+       $khoa_id = Session::get('khoa_id');
+       $ten_khoa = Khoa::find($khoa_id)->ten_khoa;
+       $filename = "cong_van_xuat_hoi_dong_phan_bien".rand(1,1111)."_2016";
+       $attachfile = "danh_sach_hoi_dong_phan_bien".rand(1,1111)."_2016";
+
+       
+
+       $sinhvienService = new SinhvienService();
+       $listDtpc = $sinhvienService->getListXuatPhanCong($khoa_id);
+
+       $soluong = count($listDtpc);
+
+       $wordService = new WordService();
+       $wordService->xuat_cong_van4($filename,$attachfile,$ten_khoa,$soluong);
+
+       $excelService = new ExcelService();
+       $excelService->exportListPc($attachfile,$listDtpc);
+
+        $cong_van = new Cong_van();
+        $cong_van->mo_ta = "Quyết định danh sách phản biện";
+        $cong_van->khoa_id = $khoa_id;
+        $cong_van->pathfile = $filename.'.docx';
+        $cong_van->pathattachfile = $attachfile.'.xlsx';
+        $cong_van->save();
+        return "true";
+    }
+
+    /*Hàm lấy dữ liệu cho danh sách bảo vệ ở tree bảo vệ đề tài*/
+    function getDsbv(){
+      $sinhvienService = new SinhvienService();
+      return $sinhvienService->getDsbv(Session::get('khoa_id'));
+    }
+
+    /*Hàm lưu đánh giá và điểm của 1 giảng viên đối với 1 đề tài*/
+    function saveDgDiem($id, $danh_gia , $diem){
+        $danh_gia1 = Danh_gia::find($id);
+        $danh_gia1->nhan_xet = $danh_gia;
+        $danh_gia1->diem = $diem;
+        $danh_gia1->save();
+        return "true";
+    }
+    /*Hàm chốt phản biện đối với đề tài của 1 sinh viên và xuất biên bản bảo vệ*/
+    function chotphanbien($ma_sinh_vien){
+       $list_danh_gia = Sinh_vien::find($ma_sinh_vien)->de_tai->danh_gia;
+       for($i=0; $i < $list_danh_gia->count();$i++){
+          if($list_danh_gia[$i]->nhan_xet == "" || $list_danh_gia[$i]->diem == 0){
+            return "false";
+          }
+       }
+
+       $de_tai = Sinh_vien::find($ma_sinh_vien)->de_tai;
+       $de_tai->chot_phan_bien = 1;
+       $de_tai->save();
+       return "true";
+    }
+
+    /*Hàm xuất công văn và danh sách điểm*/
+    function xuatDsdiem(){
+        $khoa_id = Session::get('khoa_id');
+        $listSV = Khoa::find($khoa_id)->sinh_vien;
+        for($i=0; $i < $listSV->count() ; $i++){
+            $de_tai = $listSV[$i]->de_tai;
+            if(isset($de_tai)){
+              if($de_tai->xuat_phan_cong != 1 && $de_tai->sau_bao_ve != 0){
+                continue;
+              }
+              else if($de_tai->chot_phan_bien == 0){
+                return 'false';
+              }
+            } 
+            else{
+              continue;
+            }
+        }
+
+        $sinhvienService = new SinhvienService();
+        $listDiem = $sinhvienService->getListDsDiem($khoa_id);
+        
+        $pathfile = "Cong_van_diem".rand(1,11111)."_2016";
+        $pathattachfile = "Danh_sach_diem".rand(1,1111)."_2016";
+        $soluong = count($listDiem);
+
+
+        $wordService = new WordService();
+        $wordService->xuat_cong_van5($pathfile,$pathattachfile,"",$soluong);
+
+        $excelService = new ExcelService();
+        $excelService->exportListDiem($pathattachfile,$listDiem);
+
+
+        $cong_van = new Cong_van();
+        $cong_van->mo_ta = "Quyết định danh sách điểm đề tài";
+        $cong_van->khoa_id = $khoa_id;
+        $cong_van->pathfile = $pathfile.'.docx';
+        $cong_van->pathattachfile = $pathattachfile.'.xlsx';
+        $cong_van->save();
+        return "true";
+    }
+
+    /*Trả về sinh viên và đề tài sau khi bảo vệ*/
+    function getListSauBv(){
+      $khoa_id = Session::get('khoa_id');
+      $sinhvienService = new SinhvienService();
+      return  $sinhvienService->getListSauBv($khoa_id);
+    }
+
+    /*hàm xử lý cho phép sửa của 1 sinh viên và xuất công văn*/
+    function chophepsua($ma_sinh_vien){
+        $ten_sinh_vien = Sinh_vien::find($ma_sinh_vien)->user->name;
+
+       $de_tai = Sinh_vien::find($ma_sinh_vien)->de_tai;
+
+
+       $ten_de_tai = $de_tai->ten_de_tai;
+       $ma_giang_vien = $de_tai->ma_giang_vien;
+       $ten_giang_vien = $de_tai->giang_vien->user->name;
+
+       $ten_de_tai1 = $de_tai->ten_de_tai2;
+       $ma_giang_vien1 = $de_tai->ma_giang_vien2;
+       $ten_giang_vien1 = Giang_vien::find($de_tai->ma_giang_vien2)->user->name;
+
+       $pathfile = "Quyet_dinh_doi_de_tai_".$ma_sinh_vien;
+
+       $wordService = new WordService();
+       $wordService->xuat_cong_van3($pathfile,"Công nghệ thông tin",$ma_sinh_vien,$ten_sinh_vien,$ten_de_tai,$ten_giang_vien,$ten_giang_vien1,$ten_de_tai1);
+
+       $de_tai->ten_de_tai = $ten_de_tai1;
+       $de_tai->ma_giang_vien = $ma_giang_vien1;
+       $de_tai->yeu_cau_sua = 0;
+       $de_tai->save();
+
+       $cong_van = new Cong_van();
+       $cong_van->mo_ta = "Quyết định đổi đề tài và giảng viên hướng dẫn cho sinh viên ".$ten_sinh_vien;
+       $cong_van->khoa_id= Session::get('khoa_id');
+       $cong_van->pathfile = $pathfile.".docx";
+       $cong_van->save();
+
+       return "true";
+    }
+
+    /*Hàm xử lý xin rút đề tài của sinh viên*/
+    function chopheprut($ma_sinh_vien){
+      $ten_sinh_vien  = Sinh_vien::find($ma_sinh_vien)->user->name;
+      $ten_khoa = Khoa::find(Session::get('khoa_id'))->ten_khoa;
+      $ten_de_tai = Sinh_vien::find($ma_sinh_vien)->de_tai->ten_de_tai;
+      $ten_giang_vien = Sinh_vien::find($ma_sinh_vien)->de_tai->giang_vien->user->name;
+
+      $pathfile ="quyet_dinh_rut_de_tai_".$ma_sinh_vien;
+
+      $wordService = new WordService();
+      $wordService->xuat_cong_van2($pathfile,$ten_khoa,$ma_sinh_vien,$ten_sinh_vien,$ten_de_tai,$ten_giang_vien);
+
+      $sendEmail = new SendEmailService();
+      $sendEmail->notify_mail("hieunm.hk@gmail.com","Khoa ".$ten_khoa." xin thông báo! Bạn đã rút thành công đề tài, bạn ko thể tiếp tục đăng ký trong lần đăng ký đề tài này. Bạn sẽ được đăng ký trong lại trong lần sau.");
+      
+      $sinh_vien = Sinh_vien::find($ma_sinh_vien);
+      $sinh_vien->dang_ky = 0;
+      $sinh_vien->save();
+
+      $de_tai = $sinh_vien->de_tai;
+      $de_tai->delete();
+
+
+      $cong_van = new Cong_van();
+      $cong_van->mo_ta = "Quyết định cho rút đề tài của sinh viên ".$ten_sinh_vien;
+      $cong_van->pathfile = $pathfile.".docx";
+      $cong_van->khoa_id = Session::get('khoa_id');
+      $cong_van->save();
+
+      return "true";
+    }
+
 }
+
