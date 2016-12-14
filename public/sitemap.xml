@@ -282,6 +282,14 @@
 		<changefreq>daily</changefreq>
   </url>
   <url>
+    <loc>http://localhost/thesisMgr/public/basicInfo</loc>
+		<xhtml:link rel="alternate" hreflang="en" href="http://fb.com" />
+		<xhtml:link rel="alternate" hreflang="hr" href="http://domain.com/tsopic" />
+		<priority>1</priority>
+		<lastmod>2012-08-25T18:10:00+00:00</lastmod>
+		<changefreq>daily</changefreq>
+  </url>
+  <url>
     <loc>http://localhost/thesisMgr/public/infoGV</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="http://fb.com" />
 		<xhtml:link rel="alternate" hreflang="hr" href="http://domain.com/tsopic" />
@@ -306,7 +314,7 @@
 		<changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>http://localhost/thesisMgr/public/repassGV</loc>
+    <loc>http://localhost/thesisMgr/public/repass</loc>
 		<xhtml:link rel="alternate" hreflang="en" href="http://fb.com" />
 		<xhtml:link rel="alternate" hreflang="hr" href="http://domain.com/tsopic" />
 		<priority>1</priority>

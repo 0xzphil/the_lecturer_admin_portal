@@ -2,6 +2,7 @@ $(document).ready(function() {
 	listBomon();
 	listLinhvuc();
 });
+
 var a = 7;
 
 function handleTable(data) {
@@ -85,6 +86,20 @@ function hienThiThongTinGv(data) {
 
 	function modelBox(data) {
 		// body...
+		$('#myModal').remove();
+		console.log(data);
+		var liContent ='';
+		if(data[0].ten_huong_nghien_cuu == null	){
+			liContent+= ' <li class="list-group-item">Chưa có hướng nghiên cứu nào</li>';
+		} else {
+			for (var i = data.length - 1; i >= 0; i--) {
+				liContent+= ' <li class="list-group-item">\
+                  '+ data[i].ten_huong_nghien_cuu +'\
+                </li>';
+			}
+		}
+		//$('#listHuongNghienCuu').empty();
+		console.log(liContent);
 		var modelContent = '\
         <div class="modal fade" id="myModal" role="dialog">\
           <div class="modal-dialog">\
@@ -106,10 +121,11 @@ function hienThiThongTinGv(data) {
                   <b>Email</b> <a class="pull-right">'+ data[0].email +'</a>\
                 </li>\
                 <li class="list-group-item">\
-                  <b>Friends</b> <a class="pull-right">13,287</a>\
+                  <b>Các hướng nghiên cứu của giảng viên này</b>\
                 </li>\
+                '+ liContent +'\
               </ul>\
-                <p>One fine body&hellip;</p>\
+                \
               </div>\
             </div>\
             <!-- /.modal-content -->\
