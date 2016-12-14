@@ -80,7 +80,7 @@ function saveSV(){
 		$ten_sinh_vien = $('#ip_ten_sinh_vien').val();
 		$khoa_hoc = $('#ip_khoahoc').val();
 		$ctdt = $('#ip_ctdt').val();
-		if($ma_sinh_vien == '' || $ma_sinh_vien.length != 8){
+		if($ma_sinh_vien == '' || $ma_sinh_vien.length != 8 || !validateMSV($ma_sinh_vien)){
 			$('#ip_ma_sinh_vien').focus();
 			$('.help-block').css('display','block');
 		}

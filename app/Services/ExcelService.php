@@ -42,6 +42,11 @@ class ExcelService
 					$temp->ten_gv = Giang_vien::find($de_tai->ma_giang_vien)->user->name;
 					$de_tai->bao_ve = 1;
 					$de_tai->save();
+
+
+					$sinhvien = $listSv[$i];
+					$sinhvien->dang_ky=0;
+					$sinhvien->save();
 				}
 			}
 			else{
@@ -72,7 +77,7 @@ class ExcelService
 	}
 
 	public function exportListBv($filename , $khoa_id){
-		$listSv = Sinh_vien::whereRaw('khoa_id = ? and dang_ky=1', [$khoa_id])->get();
+		$listSv = Sinh_vien::whereRaw('khoa_id = ?', [$khoa_id])->get();
 
 		// Phần lấy ra danh sách các đề tài được phép đăng ký bảo vệ
 		$result = array();
@@ -141,6 +146,35 @@ class ExcelService
 						    $listPb[$i]->ma_sinh_vien,$listPb[$i]->ten_sinh_vien,$listPb[$i]->ten_de_tai,$listPb[$i]->listDanhgia[$j]->ten_gvdg
 						));
 					}
+				}
+			});
+
+		})->store('xlsx', storage_path('../public/download/excel'));
+	}
+
+	// Hàm tạo file excel chứa danh sách điểm
+	public function exportListDiem($filename , $listPb){
+		Excel::create($filename, function($excel) use($listPb) {
+
+		    $excel->sheet('Sheet1', function($sheet) use($listPb) {
+		    	$sheet->appendRow(array(
+				    'DANH SÁCH ĐIỂM BẢO VỆ ĐỀ TÀI'
+				));
+		    	$sheet->appendRow(array(
+				    'Mã sinh viên', 'Tên sinh viên','Tên đề tài','Điểm trung bình'
+				));
+				for($i = 0 ; $i < count($listPb); $i++){
+					$de_tai = Sinh_vien::find($listPb[$i]->ma_sinh_vien)->de_tai;
+					$de_tai->sau_bao_ve = 1;
+					$de_tai->save();
+					$sum = 0;
+					for($j = 0 ; $j < count($listPb[$i]->listDanhgia) ; $j++){
+						$sum += $listPb[$i]->listDanhgia[$j]->diem;
+					}
+					$tb = $sum/count($listPb[$i]->listDanhgia);
+					$sheet->appendRow(array(
+						    $listPb[$i]->ma_sinh_vien,$listPb[$i]->ten_sinh_vien,$listPb[$i]->ten_de_tai,$tb
+						));
 				}
 			});
 

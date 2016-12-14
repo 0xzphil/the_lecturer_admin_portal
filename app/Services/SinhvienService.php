@@ -14,6 +14,7 @@ use App\Services\Helper\DetaiInfo;
 use App\Services\Helper\DanhgiaInfo;
 use App\User;
 use App\Sinh_vien;
+use App\Giang_vien;
 use App\Ctdt;
 use App\Khoa_hoc;
 use App\De_tai;
@@ -147,7 +148,7 @@ class SinhvienService
 				$sinhvienInfo2->rut = $de_tai->rut;
 				$sinhvienInfo2->sua = $de_tai->yeu_cau_sua;
 
-				if($de_tai->sua){
+				if($de_tai->yeu_cau_sua){
 					$sinhvienInfo2->ten_de_tai2 = $de_tai->ten_de_tai2;
 					$sinhvienInfo2->ten_gv2 = Giang_vien::find($de_tai->ma_giang_vien2)->user->name;
 				}
@@ -179,7 +180,7 @@ class SinhvienService
 		for($i = 0 ; $i < $listSv->count() ; $i++){
 			$email = new SendEmailService();
 
-			$email->notify_mail("fizz.uet@gmail.com",$context);
+			$email->notify_mail("hieunm.hk@gmail.com",$context);
 		}
 
 	}
@@ -368,6 +369,7 @@ class SinhvienService
 					$detaiInfo->hop_thuc = $de_tai->hop_thuc;
 					$detaiInfo->hoan_tat = $de_tai->hoan_tat;
 					$detaiInfo->phan_cong = $de_tai->phan_cong;
+					$detaiInfo->chot_phan_bien = $de_tai->chot_phan_bien;
 
 					$listDanhgia = array();
 
@@ -392,6 +394,104 @@ class SinhvienService
 		}
 		return json_encode($result);
 	}
+
+	/*Hàm lấy ra list danh sách đã chốt phân công để xuất excel*/
+	function getListDsDiem($khoa_id){
+		$result = array();
+
+		$listSv = Sinh_vien::whereRaw('khoa_id = ?',[$khoa_id])->get();
+		for($i = 0 ; $i < $listSv->count() ; $i++ ){
+
+			$detaiInfo = new DetaiInfo();
+
+			$de_tai = De_tai::where('ma_sinh_vien','=',$listSv[$i]->ma_sinh_vien)->first();
+			if(isset($de_tai)){
+				if($de_tai->chot_phan_bien != 1 || $de_tai->sau_bao_ve != 0){
+					continue;
+				}
+				else{
+					$detaiInfo->ten_sinh_vien = $listSv[$i]->user->name;
+					$detaiInfo->ma_sinh_vien = $listSv[$i]->ma_sinh_vien;
+					$detaiInfo->ten_gv = $de_tai->giang_vien->user->name;
+					$detaiInfo->ten_de_tai = $de_tai->ten_de_tai;
+					$detaiInfo->ho_so = $de_tai->ho_so;
+					$detaiInfo->hop_thuc = $de_tai->hop_thuc;
+					$detaiInfo->hoan_tat = $de_tai->hoan_tat;
+					$detaiInfo->phan_cong = $de_tai->phan_cong;
+
+					$listDanhgia = array();
+
+					$listDanhgia1 = $de_tai->danh_gia;
+					for($j = 0 ; $j<$listDanhgia1->count();$j++){
+						$temp = new DanhgiaInfo();
+						$temp->ten_gvdg = $listDanhgia1[$j]->giang_vien->user->name;
+						$temp->danh_gia = $listDanhgia1[$j]->nhan_xet;
+						$temp->diem = $listDanhgia1[$j]->diem;
+						$temp->id = $listDanhgia1[$j]->id;
+						$temp->ma_giang_vien = $listDanhgia1[$j]->ma_giang_vien;
+						array_push($listDanhgia,$temp);
+					}
+
+					$detaiInfo->listDanhgia =  $listDanhgia;
+
+				}
+				array_push($result,$detaiInfo);
+			}
+			else continue;
+
+		}
+		return $result;
+	}
+
+	/*Lấy ra các đề tài sau bảo bệ*/
+	public function getListSauBv($khoa_id){
+		$result = array();
+
+		$listSv = Sinh_vien::whereRaw('khoa_id = ?',[$khoa_id])->get();
+		for($i = 0 ; $i < $listSv->count() ; $i++ ){
+
+			$detaiInfo = new DetaiInfo();
+
+			$de_tai = De_tai::where('ma_sinh_vien','=',$listSv[$i]->ma_sinh_vien)->first();
+			if(isset($de_tai)){
+				if($de_tai->sau_bao_ve==0 ){
+					continue;
+				}
+				else{
+					$detaiInfo->ten_sinh_vien = $listSv[$i]->user->name;
+					$detaiInfo->ma_sinh_vien = $listSv[$i]->ma_sinh_vien;
+					$detaiInfo->ten_gv = $de_tai->giang_vien->user->name;
+					$detaiInfo->ten_de_tai = $de_tai->ten_de_tai;
+					$detaiInfo->ho_so = $de_tai->ho_so;
+					$detaiInfo->hop_thuc = $de_tai->hop_thuc;
+					$detaiInfo->hoan_tat = $de_tai->hoan_tat;
+					$detaiInfo->phan_cong = $de_tai->phan_cong;
+
+					$listDanhgia = array();
+
+					$listDanhgia1 = $de_tai->danh_gia;
+					for($j = 0 ; $j<$listDanhgia1->count();$j++){
+						$temp = new DanhgiaInfo();
+						$temp->ten_gvdg = $listDanhgia1[$j]->giang_vien->user->name;
+						$temp->danh_gia = $listDanhgia1[$j]->nhan_xet;
+						$temp->diem = $listDanhgia1[$j]->diem;
+						$temp->id = $listDanhgia1[$j]->id;
+						$temp->ma_giang_vien = $listDanhgia1[$j]->ma_giang_vien;
+						array_push($listDanhgia,$temp);
+					}
+
+					$detaiInfo->listDanhgia =  $listDanhgia;
+
+				}
+				array_push($result,$detaiInfo);
+			}
+			else continue;
+
+		}
+
+		return json_encode($result);
+	}
+
 }
 
 

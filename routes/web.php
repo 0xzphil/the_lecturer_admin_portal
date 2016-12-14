@@ -27,6 +27,9 @@ Route::get('/chotDsbv','Nhan_vien_khoaController@chotDsbv');
 Route::get('/downloadFile/{pathfile}','Nhan_vien_khoaController@downloadFile');
 Route::get('/luuDspb1/{ma_sinh_vien}','Nhan_vien_khoaController@luuDspb1');
 Route::get('/xuatphancong','Nhan_vien_khoaController@xuatphancong');
+Route::get('/saveDgDiem/{id}/{danh_gia}/{diem}',"Nhan_vien_khoaController@saveDgDiem");
+Route::get('/chotphanbien/{ma_sinh_vien}',"Nhan_vien_khoaController@chotphanbien");
+Route::get('/xuatDsdiem',"Nhan_vien_khoaController@xuatDsdiem");
 
 Route::post('/uploadGV', 'Nhan_vien_khoaController@uploadGV');
 Route::post('/uploadSV', 'Nhan_vien_khoaController@uploadSV');
@@ -42,6 +45,9 @@ Route::get('/getListCv','Nhan_vien_khoaController@getListCv');
 Route::get('/listBv','Nhan_vien_khoaController@getListBv');
 Route::get('/getDsbv','Nhan_vien_khoaController@getDsbv');
 Route::get('/pcbv/{ma_sinh_vien}/{ma_giang_vien}','Nhan_vien_khoaController@pcbv');
+Route::get('/getListSauBv',"Nhan_vien_khoaController@getListSauBv");
+Route::get('/chophepsua/{ma_sinh_vien}',"Nhan_vien_khoaController@chophepsua");
+Route::get('/chopheprut/{ma_sinh_vien}',"Nhan_vien_khoaController@chopheprut");
 
 Route::get('/addGV/{ma_giang_vien}/{ten_giang_vien}/{email}/{bomon}','Nhan_vien_khoaController@addGV');
 Route::get('/addSV/{ma_sinh_vien}/{ten_sinh_vien}/{khoa_hoc}/{ctdt}','Nhan_vien_khoaController@addSV');

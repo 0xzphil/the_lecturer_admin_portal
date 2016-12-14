@@ -64,13 +64,14 @@ function eventClickBtnUploadKt(){
 		}
 	});
 }
-
+var sinhviendt;
 function openSVDDK(){
 	$('#open-svddk').click(function(){
 		$.get('getListSVandDt',function(data, status){
 			if(status == 'success'){
 				$object = JSON.parse(data);
-				 console.log($object[0]);
+				sinhviendt = $object;
+				 console.log($object);
 				 $html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
                   <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
                    <i class="fa fa-refresh fa-spin"></i>\
@@ -98,7 +99,7 @@ function openSVDDK(){
                 <tbody>';
                 var stt = 1;
 				for($i = 0 ; $i < $object.length ; $i++){
-						$html += ' <tr>\
+						$html += ' <tr class="row-detai">\
 					        <td>'+stt+'</td>\
 					        <td>'+$object[$i].ma_sinh_vien+'</td>\
 					        <td>'+$object[$i].ten_sinh_vien+'</td>';
@@ -125,8 +126,38 @@ function openSVDDK(){
 				$("#main-content").empty();
 				$("#main-content").append($html);
 				$("#tb-sv-dt").DataTable();
+				clickRowDt();
 			}
 		});
+	});
+}
+/*Xử lý sự kiện click row de tai*/
+function clickRowDt(){
+	$('.row-detai').click(function(){
+		var child = $(this).children();
+		console.log(child[5].innerHTML);
+		var ma_sinh_vien = child[1].innerHTML;
+		var sinh_vien;
+		for($i = 0 ; $i < sinhviendt.length ; $i++){
+			if(sinhviendt[$i].ma_sinh_vien == ma_sinh_vien){
+				sinh_vien = sinhviendt[$i];
+				break;
+			}
+		}
+		if(child[5].innerHTML == " Xin rút "){
+			$('#xlmsv').val(sinh_vien.ma_sinh_vien);
+			$('#xltsv').val(sinh_vien.ten_sinh_vien);
+			$('#modal12').modal('show');
+		}
+		if(child[5].innerHTML == " Xin sửa "){
+			$('#xlsmsv').val(sinh_vien.ma_sinh_vien);
+			$('#xlstsv').val(sinh_vien.ten_sinh_vien);
+			$('#xlsgvc').val(sinh_vien.ten_gv);
+			$('#xlstdtc').val(sinh_vien.ten_de_tai);
+			$('#xlsgvm').val(sinh_vien.ten_gv2);
+			$('#xlstdtm').val(sinh_vien.ten_de_tai2);
+			$('#modal13').modal('show');
+		}
 	});
 }
 
@@ -163,7 +194,7 @@ function addSVDDK(){
 function openTimeDK(){
 	$('#open-time-dk').click(function(){
 		var token = $('meta[name="csrf_token"]').attr('content');
-		$nguoi_dang_nhap = $('#nguoi_dang_nhap').html();
+		$nguoi_dang_nhap = $('#nguoi_dang_nhap1').html();
 		$html = '<div id="wait" class="alert alert-success" style="display:none;position:fixed;bottom:10px;right:10px;">\
                   <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>\
                    <i class="fa fa-refresh fa-spin"></i>\
@@ -244,6 +275,41 @@ function closeTimeDK(){
 				}
 				else{
 					createAlert('danger','Thất bại! Thử lại sau');
+				}
+			}
+		});
+	});
+}
+/*Hàm xử lý cho phép sửa trong quản lý đăng ký đề tài*/
+function clickChophepsua(){
+	$('#saveycsua').click(function(){
+		$('#modal13').modal('toggle');
+		var ma_sinh_vien = $('#xlsmsv').val();
+		$.get('chophepsua/'+ma_sinh_vien,function(data,status){
+			if(status == 'success'){
+				if(data == 'true'){
+					createAlert("success","Thành công! Đã xuất công văn cho phép sửa");
+				}
+				else{
+					createAlert('danger',"Thất bại! Thử lại sau.");
+				}
+			}
+		});
+	});
+}
+
+/*Hàm xử lý cho phép rút */
+function clickChopheprut(){
+	$('#saveycrut').click(function(){
+		$('#modal12').modal('toggle');
+		var ma_sinh_vien = $('#xlmsv').val();
+		$.get('chopheprut/'+ma_sinh_vien,function(data,status){
+			if(status == "success"){
+				if(data == "true"){
+					createAlert('success',"Thành công! Đã xuất Công văn và gửi email.");
+				}
+				else{
+					createAlert("danger","Thất bại!Đã có lỗi xảy ra.");
 				}
 			}
 		});

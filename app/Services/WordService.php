@@ -199,6 +199,52 @@ class WordService
 		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 		$objWriter->save('download/word/'.$filename.".docx");
 	}
+
+	/*tạo file công văn quyết định danh sách điểm */
+	function xuat_cong_van5($filename,$attachfile,$ten_khoa,$sl){
+		$phpWord = new \PhpOffice\PhpWord\PhpWord();
+
+		/* Note: any element you append to a document must reside inside of a Section. */
+
+		// Adding an empty Section to the document...
+		$section = $phpWord->addSection();
+		// Adding Text element to the Section having font styled by default...
+		$section->addText("	ĐHQG HÀ NỘI  		 CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM",
+			array('name' => 'Cambria', 'size' => 14, 'color' => '1B2232', 'bold' => true,'align'=>'center'));
+		$section->addText("TRƯỜNG ĐẠI HỌC CÔNG NGHỆ 			Độc lập - Tự do - Hạnh phúc",
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => true,'align'=>'center'));
+		$section->addText("								      Hà Nội, ngày...tháng...năm...",
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'Italic' => true,'align'=>'center'));
+		$section->addText("					QUYẾT ĐỊNH",
+			array('name' => 'Cambria', 'size' => 16, 'color' => '1B2232', 'bold' => true,'align' => 'justify'));
+		$section->addText("	   Về việc công bố điểm đề tài bảo vệ khóa luận tốt nghiệp",
+			array('name' => 'Cambria', 'size' => 14, 'color' => '1B2232', 'bold' => true,'align' => 'justify'));
+		$section->addText("		   			HIỆU TRƯỞNG ",
+			array('name' => 'Cambria', 'size' => 14, 'color' => '1B2232', 'bold' => true,'align' => 'justify'));
+		$section->addText("   Căn cứ Quy định về Tổ chức và hoạt động của các đơn vị thành viên và đơn vị trực thuộc Đại học Quốc gia Hà Nội ban hành quyết định số 3568/QD-DHQGHN ngày 08/10/2014 của Giám đốc Đại học Quốc gia Hà Nội;",
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => false,'align' => 'justify'));
+		$section->addText("   Căn cứ Quy định về Tổ chức và hoạt động của các đơn vị thành viên và đơn vị trực thuộc Đại học Quốc gia Hà Nội ban hành quyết định số 3568/QD-DHQGHN ngày 08/10/2014 của Giám đốc Đại học Quốc gia Hà Nội;",
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => false,'align' => 'justify'));
+		$section->addText("   Căn cứ Quy định về Tổ chức và hoạt động của các đơn vị thành viên và đơn vị trực thuộc Đại học Quốc gia Hà Nội ban hành quyết định số 3568/QD-DHQGHN ngày 08/10/2014 của Giám đốc Đại học Quốc gia Hà Nội;",
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => false,'align' => 'justify'));
+		$section->addText("   Căn cứ Quy định về Tổ chức và hoạt động của các đơn vị thành viên và đơn vị trực thuộc Đại học Quốc gia Hà Nội ban hành quyết định số 3568/QD-DHQGHN ngày 08/10/2014 của Giám đốc Đại học Quốc gia Hà Nội;",
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => false,'align' => 'justify'));
+		$section->addText("   Xét đề nghị của Trường phòng đào tạo,",
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => false,'align' => 'justify'));
+		$section->addText("					QUYẾT ĐỊNH:",
+			array('name' => 'Cambria', 'size' => 16, 'color' => '1B2232', 'bold' => true,'align' => 'justify'));
+		$section->addText("   ĐIỀU 1. Công bố danh sách kết quả bảo vệ đề tài khóa luận 2016. với số lượng: ". $sl." Đề tài",
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => false,'align' => 'justify'));
+		
+		$section->addText("   ĐIỀU 2. File đính kèm: ".$attachfile,
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => false,'align' => 'justify'));
+
+		$section->addText("   									HIỆU TRƯỞNG",
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => TRUE,'align' => 'justify'));
+
+		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+		$objWriter->save('download/word/'.$filename.".docx");
+	}
 }
 
 

@@ -56,6 +56,10 @@ $(document).ready(function(){
 
 		    //Hàm đóng thời gian đăng kys
 		    closeTimeDK();
+		    //Hàm cho phép sửa 
+		    clickChophepsua();
+		    //Hàm cho phép rút
+		    clickChopheprut();
 	    /*Kết thúc các hàm quản lý tree đăng ký đề tài*/
 
 	    /*
@@ -74,7 +78,10 @@ $(document).ready(function(){
 	    clickBtnxpc();
 	    /*Gọi các hàm xử lý ở tree Bảo vệ đề tài*/
 	     clickDsbv();
-
+	     saveDgDiem();
+	     clickXuatdsdiem()
+	     /*Xử lý các hàm sau bảo vệ*/
+	     getListSauBv();
 	    /*
 			Gọi các hàm xử lý ở tree Congvan
 	    */

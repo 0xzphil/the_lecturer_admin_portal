@@ -28,7 +28,7 @@ function clickDsbvdt(){
         					<div class="col-xs-12">\
         					<div class="box box-primary">\
             <div class="box-header with-border">\
-              <h2 class="box-title col-lg-10">Danh sách đề tài được bảo vệ</h2>\
+              <h2 class="box-title col-lg-10">Danh sách đề tài và phân công phản biện</h2>\
               </div>\
             <div class="box-body">\
               <table id="tb-bv" class="table table-bordered table-striped table-hover">\
