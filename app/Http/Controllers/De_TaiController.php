@@ -256,7 +256,11 @@ class De_TaiController extends Controller
     		return $this->listDeTai();
     	} else return 0;
     }
-
+    /**
+     * [doiTTTrung description]
+     * @param  [type] $ma_sinh_vien [description]
+     * @return [type]               [description]
+     */
     public function doiTTTrung($ma_sinh_vien)
     {
     	# code...

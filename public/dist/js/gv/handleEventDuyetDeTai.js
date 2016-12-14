@@ -44,39 +44,49 @@ function xuLi(data) {
               </div>\
             </li>';
 	}
+	console.log(data.length);
+	var content;
+	if(data.length == 0){
+		liContent = '<li>\
+              <i class="fa fa-user"></i>\
+              <div class="timeline-item">\
+                <h3 class="timeline-header"><a href="#"></a>Bạn không có yêu cầu duyệt đề tài nào</h3>\
+              </div>\
+            </li>';
+	};
 	var content = '<section class="content-header">\
-      <h1>\
-        Quản lí đề tài\
-      </h1>\
-    </section>\
-    <section class="content">\
-      <!-- row -->\
-      <div class="row">\
-        <div class="col-md-12">\
-          <!-- The time line -->\
-          <ul class="timeline">\
-            <!-- timeline time label -->\
-            <li class="time-label">\
-                  <span class="bg-red">\
-                    Dòng đề tài đăng ký\
-                  </span>\
-            </li>\
-            <!-- /.timeline-label -->\
-            <!-- timeline item -->'
-            + liContent +
-            '<!-- END timeline item -->\
-            <!-- timeline item -->\
-            \
-            <li>\
-              <i class="fa fa-clock-o bg-gray"></i>\
-            </li>\
-            <!-- END timeline item -->\
-            <!-- timeline time label -->\
-          </ul>\
-        </div>\
-        <!-- /.col -->\
-      </div>\
-    </section>';
+	      <h1>\
+	        Quản lí đề tài\
+	      </h1>\
+	    </section>\
+	    <section class="content">\
+	      <!-- row -->\
+	      <div class="row">\
+	        <div class="col-md-12">\
+	          <!-- The time line -->\
+	          <ul class="timeline">\
+	            <!-- timeline time label -->\
+	            <li class="time-label">\
+	                  <span class="bg-red">\
+	                    Dòng đề tài đăng ký\
+	                  </span>\
+	            </li>\
+	            <!-- /.timeline-label -->\
+	            <!-- timeline item -->'
+	            + liContent +
+	            '<!-- END timeline item -->\
+	            <!-- timeline item -->\
+	            \
+	            <li>\
+	              <i class="fa fa-clock-o bg-gray"></i>\
+	            </li>\
+	            <!-- END timeline item -->\
+	            <!-- timeline time label -->\
+	          </ul>\
+	        </div>\
+	        <!-- /.col -->\
+	      </div>\
+	    </section>';
 	console.log(data);
 	$('#main-content').append(content);
 

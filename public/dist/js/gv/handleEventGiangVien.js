@@ -121,10 +121,17 @@ function repassGV() {
 	// body...
 	$('#repass-gv').click(function(event) {
 		/* Act on the event */
-		$('#main-content').empty();
+		repassAct();
+		confirmPassword();
+	});
+}
+
+function repassAct() {
+	// body...
+	$('#main-content').empty();
 		var passwordContent = '<section class="content-header">\
       <h1>\
-        Quản lí đề tài\
+        Đổi mật khẩu\
       </h1>\
     </section>\
     <section class="content">\
@@ -137,55 +144,37 @@ function repassGV() {
             </div>\
             <!-- /.box-header -->\
             <div class="box-body">\
-              <form role="form">\
+              <form role="form" id="form">\
                 <!-- text input -->\
                 <div class="form-group">\
                   <label>Mật khẩu cũ</label>\
-                  <input type="text" id="old-pass" name="old-pass" class="form-control" placeholder="Nhập mật khẩu cũ...">\
+                  <input type="text" id="old_pass" name="old_pass" class="form-control" placeholder="Nhập mật khẩu cũ...">\
                 </div>\
                 <div class="form-group">\
                   <label>Mật khẩu mới</label>\
-                  <input type="text" id="new-pass" name="new-pass" class="form-control" placeholder="Nhập mật khẩu mới...">\
+                  <input type="text" id="new_pass" name="new_pass" class="form-control" placeholder="Nhập mật khẩu mới...">\
                 </div>\
                 <div class="form-group">\
                   <label>Nhập lại mật khẩu mới</label>\
-                  <input type="email" id="renew-pass" name="renew-pass" class="form-control" placeholder="Xác nhận mật khẩu mới...">\
+                  <input type="email" id="renew_pass" name="renew_pass" class="form-control" placeholder="Xác nhận mật khẩu mới...">\
                 </div>\
                 <a href="#" class="btn btn-primary btn-block" id="confirmPassword"><b>Xác nhận</b></a>\
-                </div></div></div></section>';
+                </form>\
+                </div>\
+                </div>\
+                </div>\
+                </section>';
 		$('#main-content').append(passwordContent);
-		confirmPassword();
-	});
 }
+
 
 function confirmPassword() {
 	// body...
+	
 	$('#confirmPassword').click(function() {
-	    var oldPass   = $('#old-pass').val();
-	    var	newPass   = $('#new-pass').val();
-	    var renewPass = $('#renew-pass').val();
-	    console.log(oldPass);
-		$.ajax({
-	        url: "repassGV",
-	        type: "POST",
-	        contentType : 'application/x-www-form-urlencoded',
-	        beforeSend: function (xhr) {
-	            var token = $('meta[name="csrf_token"]').attr('content');
-	            if (token) {
-	                return xhr.setRequestHeader('X-CSRF-TOKEN', token);
-	            }
-	        },
-	        data: { old_pass: oldPass, new_pass: newPass, renew_pass: renewPass},
-
-	        success: function(data){
-	        	console.log(data);
-	        }, 
-
-	        error: function(data){
-	        	var errors = $.parseJSON(data.responseText); 
-	        	console.log(data);
-	            console.log(data.responseText);
-	        }
-    	});
+	    J2lib.ajaxPost('form', 'repass', function (data) {
+		// body...
+			repassAct();
+		});
 	});
 }

@@ -48,12 +48,11 @@ Route::get('addKhoahoc/{khoa_hoc}', "Nhan_vien_khoaController@addKhoahoc");
 Route::get('addCtdt/{ctdt}', "Nhan_vien_khoaController@addCtdt");
 Route::get('addSVDDK/{msv}','Nhan_vien_khoaController@addSVDDK');
 
-
+Route::get('/basicInfo', 'UserController@basicInfo');
 Route::get('/infoGV', 'Giang_VienController@getBasicInformation');
 Route::get('/infoGV/{id}', 'BaseController@infoGvById');
 Route::post('/editGV', 'Giang_VienController@editBasicInformation');
-Route::post('/repassGV', 'Giang_VienController@repass');
-
+Route::post('/repass', 'UserController@repass');
 
 Route::get('/listBomon','BaseController@listBomon');
 Route::get('/listLinhvuc','BaseController@listLinhvuc');
