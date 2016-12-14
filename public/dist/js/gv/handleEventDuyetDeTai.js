@@ -37,9 +37,8 @@ function xuLi(data) {
                   ' + data[i].ten_de_tai +'...\
                 </div>\
                 <div class="timeline-footer">\
-                  <a class="btn btn-primary btn-xs">Đọc thêm</a>\
                   <a class="btn btn-primary btn-xs chap-nhan-button" msv="'+ data[i].ma_sinh_vien +'">Chấp nhận</a>\
-                  <a class="btn btn-danger btn-xs tu-choi-button" msv="'+ data[i].ma_sinh_vien +'">Từ chối</a>\
+                  <a class="btn btn-danger btn-xs tu-choi-button" msv="'+ data[i].ma_sinh_vien +'">Trùng và từ chối</a>\
                 </div>\
               </div>\
             </li>';
@@ -119,7 +118,7 @@ function tuChoi() {
 		/* Act on the event */
 		console.log($(this).attr('msv'));
 		var msv = $(this).attr('msv');
-		J2lib.ajaxGet('deTai/tuChoi/'+msv, function (data) {
+		J2lib.ajaxGet('deTai/trung/'+msv, function (data) {
 			// body...
 			xuLi(data);
 		});

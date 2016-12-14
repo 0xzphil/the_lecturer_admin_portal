@@ -9,6 +9,7 @@ use App\Khoa;
 use Auth;
 use Session;
 use App\De_tai;
+use App\Services\SendEmailService;
 
 class De_TaiController extends Controller
 {
@@ -267,12 +268,9 @@ class De_TaiController extends Controller
     	$deTai = De_tai::where('ma_sinh_vien', $ma_sinh_vien)->first();
     	$mgv = Auth::user()->giang_vien->ma_giang_vien;
     	if( $mgv == $deTai->ma_giang_vien){
-    		if($deTai->trung == 0){
-    			$deTai->trung = 1;
-    		} else {
-    			$deTai->trung = 0;
-    		}
-    		$deTai->save();
+    		$deTai->delete();
+    		$sendMail = new SendEmailService();
+    		$sendMail->notify_mail('fizz.uet@gmail.com', 'Đề tài của bạn đã bị trùng, vui lòng kiểm tra trạng thái tại hệ thống quản lí đề tài');
     		return $this->listDeTaiDaChapNhan();
     	} else return 0;
     }
