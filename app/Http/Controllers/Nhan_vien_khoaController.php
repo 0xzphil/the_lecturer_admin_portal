@@ -21,6 +21,7 @@ use App\Khoa_hoc;
 use App\Ctdt;
 use App\Cong_van;
 use App\Danh_gia;
+use App\De_tai;
 use Session;
 use Auth;
 use Response;
@@ -368,6 +369,59 @@ class Nhan_vien_khoaController extends Controller
            return 'Không tìm thấy file';
         }
 
+    }
+
+    /*Hàm xử lý chốt phân công phản biện của 1 sinh viên*/
+    function luuDspb1($ma_sinh_vien){
+        $de_tai = Sinh_vien::find($ma_sinh_vien)->de_tai;
+        $de_tai->phan_cong = 1;
+        $de_tai->save();
+        return "true";
+    }
+
+    /*Hàm xuất phân công và công văn quyết định hội đồng */
+    function xuatphancong(){
+       $listSV = Sinh_vien::whereRaw('khoa_id = ?',[Session::get('khoa_id')])->get();
+       for($i = 0 ; $i < $listSV->count() ; $i++){
+          $de_tai = $listSV[$i]->de_tai;
+          if(isset($de_tai)){
+            if($de_tai->duoc_bao_ve == 1 && $de_tai->phan_cong == 0 && $de_tai->sau_bao_ve == 0 && $de_tai->xuat_phan_cong == 0){
+              return 'false';
+            }
+          }
+       }
+
+       $khoa_id = Session::get('khoa_id');
+       $ten_khoa = Khoa::find($khoa_id)->ten_khoa;
+       $filename = "cong_van_xuat_hoi_dong_phan_bien".rand(1,1111)."_2016";
+       $attachfile = "danh_sach_hoi_dong_phan_bien".rand(1,1111)."_2016";
+
+       
+
+       $sinhvienService = new SinhvienService();
+       $listDtpc = $sinhvienService->getListXuatPhanCong($khoa_id);
+
+       $soluong = count($listDtpc);
+
+       $wordService = new WordService();
+       $wordService->xuat_cong_van4($filename,$attachfile,$ten_khoa,$soluong);
+
+       $excelService = new ExcelService();
+       $excelService->exportListPc($attachfile,$listDtpc);
+
+        $cong_van = new Cong_van();
+        $cong_van->mo_ta = "Quyết định danh sách phản biện";
+        $cong_van->khoa_id = $khoa_id;
+        $cong_van->pathfile = $filename.'.docx';
+        $cong_van->pathattachfile = $attachfile.'.xlsx';
+        $cong_van->save();
+        return "true";
+    }
+
+    /*Hàm lấy dữ liệu cho danh sách bảo vệ ở tree bảo vệ đề tài*/
+    function getDsbv(){
+      $sinhvienService = new SinhvienService();
+      return $sinhvienService->getDsbv(Session::get('khoa_id'));
     }
 }
 

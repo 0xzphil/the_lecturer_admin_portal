@@ -10,5 +10,6 @@ class DetaiInfo{
 	public $ho_so;
 	public $hop_thuc;
 	public $hoan_tat;
+	public $phan_cong;
 }
 ?>

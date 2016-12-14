@@ -104,7 +104,7 @@ class WordService
 			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => TRUE,'align' => 'justify'));
 
 		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-		$objWriter->save($filename.".docx");
+		$objWriter->save('download/word/'.$filename.".docx");
 	}
 
 	/*tạo file công văn quyết định đổi tên đề tài và giảng viên hướng dẫn cho 1 sinh viên */
@@ -149,11 +149,11 @@ class WordService
 			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => TRUE,'align' => 'justify'));
 
 		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-		$objWriter->save($filename.".docx");
+		$objWriter->save('download/word/'.$filename.".docx");
 	}
 
 	/*tạo file công văn quyết định lập hội đồng phản biện */
-	function xuat_cong_van4($filename,$ten_khoa,$sl){
+	function xuat_cong_van4($filename,$attachfile,$ten_khoa,$sl){
 		$phpWord = new \PhpOffice\PhpWord\PhpWord();
 
 		/* Note: any element you append to a document must reside inside of a Section. */
@@ -190,11 +190,14 @@ class WordService
 		$section->addText("   ĐIỀU 2. Các sinh viên và giảng viên có tên trong điều 1 chịu trách nhiệm thi hành công văn này.",
 			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => false,'align' => 'justify'));
 		
+		$section->addText("   ĐIỀU 3. File đính kèm: ".$attachfile,
+			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => false,'align' => 'justify'));
+
 		$section->addText("   									HIỆU TRƯỞNG",
 			array('name' => 'Cambria', 'size' => 12, 'color' => '1B2232', 'bold' => TRUE,'align' => 'justify'));
 
 		$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-		$objWriter->save($filename.".docx");
+		$objWriter->save('download/word/'.$filename.".docx");
 	}
 }
 

@@ -8,6 +8,8 @@ use App\Sinh_vien;
 use App\De_tai;
 use App\Giang_vien;
 use App\User;
+use App\Services\Helper\DetaiInfo;
+use App\Services\Helper\DanhgiaInfo; 
 use App\Services\Helper\SinhvienInfo2;
 
 /**
@@ -112,6 +114,33 @@ class ExcelService
 				    $result[$i]->ma_sinh_vien, $result[$i]->ten_sinh_vien,$result[$i]->ten_gv,
 				    $result[$i]->ten_de_tai
 				));
+				}
+			});
+
+		})->store('xlsx', storage_path('../public/download/excel'));
+	}
+
+
+	// Hàm tạo file excel chứa danh sách phân công và hội đồng phản biện
+	public function exportListPc($filename , $listPb){
+		Excel::create($filename, function($excel) use($listPb) {
+
+		    $excel->sheet('Sheet1', function($sheet) use($listPb) {
+		    	$sheet->appendRow(array(
+				    'DANH SÁCH HỘI ĐỒNG PHẢN BIỆN'
+				));
+		    	$sheet->appendRow(array(
+				    'Mã sinh viên', 'Tên sinh viên','Tên đề tài','Giảng viên phản biện'
+				));
+				for($i = 0 ; $i < count($listPb); $i++){
+					$de_tai = Sinh_vien::find($listPb[$i]->ma_sinh_vien)->de_tai;
+					$de_tai->xuat_phan_cong = 1;
+					$de_tai->save();
+					for($j = 0 ; $j < count($listPb[$i]->listDanhgia) ; $j++){
+						$sheet->appendRow(array(
+						    $listPb[$i]->ma_sinh_vien,$listPb[$i]->ten_sinh_vien,$listPb[$i]->ten_de_tai,$listPb[$i]->listDanhgia[$j]->ten_gvdg
+						));
+					}
 				}
 			});
 

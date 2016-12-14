@@ -241,7 +241,7 @@ class SinhvienService
 
 			$de_tai = De_tai::where('ma_sinh_vien','=',$listSv[$i]->ma_sinh_vien)->first();
 			if(isset($de_tai)){
-				if( $de_tai->duoc_bao_ve != 1 || $de_tai->sau_bao_ve==1 ){
+				if( $de_tai->duoc_bao_ve != 1 || $de_tai->xuat_phan_cong == 1 ||$de_tai->sau_bao_ve==1 ){
 					continue;
 				}
 				else{
@@ -252,6 +252,7 @@ class SinhvienService
 					$detaiInfo->ho_so = $de_tai->ho_so;
 					$detaiInfo->hop_thuc = $de_tai->hop_thuc;
 					$detaiInfo->hoan_tat = $de_tai->hoan_tat;
+					$detaiInfo->phan_cong = $de_tai->phan_cong;
 
 					$listDanhgia = array();
 
@@ -262,6 +263,7 @@ class SinhvienService
 						$temp->danh_gia = $listDanhgia1[$j]->nhan_xet;
 						$temp->diem = $listDanhgia1[$j]->diem;
 						$temp->id = $listDanhgia1[$j]->id;
+						$temp->ma_giang_vien = $listDanhgia1[$j]->ma_giang_vien;
 						array_push($listDanhgia,$temp);
 					}
 
@@ -294,6 +296,101 @@ class SinhvienService
 			}
 			else continue;
 		}
+	}
+
+	function getListXuatPhanCong($khoa_id){
+		$result = array();
+
+		$listSv = Sinh_vien::whereRaw('khoa_id = ?',[$khoa_id])->get();
+		for($i = 0 ; $i < $listSv->count() ; $i++ ){
+
+			$detaiInfo = new DetaiInfo();
+
+			$de_tai = De_tai::where('ma_sinh_vien','=',$listSv[$i]->ma_sinh_vien)->first();
+			if(isset($de_tai)){
+				if($de_tai->phan_cong != 1 || $de_tai->xuat_phan_cong != 0){
+					continue;
+				}
+				else{
+					$detaiInfo->ten_sinh_vien = $listSv[$i]->user->name;
+					$detaiInfo->ma_sinh_vien = $listSv[$i]->ma_sinh_vien;
+					$detaiInfo->ten_gv = $de_tai->giang_vien->user->name;
+					$detaiInfo->ten_de_tai = $de_tai->ten_de_tai;
+					$detaiInfo->ho_so = $de_tai->ho_so;
+					$detaiInfo->hop_thuc = $de_tai->hop_thuc;
+					$detaiInfo->hoan_tat = $de_tai->hoan_tat;
+					$detaiInfo->phan_cong = $de_tai->phan_cong;
+
+					$listDanhgia = array();
+
+					$listDanhgia1 = $de_tai->danh_gia;
+					for($j = 0 ; $j<$listDanhgia1->count();$j++){
+						$temp = new DanhgiaInfo();
+						$temp->ten_gvdg = $listDanhgia1[$j]->giang_vien->user->name;
+						$temp->danh_gia = $listDanhgia1[$j]->nhan_xet;
+						$temp->diem = $listDanhgia1[$j]->diem;
+						$temp->id = $listDanhgia1[$j]->id;
+						$temp->ma_giang_vien = $listDanhgia1[$j]->ma_giang_vien;
+						array_push($listDanhgia,$temp);
+					}
+
+					$detaiInfo->listDanhgia =  $listDanhgia;
+
+				}
+				array_push($result,$detaiInfo);
+			}
+			else continue;
+
+		}
+		return $result;
+	}
+
+	/*Hàm lấy ra dữ liệu cho danh sách bảo vệ ở tree Bảo vệ đề tài*/
+	public function getDsbv($khoa_id){
+		$result = array();
+
+		$listSv = Sinh_vien::whereRaw('khoa_id = ?',[$khoa_id])->get();
+		for($i = 0 ; $i < $listSv->count() ; $i++ ){
+
+			$detaiInfo = new DetaiInfo();
+
+			$de_tai = De_tai::where('ma_sinh_vien','=',$listSv[$i]->ma_sinh_vien)->first();
+			if(isset($de_tai)){
+				if($de_tai->xuat_phan_cong != 1 || $de_tai->sau_bao_ve == 1){
+					continue;
+				}
+				else{
+					$detaiInfo->ten_sinh_vien = $listSv[$i]->user->name;
+					$detaiInfo->ma_sinh_vien = $listSv[$i]->ma_sinh_vien;
+					$detaiInfo->ten_gv = $de_tai->giang_vien->user->name;
+					$detaiInfo->ten_de_tai = $de_tai->ten_de_tai;
+					$detaiInfo->ho_so = $de_tai->ho_so;
+					$detaiInfo->hop_thuc = $de_tai->hop_thuc;
+					$detaiInfo->hoan_tat = $de_tai->hoan_tat;
+					$detaiInfo->phan_cong = $de_tai->phan_cong;
+
+					$listDanhgia = array();
+
+					$listDanhgia1 = $de_tai->danh_gia;
+					for($j = 0 ; $j<$listDanhgia1->count();$j++){
+						$temp = new DanhgiaInfo();
+						$temp->ten_gvdg = $listDanhgia1[$j]->giang_vien->user->name;
+						$temp->danh_gia = $listDanhgia1[$j]->nhan_xet;
+						$temp->diem = $listDanhgia1[$j]->diem;
+						$temp->id = $listDanhgia1[$j]->id;
+						$temp->ma_giang_vien = $listDanhgia1[$j]->ma_giang_vien;
+						array_push($listDanhgia,$temp);
+					}
+
+					$detaiInfo->listDanhgia =  $listDanhgia;
+
+				}
+				array_push($result,$detaiInfo);
+			}
+			else continue;
+
+		}
+		return json_encode($result);
 	}
 }
 

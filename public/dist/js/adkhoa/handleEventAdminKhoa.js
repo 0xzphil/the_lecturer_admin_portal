@@ -66,10 +66,14 @@ $(document).ready(function(){
 	    saveHoso();
 	    chotDsbv();
 
-	    /*Gọi các hàm xử lý trên tree bảo vệ*/
+	    /*Gọi các hàm xử lý trên tree quản lý phân công*/
 	    clickDsbvdt();
 	    clickPc();
 	    clickXdndsbv();
+	    luuDspb1();
+	    clickBtnxpc();
+	    /*Gọi các hàm xử lý ở tree Bảo vệ đề tài*/
+	     clickDsbv();
 
 	    /*
 			Gọi các hàm xử lý ở tree Congvan
