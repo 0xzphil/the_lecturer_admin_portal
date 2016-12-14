@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Excel;
 use Session;
-use Sismgr  ;
+use Sismgr;
 use App\Nhan_vien_khoa;
 use App\Khoa;
-
+use App\User;
+use Hash;
+use App\Http\Requests\PasswordRequest;
 
 class UserController extends Controller
 {
@@ -80,4 +82,41 @@ class UserController extends Controller
         }
         Session::put('khoa_id', $khoa_id);
     }
+
+		  /**
+		* [repass description]
+		* @param  PasswordRequest $request [description]
+		* @return [type]                   [description]
+		*/
+		public function repass(PasswordRequest $request)
+		{
+		 # code...
+		 $user = Auth::user();
+		 $user->password = Hash::make($request->get('new_pass'));
+		 $user->save();
+		 return response()->json(['message'=> 'success']);
+		}
+
+
+		public function basicInfo()
+		{
+			# code...
+			$user = Auth::user();
+			if($user->role == 'sinh_vien'){
+				$user = $user->join('sinh_viens', 'sinh_viens.user_id', '=', 'users.id')
+				->join('khoas', 'khoas.id', '=', 'sinh_viens.khoa_id')
+				->join('khoa_hocs', 'khoa_hocs.id', '=', 'sinh_viens.khoa_hoc_id')
+				->join('ctdts', 'ctdts.id', '=', 'sinh_viens.ctdt_id')
+				->where('users.id', $user->id);
+			}
+			return $user->get([
+				'users.name',
+				'sinh_viens.ma_sinh_vien',
+				'users.email',
+				'khoas.ten_khoa',
+				'khoa_hocs.mo_ta as khoa_hoc',
+				'ctdts.mo_ta as chuong_trinh_dao_tao',
+				'sinh_viens.dang_ky',
+				'khoas.dang_ky as dang_ky2']);
+		}
 }

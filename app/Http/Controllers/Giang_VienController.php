@@ -52,18 +52,7 @@ class Giang_VienController extends Controller
          $email         = Auth::user()->email;
          return response()->json(['email'=> $email, 'name'=> $name, 'mgv'=> $ma_giang_vien]);
       }
-      /**
-       * [repass description]
-       * @param  PasswordRequest $request [description]
-       * @return [type]                   [description]
-       */
-      public function repass(PasswordRequest $request)
-      {
-         # code...
-         $user = Auth::user();
-         $user->password = Hash::make($request->get('new_pass'));
-         return response()->json(['message'=> 'success']);
-      }
+
 
 
 }

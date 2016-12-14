@@ -11,6 +11,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+          	<li><a id="info-gv" href="{{ url('') }}">Thông tin giảng viên</a></li>
             <li><a id="repass-gv" href="#">Đổi mật khẩu</a></li>
 
           </ul>

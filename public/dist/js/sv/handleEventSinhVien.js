@@ -5,10 +5,19 @@ var trangThaiClass = 4;
 
 $(document).ready(function() {
 	//var info = '#info1';
+	defaultPage();
 	nhapDeTai();
 	layTrangThai();
 	ajaxLoading();
 });
+
+function defaultPage() {
+	// body...
+	$('#browserSV').click(function (event) {
+		// body...
+		window.location =  window.location.pathname;
+	});
+}
 
 function ajaxLoading(){
 	 $(document).ajaxStart(function(){

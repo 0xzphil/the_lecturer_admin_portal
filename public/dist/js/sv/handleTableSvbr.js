@@ -145,6 +145,7 @@ function handleLinhvucTable(data) {
 	for (var i = data.length - 1; i >= 0; i--) {
 		$('#linhvuc'+i).click({i: i}, function (event) {
 			// body...
+			a = event.data.i;
 			J2lib.ajaxGet('listGvLv/'+(event.data.i+1), function (data) {
 				// body...
 				appendLinhvucTable(data);
@@ -167,10 +168,12 @@ function appendLinhvucTable(data) {
 	}
 	//console.log(liContent);
 	$('#listGvLayRa').empty();
-	//var ten_bo_mon_selected = $('#bomon'+a).children('td')[1].innerHTML;
+	//var  = 'ád';
+	console.log('sdfds');
+	var ten_linh_vuc_selected = $('#linhvuc'+a).children('td')[1].innerHTML;
 	var content = '<div class="box box-danger">\
                 <div class="box-header with-border">\
-                  <h3 class="box-title">Danh sách gồm '+ data.length +' giảng</br> viên thuộc bộ môn </h3>\
+                  <h3 class="box-title">Danh sách gồm '+ data.length +' giảng</br> viên thuộc lĩnh vực '+ ten_linh_vuc_selected+ '</h3>\
                   <div class="box-tools pull-right">\
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>\
                     </button>\

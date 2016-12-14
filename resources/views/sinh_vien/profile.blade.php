@@ -9,6 +9,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+          	<li><a id="browserSV" href="#">Browser sinh viên</a></li>
             <li><a id="infoSV" href="#">Xem thông tin sinh viên</a></li>
             <li><a id="repass-sv" href="#">Đổi mật khẩu</a></li>
 
