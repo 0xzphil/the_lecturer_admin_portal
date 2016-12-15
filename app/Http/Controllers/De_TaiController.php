@@ -249,12 +249,14 @@ class De_TaiController extends Controller
     public function tuChoi($ma_sinh_vien)
     {
     	# code...
-    	# 
     	$deTai = De_tai::where('ma_sinh_vien', $ma_sinh_vien)->first();
+    	$sv = User::join('sinh_viens', 'sinh_viens.user_id', '=', 'users.id')->where('sinh_viens.ma_sinh_vien', $ma_sinh_vien)->first();
+    	$email = $sv->email;
     	$mgv = Auth::user()->giang_vien->ma_giang_vien;
     	if( $mgv == $deTai->ma_giang_vien){
-    		$deTai->trang_thai_gv = 'tu_choi';
-    		$deTai->save();
+    		$deTai->delete();
+    		$sendMail = new SendEmailService();
+    		$sendMail->notify_mail('hieunm.hk@gmail.com', 'Đề tài của bạn đã bị từ chối, vui lòng kiểm tra trạng thái tại hệ thống quản lí đề tài và đăng ký lại đề tài của bạn');
     		return $this->listDeTai();
     	} else return 0;
     }
@@ -273,8 +275,27 @@ class De_TaiController extends Controller
     	if( $mgv == $deTai->ma_giang_vien){
     		$deTai->delete();
     		$sendMail = new SendEmailService();
-    		$sendMail->notify_mail($email, 'Đề tài của bạn đã bị trùng, vui lòng kiểm tra trạng thái tại hệ thống quản lí đề tài');
+    		$sendMail->notify_mail('hieunm.hk@gmail.com', 'Đề tài của bạn đã bị trùng, vui lòng kiểm tra trạng thái tại hệ thống quản lí đề tài và đăng ký lại đề tài của bạn');
     		return $this->listDeTai();
+    	} else return 0;
+    }
+    /**
+     * [doiTTTrung description]
+     * @param  [type] $ma_sinh_vien [description]
+     * @return [type]               [description]
+     */
+    public function doiTTTrungRt2($ma_sinh_vien)
+    {
+    	# code...
+    	$deTai = De_tai::where('ma_sinh_vien', $ma_sinh_vien)->first();
+    	$sv = User::join('sinh_viens', 'sinh_viens.user_id', '=', 'users.id')->where('sinh_viens.ma_sinh_vien', $ma_sinh_vien)->first();
+    	$email = $sv->email;
+    	$mgv = Auth::user()->giang_vien->ma_giang_vien;
+    	if( $mgv == $deTai->ma_giang_vien){
+    		$deTai->delete();
+    		$sendMail = new SendEmailService();
+    		$sendMail->notify_mail('hieunm.hk@gmail.com', 'Đề tài của bạn đã bị trùng, vui lòng kiểm tra trạng thái tại hệ thống quản lí đề tài và đăng ký lại đề tài của bạn');
+    		return $this->listDeTaiDaChapNhan();
     	} else return 0;
     }
 }
