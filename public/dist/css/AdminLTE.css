@@ -692,7 +692,7 @@ box-shadow: 0px -8px 8px 11px rgba(0,0,0,0.28);*/
 .sidebar-menu,
 .main-sidebar .user-panel,
 .sidebar-menu > li.header {
-  white-space: nowrap;
+	word-break: hyphenate;
   overflow: hidden;
 }
 .sidebar-menu:hover {

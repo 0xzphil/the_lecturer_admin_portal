@@ -38,7 +38,9 @@ function xuLi(data) {
                 </div>\
                 <div class="timeline-footer">\
                   <a class="btn btn-primary btn-xs chap-nhan-button" msv="'+ data[i].ma_sinh_vien +'">Chấp nhận</a>\
-                  <a class="btn btn-danger btn-xs tu-choi-button" msv="'+ data[i].ma_sinh_vien +'">Trùng và từ chối</a>\
+                  \
+                  <a class="btn btn-danger btn-xs tu-choi-button" msv="'+ data[i].ma_sinh_vien +'">Từ chối</a>\
+                  <a class="btn btn-danger btn-xs trung-button" msv="'+ data[i].ma_sinh_vien +'">Trùng và từ chối</a>\
                 </div>\
               </div>\
             </li>';
@@ -91,6 +93,23 @@ function xuLi(data) {
 
 	chapNhan();
 	tuChoi();
+	trung();
+}
+/**
+ * [trung description]
+ * @return {[type]} [description]
+ */
+function trung() {
+	// body...
+	$('.trung-button').click(function(event) {
+		/* Act on the event */
+		console.log($(this).attr('msv'));
+		var msv = $(this).attr('msv');
+		J2lib.ajaxGet('deTai/trung/'+msv, function (data) {
+			// body...
+			xuLi(data);
+		});
+	});
 }
 /**
  * [chapNhan description]
@@ -118,7 +137,7 @@ function tuChoi() {
 		/* Act on the event */
 		console.log($(this).attr('msv'));
 		var msv = $(this).attr('msv');
-		J2lib.ajaxGet('deTai/trung/'+msv, function (data) {
+		J2lib.ajaxGet('deTai/tuChoi/'+msv, function (data) {
 			// body...
 			xuLi(data);
 		});
@@ -189,7 +208,7 @@ function doiTrangThai() {
 	$('.doiTTTrung').click(function(event) {
 		/* Act on the event */
 		var msv = $(this).attr('msv');
-		J2lib.ajaxGet('deTai/trung/'+ msv, function (data) {
+		J2lib.ajaxGet('deTai/trungRt2/'+ msv, function (data) {
 			// body...
 			xuLiDeTaiDaChapNhan(data);
 		});

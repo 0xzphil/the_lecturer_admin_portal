@@ -123,3 +123,4 @@ Route::get('listDeTaiDaChapNhan', 'De_TaiController@listDeTaiDaChapNhan');
 Route::get('deTai/chapNhan/{ma_sinh_vien}', 'De_TaiController@chapNhan');
 Route::get('deTai/tuChoi/{ma_sinh_vien}', 'De_TaiController@tuChoi');
 Route::get('deTai/trung/{ma_sinh_vien}', 'De_TaiController@doiTTTrung');
+Route::get('deTai/trungRt2/{ma_sinh_vien}', 'De_TaiController@doiTTTrungRt2');
